@@ -1,0 +1,38 @@
+a:14:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.release";s:18:"xsi:schemaLocation";s:81:"http://pear.php.net/dtd/rest.release     http://pear.php.net/dtd/rest.release.xsd";}s:1:"p";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:38:"/Chiara_PEAR_Server_REST/p/gr_deepzoom";}s:8:"_content";s:11:"Gr_Deepzoom";}s:1:"c";s:37:"connect.magentocommerce.com/community";s:1:"v";s:5:"0.6.1";s:2:"st";s:4:"beta";s:1:"l";s:20:"Academic Free Licens";s:1:"m";s:12:"magentoadmin";s:1:"s";s:76:"Deep Zoom provides the ability to interactively view high-resolution images.";s:1:"d";s:1521:"This module replaces the image area and gallery area on the existing product pages.
+
+"Deep Zoom" images are created when saving the product or if the image does not exist in Front Office (activated in admin, disabled by default)
+
+The module also has 2 widgets
+- Displays the image product
+- Viewing the gallery product with a system of forward / backward
+
+== CONFIGURATION ==
+Go to: System > Configuration > Catalog > DeepZoom
+
+== User Interface ==
+frontend/base/default/layout/gr/deepzoom.xml : Remplace la zone « media »
+frontend/base/default/template/gr/deepzoom/product/view/media.phtml : Template for product page
+frontend/base/default/template/gr/deepzoom/product/widget/gallery.phtml : Template for widget « Gallery »
+
+frontend/base/default/template/gr/deepzoom/product/widget/image.phtml phtml : Template for widget « Image»
+
+== Theme Skin ==
+frontend/base/default/css/gr/deepzoom : Css for image viewer
+frontend/base/default/images/widgets/gr/deepzoom : Images for widget « Gallery »frontend/base/default/js/gr/deepzoom/ : Javascript for image viewer 
+
+== Library ==
+lib/Oz :  PHP Deep Zoom Tools : http://openzoom.org/  and http://github.com/nfabre/deepzoom.php
+
+== Release Notes ==
+0.6.1 :
+- Fix : Magento 1.3.x compatibility when deleting image
+0.6.0 : 
+- Fix : Layout loaded when the extension is disabled
+- Fix : Display time of the image
+- Fix : Missing traduction
+- Add Zoom Configuration
+- Add  navigation to gallery (prev/next)
+0.5.1 : 
+- Add Magento 1.3.x compatibility 
+0.5.0 :
+- First release";s:2:"da";s:19:"2010-02-23 06:01:22";s:1:"n";s:66:"Unsing PHP Deep Zoom Tools : http://github.com/nfabre/deepzoom.php";s:1:"f";s:5:"84421";s:1:"g";s:66:"http://connect.magentocommerce.com/community/get/Gr_Deepzoom-0.6.1";s:1:"x";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:17:"package.0.6.1.xml";}}}

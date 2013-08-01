@@ -1,0 +1,609 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+
+<script>
+function getTranslateText(translatedTextTxnId,textboxId) {
+
+	var translatedText = document.getElementById(translatedTextTxnId).innerHTML ;
+	window.opener.document.getElementById(textboxId).value = translatedText;
+	window.close();
+}
+
+</script>
+
+<script>
+ function fedd_dis_comm(){
+ 
+	if(document.getElementById("feed_comm_dis"))
+	{
+		
+		//document.getElementById("feed_comm_dis").style.display = "none";
+	}	
+}
+</script>
+<script>
+function toggle1(sOrt,sOrtid){
+ 
+if(sOrt == "sourcep"){
+		var div1 = document.getElementById(sOrtid)
+		
+		if (div1.style.display == 'none') {
+			div1.style.display = 'block';
+		} else {
+			div1.style.display = 'none';
+		}
+	}else{
+		var div2 = document.getElementById(sOrtid)
+		if (div2.style.display == 'none') {
+			div2.style.display = 'block';
+		} else {
+			div2.style.display = 'none';
+		}
+	}	
+}
+</script>
+<?php 
+	  $id = $this->getRequest()->getParam('id');
+	  $model  = Mage::getModel('translate/request')->load($id);
+	  //$this->setTemplate('widget/tabshoriz.phtml');
+	  
+	  $targetLanguage = $model->getTrgNames();
+	  $targetLanguageArray = explode(",",$targetLanguage); 
+	  $txns = $model->getTxns();
+	  $txnsArray = explode(",",$txns);
+	  
+			
+ ?>
+ 
+ <div class="content-header" style="visibility: visible;">
+      <p class="form-buttons">
+	  	<button style="" onclick="setLocation('<?php echo $this->getUrl('*/*')?>')" class="scalable back" type="button"><span>My Translations
+			</span></button></p>
+	 
+  <?php $loadRequestArray = Mage::getModel('translate/request')->load($this->getRequest()->getParam('id'));
+
+ ?>
+<table style="width:400px">
+	 
+	<tr><td class="view_label">Label:</td><td style="width:1px;"></td><td style="width:250px;"><?php echo $loadRequestArray['label']; ?></td></tr>
+	<tr><td class="view_label">ID:</td><td style="width:1px;"></td><td><?php echo $loadRequestArray['request_id']; ?></td></tr>
+</table>		
+</div>
+
+<div class="entry-edit view_order">
+<div class="entry-edit-head">
+
+    <h4 class="icon-head head-edit-form fieldset-legend">View Translation</h4>
+    <div class="form-buttons"></div>
+</div>
+<ul class="tabs-horiz margin_top_10" id="diagram_tab">
+<?php  $i =0 ; foreach($targetLanguageArray as $tLang){ ?>
+
+<?php 
+	$txnCode = $txnsArray[$i]; $color = '';
+	$resourceModelTxn  = Mage::getResourceModel('translate/txn');
+	$txnId = $resourceModelTxn->getIdByTxn($txnCode);
+	$data = Mage::getModel('translate/txn')->load($txnId);
+    $paymentStatus = $data->getStatus();
+	
+	if(ucfirst($paymentStatus) == ucfirst("pending")) {$color = "color:#000;";$toolTip = "Pending";}
+	elseif(ucfirst($paymentStatus) == ucfirst("active")) {$color = "color:#0000FF";$toolTip = "Note sent from translator";}
+	elseif(ucfirst($paymentStatus) == ucfirst("accept")) {$color = "color:#FF8040";$toolTip = "Accepted by translator";}
+	elseif(ucfirst($paymentStatus) == ucfirst("done")) {$color = "color:#3EA99F";$toolTip = "Translation is done";}
+
+	
+?>
+				  
+    <li>
+        <a class="tab-item-link active" onclick="fedd_dis_comm()" title="<?php echo $toolTip; ?>" id="diagram_tab_<?php echo $tLang; ?>" href="#">
+            <span style="font-weight:bold;"><?php echo $tLang ." " ?></span><span style="<?php echo $color; ?>"><?php echo ucfirst($paymentStatus); ?></span>
+        </a>
+    </li>
+<?php $i++; } ?>	
+ 
+</ul>
+<?php 
+ $lang= $this->getRequest()->getParam('lang');
+	if(isset($lang) && $lang !=""){
+	$tLang = $lang;
+	}
+?>
+		  <script type="text/javascript">
+			diagram_tabJsTabs = new varienTabs('diagram_tab', 'diagram_tab_content', 'diagram_tab_<?php echo $tLang; ?>', []);
+		</script>
+				
+        <div id="diagram_tab_content">
+				  <?php $j =0 ; foreach($targetLanguageArray as $tLang){ ?>
+
+						<div style="" id="diagram_tab_<?php echo $tLang; ?>_content">
+							 <table width="90%" class="table_margin" border="0" cellpadding="0" cellspacing="0">
+
+
+
+<?php 
+ 
+//$client = $this->getRequest()->getParam('client');
+//if($client == "dispute")
+//{
+	//$txnDispute = $this->getRequest()->getParam('txn');
+	 
+	$txnDispute = $txnsArray[$j];
+	$disputeResource = Mage::getResourceModel('translate/dispute');
+	$disputeArray = $disputeResource->getNoteByTxn($txnDispute);
+if(isset($disputeArray) && count($disputeArray)>0)	{
+?>
+<div class="dispute_text">Dispute History:</div>
+
+<?php	 
+}
+	 //echo '<pre>';print_r($disputeArray);die;
+	foreach ($disputeArray as  $dispute)
+	{	
+	//echo '<pre>';print_r($dispute);die;
+		$status = $dispute['stat'];
+		if($status == "approved"){
+	?>	
+		<div class="dispute_comm"><?php echo 'Your dispute was approved.';?></div>
+<?php 
+		}
+		else if($status == "denied"){ ?>
+		
+		<div class="dispute_comm"><?php echo 'Your dispute was denied.';?></div>
+		
+	<?php 
+		}
+
+		else if($status == "pending"){ ?>
+		
+		<div class="dispute_comm"><?php echo 'This translation is under dispute, and is being reviewed.';?></div>
+		
+	<?php }	
+	
+	else if($status == "reexamine"){ ?>
+	
+	<div class="dispute_comm"><?php echo 'Your dispute will be corrected by the translator.';?></div>
+		
+		<?php 
+		
+		}
+		
+		
+		if($status == "approved" || $status == "denied" || $status == "reexamine")
+		{ ?>
+			<div class="dispute_note">Note: <?php echo nl2br($dispute['note']);?> </div>
+<?php 
+		}
+	 
+	 
+	}
+
+if(isset($disputeArray) && count($disputeArray)>0)	{	
+?>
+	<div>&nbsp;</div>
+	<hr class="hrline">	
+<?php	
+	}
+//}
+?>
+
+
+
+
+
+		 <tr>
+			<td width="45%" style="font-weight:bold;">Translated Text
+			<?php 
+			$currentUrl = $this->helper('core/url')->getCurrentUrl() ;
+			$currentUrl = $currentUrl . "isrefresh/yes" ;
+
+			?>
+				<a href="<?php echo $currentUrl;?>"><img title="If you requested changes, click here to refresh." alt="If you requested changes, click here to refresh." src="<?php echo $this->getSkinUrl('images/fam_refresh.gif');?>"/></a>
+				<img style="cursor:pointer;" onclick="toggle1('targetp','<?php echo "target_".$tLang;?>')" title="Click here to view/hide as HTML." alt="Click here to view/hide as HTML." src="<?php echo $this->getSkinUrl('images/lingotip/preview-icon.gif');?>"/>
+			</td>
+			<td width="3%">&nbsp;</td>
+			<td width="42%" style="font-weight:bold;">Source Text&nbsp;
+			<img style="cursor:pointer;" onclick="toggle1('sourcep','<?php echo "source_".$tLang;?>')" title="Click here to view/hide as HTML." alt="Click here to view/hide as HTML." src="<?php echo $this->getSkinUrl('images/lingotip/preview-icon.gif');?>"/></td>
+		  </tr>
+		  <tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		  </tr>
+  <tr>
+	<td class="text_scroll">
+		<!--<div class="text_scroll" id="<?php //echo $txnsArray[$j] ; ?>">-->
+	
+			<?php  	
+					$resourceModelTxn  = Mage::getResourceModel('translate/txn');
+					$txnId = $resourceModelTxn->getIdByTxn($txnsArray[$j]);
+					$modelTxnS = Mage::getModel('translate/txn');
+					$data = $modelTxnS->load($txnId);
+					$txnsArray[$j].$paymentStatus = $data->getStatus();
+					if(ucfirst($paymentStatus) == ucfirst("accept") || ucfirst($paymentStatus) == ucfirst("Active"))
+					{
+						$modelTxn = Mage::getModel('translate/notes');
+						// $isAlreadyADummyEntry = Mage::getResourceModel('translate/notes')->checkIsDisputeAllow($txnsArray[$j]);
+						
+						// if(!isset($isAlreadyADummyEntry) && $isAlreadyADummyEntry == 0 || $isAlreadyADummyEntry == ""){
+				 
+							// $dataTxn = array();
+							// $dataTxn['txn'] = $txnsArray[$j];
+							// $dataTxn['note'] = 'dummy entry by user';
+							// $dataTxn['stat'] = 'new';
+							// $dataTxn['incoming'] = 0;
+							// $dataTxn['tid'] = 1001;
+							// //echo '<pre>';print_r($dataTxn);die;
+							// $modelTxn->setData($dataTxn);
+							// $modelTxn->save();
+						// }
+					}
+					if($paymentStatus == 'done')
+					{
+					//	echo $txnsArray[$j];die;
+						$loadId = Mage::getResourceModel('translate/txn')->getIdByTxn($txnsArray[$j]);
+						$loaTxnArray = Mage::getModel('translate/txn')->load($loadId);
+						$target = $loaTxnArray['target'];
+						$isRefresh = $this->getRequest()->getParam('isrefresh') ;
+						$dStat = '';
+						if(isset($disputeArray) && count($disputeArray)>0)	{
+							foreach ($disputeArray as  $dispute){
+								$dStat = $dispute['stat'];
+								if($dStat == "approved"){break;}
+							}
+							//checking the condition if status is done and dispute 
+							//status is approved then all the translated text from LTI
+						}
+						if($target == "" || $isRefresh == "yes" || $dStat == "approved"){
+							$trans_result = Mage::helper('translate')->getTranslatedText($txnsArray[$j]);
+							$data = array(); 
+							$data['target'] = $trans_result;
+							$modelTxnS->setData($data)->setId($txnId); //update translate result in  txn table
+							$modelTxnS->save();
+							?>
+<textarea  readonly="readonly"  cols="60" rows="10">
+<?php $tr = trim($trans_result);echo $r = stripslashes($tr);?>
+</textarea>
+<!--preview of HTML-->
+<div style="margin-top:5px;display:none" id="target_<?php echo $tLang;?>" name="target_<?php echo $tLang;?>">
+<?php $tr = nl2br($tr);echo stripslashes($tr);?></div>
+<?php //print loaded form Lingotip as this time target (translated text is not saved in DB)?>
+<?php }else{ ?>
+<textarea  readonly="readonly" cols="60" rows="10">
+ <?php 
+ $target = nl2br($target);
+  echo $g = stripslashes($target) ;
+ //echo htmlentities($g);
+	//echo $g = nl2br($g);
+  ?>
+ </textarea>
+ <div style="margin-top:5px;display:none" id="target_<?php echo $tLang;?>" name="target_<?php echo $tLang;?>"><?php echo stripslashes($g);?></div>
+<?php  //print loaded form DB 
+						}	
+					}else{	
+			?>		
+<textarea  readonly="readonly" cols="60" rows="10">Translation is pending from LingoTip
+</textarea>
+<div style="margin-top:5px;display:none" id="target_<?php echo $tLang;?>" name="target_<?php echo $tLang;?>"><?php echo "Translation is pending from LingoTip";?></div>
+					<?php } ?>		
+				
+<!--</div>-->
+ 
+									</td>
+									<td>&nbsp;</td>
+									<td class="text_scroll">
+<!--	<div class="text_scroll">-->
+<textarea  readonly="readonly" cols="60" rows="10">
+<?php 
+	$src = trim($model->getSource()); 
+	echo stripslashes($src);
+	//echo nl2br($src );
+	//echo htmlentities($src);
+?>
+</textarea>	
+<!--</div>-->
+
+<div style="margin-top:5px;display:none" id="source_<?php echo $tLang;?>" name="source_<?php echo $tLang;?>">
+<?php $nl =nl2br($src);
+echo stripslashes($nl);?></div>
+									</td>
+								  </tr>
+							</table>
+							
+			<?php 
+				
+				$showbutton = $this->getRequest()->getParam('showbutton');
+				$textboxId = $this->getRequest()->getParam('textboxid'); //Retrieve when pop up open on click of any txtarea
+				
+				$diputeUrl =  $this->getUrl('*/*/view/id/'.$id."/txn/".$txnsArray[$j].'/client/comments/lang/'.$tLang);
+				$classDisable = '';$disableButton = '';
+				if(ucfirst($paymentStatus) == ucfirst("accept") || ucfirst($paymentStatus) == ucfirst("pending") || ucfirst($paymentStatus) == ucfirst("active"))
+				{
+					$classDisable="disable-button";
+					$disableButton = 'disabled=/"disabled/"';
+				}
+			
+				$client = $this->getRequest()->getParam('client');
+				$isCSelected = '';$isFSelected = '' ;$isDSelected = '';
+				if($client == 'comments'){$isCSelected = 'color:#000;';}
+				if($client == 'feedback'){$isFSelected = 'color:#000;';}
+				if($client == 'dispute'){$isDSelected = 'color:#000;';}
+?>
+<div class="div_margin"> 
+			<button style="<?php echo $isCSelected;?>" onclick="setLocation('<?php echo $diputeUrl;?>')" class="scalable" type="button" id="comments"><span>Comments</span></button>
+			<button  style="<?php echo $isFSelected;?>" class="scalable <?php echo $classDisable;?>" <?php echo $disableButton; ?> style=""  onclick="setLocation('<?php echo $this->getUrl('*/*/view/id/'.$id."/txn/".$txnsArray[$j].'/client/feedback/lang/'.$tLang.'/'); ?>')"type="button" id="feedback"><span>Feedback</span></button>
+			<button style="<?php echo $isDSelected;?>" " onclick="setLocation('<?php echo $this->getUrl('*/*/view/id/'.$id."/txn/".$txnsArray[$j].'/client/dispute/lang/'.$tLang.'/'); ?>')" class="scalable <?php echo $classDisable;?>" <?php echo $disableButton; ?> type="button" id="disputes"><span>Dispute</span></button>
+<?php //if(isset($textboxId) && $textboxId != ""){?>	
+<!--<button onclick="getTranslateText('<?php echo $txnsArray[$j];?>', '<?php echo $textboxId;?>');" class="scalable" type="button" id="translate"><span>Translated Text</span></button>		-->
+
+<?php //} ?>
+			
+</div>
+<?php //} else{ ?>
+		
+<?php //}?>		
+									
+ 
+						<?php 
+	$client = $this->getRequest()->getParam('client');
+	//$txn = $this->getRequest()->getParam('txn');
+	 
+	$txn = $txnsArray[$j];
+	 if(isset($client) && $client != ""){	
+	?> 
+		<div class="entry-edit form_margin" id="feed_comm_dis">
+			<div class="entry-edit-head">
+				<h4 class="icon-head head-edit-form fieldset-legend"><?php echo ucfirst($client);?></h4>
+				<div class="form-buttons"></div>
+			</div>
+
+		<!--<form name='client_form' action='<?php //echo $this->getUrl('*/*/saveResponse/id/'.$id); ?>' method='post'>-->
+	 <form id="view_response_form" name="view_response_form" method="post" action="<?=$this->getUrl('*/*/saveResponse')?>">	
+	 <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+	 <!--<fieldset id="my-fieldset">-->
+	<?php  switch ($client) {
+			
+			case 'comments':  // Customer note to LT translator
+			$get_tid = $this->getRequest()->getParam('tid');
+			
+		//if(!isset($get_tid) && $get_tid == ""){	$get_tid = $isTidInDb;}
+			
+			$disabled = (!$get_tid) ? "disabled" : "";
+			$classDisable = (!$get_tid) ? "disable-button" : "";
+			 
+		?>
+	<table class="data-table data">
+				
+<?php 
+						//these are all tid saved in lt_notes when the comments are posted by the lingotip Translater
+						
+		$retrieveParamId = $this->getRequest()->getParam('id');
+		$retrieveParamTxn = $this->getRequest()->getParam('txn');
+		$retrieveParamClient = $this->getRequest()->getParam('client');
+		$retrieveParamLang = $this->getRequest()->getParam('lang');
+		
+		$makeUrl = $this->getUrl('*/*/view', array('id' => $retrieveParamId,'txn' => $retrieveParamTxn,'client' => $retrieveParamClient));
+		
+		$makeUrl = $makeUrl."lang/".$tLang."/tid/";
+ 
+						
+	$allTid = Mage::getResourceModel('translate/notes')->getAllTidPostedByLingotipTranslater($txn);
+ 
+	$translatorWhoAcceptedFirst = Mage::getResourceModel('translate/notes')->getTranslator($txn);
+	if(isset($translatorWhoAcceptedFirst) && $translatorWhoAcceptedFirst != ""){
+		echo '<tr><td style="margin-left:2px;line-height:20px;color:#657383;">'."Translation was accepted by translator ID".$translatorWhoAcceptedFirst ;echo '</td></tr>';
+	}
+	 
+	if(count($allTid) >0 ){echo '<tr><td> Click the links to send/receive comments: '; $i = 0; }
+	
+	foreach($allTid as $Tid)
+	{
+		$i++;
+ 
+			?>
+<a href="<?php echo $makeUrl.$Tid['tid']; ?>"><?php if($Tid['tid'] == $get_tid){echo '<strong>';}?><?php echo "ID".$Tid['tid']; ?> <?php if($Tid['tid'] == $get_tid){echo '</strong>';}?></a> 
+			
+			<?php
+			if($i < count($allTid) ){echo ' , '; }
+	 
+	}  	?>
+	<?php if(count($allTid) >0 ){echo '</td></tr>';  }?>
+	
+	
+	<?php if(isset($get_tid) && $get_tid != ""){
+			
+			$noteArray = Mage::getResourceModel('translate/notes')->getAllNotes($txn,$get_tid);
+//					echo '<pre>';print_r($note);die;
+			foreach($noteArray as $note){
+				
+				$entrydate = $note['entrydate'];
+				?>
+				<tr><td>
+				 <?php if($note['incoming'] == 1){
+				 $note = stripslashes($note['note']);
+				 $note = htmlentities($note);
+				 ?>
+						<img src="<?php echo $this->getSkinUrl('images/incoming.png'); ?>" />		<?php echo " ($entrydate) ". $note; ?>
+				<?php }else{ 
+				 $note = stripslashes($note['note']);
+				 $note = htmlentities($note);
+				?>
+					<span style="color:#657383"><img src="<?php echo $this->getSkinUrl('images/outgoing.png'); ?>" /><?php echo  " ($entrydate) ". $note; ?></span>
+				<?php }
+				?> 
+				<?php 
+				//echo " ($entrydate) ". stripslashes($note['note']);
+				echo "<br/>";?></td></tr>
+			<?php 	
+			 }
+			?>
+			
+ <?php } ?>	
+ 
+		<tr><td>&nbsp;</td></tr>
+		<tr><td><textarea <?php echo $disabled ;?> name='note' class="required-entry" cols='50' rows='2'></textarea>
+			<span class="required" style="vertical-align:top"> *</span>
+		</td></tr>
+		<input type='hidden' name='txn' value='<?php echo $txn; ?>' />
+		<input type='hidden' name='action' value='answer' />
+		<input type='hidden' name='tid' value='<?php echo $get_tid; ?>' />
+				
+		<tr><td>
+			<input class="scalable form-button <?php echo $classDisable; ?>" <?php echo $disabled ;?> name='submit' type='Submit' value='Submit' />
+		</td></tr>
+		<tr><td>&nbsp;</td></tr>
+	</table>	
+			
+		<?php
+		break;
+		case 'feedback':// Customer providing feedback to LT translator
+	 	?>
+			<div class="grid">
+<table class="data-table data">
+ 
+	<thead>
+		<tr class="even lcenter">
+			<th width='10%'>&nbsp;</th>
+			<th width='10%'><span class="nobr">Poor</span></th>
+			<th width='10%'><span class="nobr">Fair</span></th>
+			<th width='10%'><span class="nobr">Good</span></th>
+			<th width='10%'><span class="nobr">Very Good</span></th>
+			<th width='10%'><span class="nobr">Excellent</span></th>
+		</tr>
+	</thead>
+        
+	<tbody>
+	   <tr class="first odd">
+			<td>Price</td>
+			<td class="value aligncenter"><input type='radio' name='price' value='1' /></td>
+			<td class="value aligncenter"><input type='radio' name='price' value='2' /></td>
+			<td class="value aligncenter"><input type='radio' name='price' value='3' /></td>
+			<td class="value aligncenter"><input type='radio' name='price' value='4' /></td>
+			<td class="value aligncenter"><input type='radio' name='price' value='5' /></td>
+		</tr>
+		
+	   <tr class="first odd">
+		<td>General</td>
+			<td class="value aligncenter"><input type='radio' name='general' value='1' /></td>
+			<td class="value aligncenter"><input type='radio' name='general' value='2' /></td>
+			<td class="value aligncenter"><input type='radio' name='general' value='3' /></td>
+			<td class="value aligncenter"><input type='radio' name='general' value='4' /></td>
+			<td class="value aligncenter"><input type='radio' name='general' value='5' /></td>
+		</tr>
+		
+	   <tr class="first odd">
+		<td>On Time</td>
+			<td class="value aligncenter"><input type='radio' name='ontime' value='1' /></td>
+			<td class="value aligncenter"><input type='radio' name='ontime' value='2' /></td>
+			<td class="value aligncenter"><input type='radio' name='ontime' value='3' /></td>
+			<td class="value aligncenter"><input type='radio' name='ontime' value='4' /></td>
+			<td class="value aligncenter"><input type='radio' name='ontime' value='5' /></td>
+		</tr>
+		
+	   <tr class="first odd">
+		<td>Responsiveness</td>
+			<td class="value aligncenter"><input type='radio' name='responsiveness' value='1' /></td>
+			<td class="value aligncenter"><input type='radio' name='responsiveness' value='2' /></td>
+			<td class="value aligncenter"><input type='radio' name='responsiveness' value='3' /></td>
+			<td class="value aligncenter"><input type='radio' name='responsiveness' value='4' /></td>
+			<td class="value aligncenter"><input type='radio' name='responsiveness' value='5' /></td>
+		</tr>	
+		<tr><td class="value" style="border:0px;" colspan="6">
+		<textarea name="note" cols="50" rows="5"></textarea></td></tr>
+		
+		<input type='hidden' name='txn' value='<?php echo $txn; ?>' />
+		<input type='hidden' name='action' value='feedback' />
+		 
+		<tr>
+			<td class="value" style="border:0px;" colspan="6">
+				<!--<input name="submit" type="Submit" class="scalable" value="Submit" />
+				<button style="" onclick="viewForm.submit();" class="scalable" type="button" id="view_id"><span>Submit</span></button>-->
+				<input name="submit" type="Submit" class="save scalable form-button" value="Submit" />
+			</td>
+		</tr>
+	</tbody>
+		 
+	
+	
+</table>
+			</div>
+		<?php	break; ?>
+			
+		<?php
+			case 'dispute': // Customer issues a dispute on translation received
+		?>
+		
+			<div class="grid">
+				<table class="data-table data">
+					<tbody>
+					   <tr class="first odd">
+							<td colspan="2"><input type='radio' name='mode' value='altenate' /> Request an alternate translation</td>
+							<!--<td class="value"></td>-->
+						</tr>
+						<tr class="first odd">
+							<td colspan="2"><input type='radio' name='mode' value='refund' /> Request a refund</td>
+							<!--<td class="value"></td>-->
+						</tr>
+						<tr><td colspan="2">Enter your reason for dispute:</td></tr>
+						<tr><td class="value" style="border:0px;" colspan="6"> 
+						<textarea name="note" cols="50" rows="5" class=" required-entry textarea"></textarea><span style="vertical-align:top;margin-left:2px;" class="required">*</span></td></tr>
+						
+						<input type='hidden' name='txn' value='<?php echo $txn; ?>' />
+						<input type='hidden' name='action' value='dispute' />
+						<tr>
+							<td class="value" style="border:0px;" colspan="6">
+								<input name="submit" type="Submit" class="save scalable form-button" value="Submit" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<?php break; 
+		} 
+		//echo '<form>';?>	
+		
+		  <!--</fieldset>-->
+	 
+    </form>
+		 </div> 
+	<?php }
+	
+  
+?>		
+			
+						
+	</div>
+	
+	<?php $j++; $paymentStatus = '';} ?>
+</div></div>
+
+<script type="text/javascript">
+    var editForm = new varienForm('view_response_form');
+</script>
+
+
+

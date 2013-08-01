@@ -1,0 +1,10 @@
+<script type="text/javascript" src="https://secure.pay1.de/client-api/js/ajax.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var payoneRedirectUrl = '<?php echo $this->getUrl('payone/processing/redirect') ?>';
+    var isCcApiEnabled = '<?php echo $this->isCcApiEnabled() ?>';
+    <?php if($this->isCcApiEnabled()):?>
+    var application = new payoneApplication('<?php echo $this->getUrl('payone/processing/ccinit') ?>', '<?php echo $this->getUrl('payone/processing/saveSessInfo') ?>');
+    <?php endif;?>
+//]]>
+</script>

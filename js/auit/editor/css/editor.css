@@ -1,0 +1,43 @@
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix {display:inline-block;}
+* html .clearfix {height:1%;}
+.clearfix {display:block;}
+ul.std,
+ol.std,
+blockquote.std { margin:0 0 1em; padding:0; }
+ul.std  { list-style:disc outside; padding-left:1.5em; }
+ol.std  { list-style:decimal outside; padding-left:1.5em; }
+ul.std  ul.std { list-style-type:circle; }
+ul.std ul.std,
+ol.std ol.std,
+ul.std ol.std,
+ol.std  ul.std  { margin:.5em 0; }
+blockquote.std  { font-style:italic; padding:0 0 0 1.5em; }
+address.std  	{ font-style:normal; }
+
+.auit-edit-proxy	{	z-index:100000; display:block;	left:0;top:0;width:32px;height:32px;	overflow:hidden;	position:absolute;	border-color:red;	border-style:dashed;	border-width:0px;}
+.auit-edit-proxy.editable			{	border-color:green;}
+.auit-edit-proxy.auit-edit-top		{	border-top-width:1px;}
+.auit-edit-proxy.auit-edit-right	{	border-right-width:1px;}
+.auit-edit-proxy.auit-edit-bottom	{	border-bottom-width:1px;}
+.auit-edit-proxy.auit-edit-left		{	border-left-width:1px;}
+.auit-edit-proxy-block-cms-page			{	background: transparent url(../images/block-content.png) no-repeat; cursor:pointer;}
+.auit-edit-proxy-block-cms-page.editable	{	background: transparent url(../images/block-content-edit.png) no-repeat; cursor:pointer;}
+.auit-edit-proxy-block-inline			{	background: transparent url(../images/block-inline.png) no-repeat;cursor:pointer;}
+.auit-edit-proxy-block-image			{	background: transparent url(../images/block-image.png) no-repeat;}
+
+.auit-edit-proxy-block-cms-block			{	background: transparent url(../images/block-content.png) no-repeat; cursor:pointer;}
+.auit-edit-proxy-block-cms-block.editable	{	background: transparent url(../images/block-content-edit.png) no-repeat; cursor:pointer;}
+
+
+.auit-edit-proxy-block-widget			{	background: transparent url(../images/block-widget.png) no-repeat;}
+.auit-edit-proxy-block-input			{	background: transparent url(../images/block-input.png) no-repeat;}
+.auit-edit-shim 						{}
+.auit-edit-block.auit-edit-block-inline	{-moz-user-select:none;	-khtml-user-select: none;	display:inline-block;}
+.auit-edit-block-inline *				{-moz-user-select:none;	-khtml-user-select: none;}
+
+.sample-shadow 		{ float:left;
+					background: url(../images/content/shadow.gif) no-repeat bottom right;
+					margin: 10px 0 0 10px !important;  margin: 10px 0 0 5px;  }
+.sample-shadow div 	{  color: #777;  background-color: #fff;  font: italic 1em georgia, serif;  border: 1px solid #a9a9a9;  padding: 4px;  margin: -6px 6px 6px -6px !important;  margin: 0;  }
+.sample-shadow p	{ margin:0px; }

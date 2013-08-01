@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" ></meta>
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->getJsUrl('auit/extjs/ext321/resources/css/ext-all-notheme.css') ?>" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->getJsUrl('auit/extjs/ext321/resources/css/xtheme-gray.css') ?>" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->getJsUrl('auit/extjs/ext321/ux/css/Spinner.css') ?>" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->getJsUrl('auit/extjs/ext321/ux/statusbar/css/statusbar.css') ?>" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->getJsUrl('auit/extjs/ext321/ux/treegrid/treegrid.css') ?>" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->getJsUrl('auit/extjs/ux/colorpicker/colorpicker.css') ?>" />
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->getJsUrl('auit/editor/css/admin.css') ?>" />
+<?php
+	$jsFiles=array(
+	    'auit/extjs/ext321/adapter/ext/ext-base.js',
+    	'auit/extjs/ext321/ext-all.js');
+	if ( ($_SERVER["HTTP_HOST"] == '192.168.0.18' || $_SERVER["HTTP_HOST"] == 'www.snm.lde') && !Mage::getStoreConfigFlag('dev/js/merge_files') )
+	{
+		$jsFiles=array(
+	    	'auit/extjs/ext321/adapter/ext/ext-base-debug.js',
+    		'auit/extjs/ext321/ext-all-debug.js');
+	} 
+	if ( ($extLng = Mage::helper('auit_editor')->getLangExtJsPath()) )
+	{
+		$jsFiles[]=$extLng;
+	}
+	
+	$jsFiles=array_merge($jsFiles,
+	array(
+    'auit/extjs/ux/ux.js',
+    'auit/editor/codemirror/js/codemirror.js',
+    'auit/editor/swfupload/swfupload.js',
+	Mage::helper('auit_editor')->getLangJsPath(),
+	'auit/editor/core/iframepanel.js',
+    'auit/editor/core/uploader.js',
+    'auit/editor/core/dom.js',
+    'auit/editor/core/util.js',
+    'auit/editor/core/fields.js',
+	'auit/editor/core/action_base.js',
+	'auit/editor/core/dragdrop.js',
+    'auit/editor/dlg/image.js',
+    'auit/editor/dlg/text_editor.js',
+    'auit/editor/dlg/linkbrowser.js',
+    'auit/editor/dlg/filebrowser.js',
+    'auit/editor/dlg/menubrowser.js',
+    
+    
+    'auit/editor/editor/props_html.js',
+	'auit/editor/editor/action_edit.js',
+	'auit/editor/editor/action_custom.js',
+	'auit/editor/editor/stub/edit.js',
+	'auit/editor/editor/property/property_grid.js',
+	'auit/editor/editor/property/property.js',
+	'auit/editor/editor/property/propertys_css.js',
+	'auit/editor/editor/property/propertys_html.js',
+	
+	'auit/editor/module/navigator/trees.js',
+	'auit/editor/module/awblog.js',
+	'auit/editor/module/cmd/cms.js',
+	
+	'auit/editor/module/gallery/gallery.js',
+	'auit/editor/module/gallery/blocks.js',
+	'auit/editor/module/gallery/menus.js',
+	'auit/editor/module/gallery/pageparts.js',
+	'auit/editor/module/gallery/stylisticsets.js',
+	'auit/editor/module/gallery/widgets.js',
+	
+	'auit/editor/app.js',
+	));
+
+	if (Mage::getStoreConfigFlag('dev/js/merge_files'))
+	{
+		echo '<script type="text/javascript" src="'.$this->getJsUrl().'index.php/x.js?f=';
+		foreach ( $jsFiles as $idx => $file )
+		{
+			if ( $idx > 0 ) echo ',';
+			echo $file;
+		}
+		echo '"></script>';
+	}else {
+		foreach ( $jsFiles as $idx => $file )
+		{
+			$url = $this->getJsUrl($file);
+			echo '<script type="text/javascript" src="'.$url.'"></script>';
+		}
+	}
+?>
+<script type="text/javascript">
+	var FORM_KEY = '<?php echo Mage::getSingleton('core/session')->getFormKey() ?>';
+	var AUIT_EDITOR= <?php echo $this->getJsonData();?>;
+	swfobject.embedSWF(AUIT_EDITOR.js_url+"auit/editor/swfupload/avi.swf", "AUIT_UPLOADER", "1", "1", "9.0.0", null, {}, {allowScriptAccess: "always"},{id:"AUIT_AVI_UPLOAD"});
+</script>
+</head>
+<body>
+	<div id="AUIT_UPLOAD_WRAP" style="display:none;position:absolute;"><div id="AUIT_UPLOAD_PLACEHOLDER"></div></div>
+	<div id="AUIT_UPLOADERW" style="position:absolute;z-index:10000;left:-1;top:-1"><div id="AUIT_UPLOADER"></div></div>
+</body>
+</html>
+

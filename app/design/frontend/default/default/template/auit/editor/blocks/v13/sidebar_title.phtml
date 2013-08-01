@@ -1,0 +1,8 @@
+<?php if ( $this->isActive() ) :?>
+<div class="box base-mini <?php echo $this->getBoxClass();?>">
+    <div class="head">
+        <h4><?php echo $this->getTitle()?></h4>
+    </div>
+    <div class="content"><?php echo $this->getContent()?></div>
+</div>
+<?php endif;?>

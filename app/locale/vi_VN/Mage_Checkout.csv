@@ -1,0 +1,231 @@
+﻿%s was successfully added to your shopping cart.,%s đã được thêm vào giỏ hàng của bạn.
+&laquo; Back to Billing Information,&laquo; Quay lại Thông tin thanh toán
+&laquo; Back to Select Addresses,&laquo; Quay lại Chọn địa chỉ
+&laquo; Back to Shopping Cart,&laquo; Quay về Giỏ hàng
+* Required Fields,* Trường bắt buộc
+Add New Address,Thêm địa chỉ mới
+Add New Condition,Thêm điều kiện mới
+Add to Cart,Cho vào Giỏ hàng
+Add to Compare,Thêm vào để so sánh
+Add to Wishlist,Thêm vào danh sách ưa thích
+Address,Địa chỉ
+Address %s of %s,Địa chỉ %s của %s
+After adding a product redirect to shopping cart,"Sau khi thêm sản phẩm, chuyển sang Giỏ hàng"
+Allow Guest Checkout,Cho phép Khách thanh toán
+Already registered?,Bãn đã đăng ký?
+An error occurred in the process of payment,Lỗi xảy ra khi xử lý thanh toán
+Apply Coupon,Áp dụng Coupon
+Are you sure you would like to remove this item from the shopping cart?,Bạn có chắc muốn bỏ sản phẩm này ra khỏi giỏ hàng?
+Back,Trở lại
+Back to Shipping Information,Quay về Thông tin vận chuyển
+"Based on your selection, you may be interested in the following items:","Với những gì bạn đã chọn, có thể bạn cũng quan tâm tới những sản phẩm sau:"
+Billing Address,Địa chỉ thanh toán
+Billing Information,Thông tin thanh toán
+Billing Information - %s,Thông tin thanh toán - %s
+Can not add item to shopping cart,Không thể thêm sản phẩm vào giỏ hàng
+Can not apply coupon code.,Không thể áp dụng mã coupon.
+Can\'t open overview page,Không thể mở trang xem toàn diện
+Cancel Coupon,Hủy Coupon
+Cannot remove item,Không thể bỏ sản phẩm
+Cannot update shopping cart,Không thể cập nhật giỏ hàng
+Card Verification Number Visual Reference,Card Verification Number Visual Reference
+Cart Subtotal:,Tổng giỏ hàng:
+Change,Thay đổi
+Change Billing Address,Thay đổi địa chỉ thanh toán
+Checkbox text,Checkbox text
+Checkout,Thanh toán
+Checkout Conditions,Điều kiện thanh toán
+Checkout Options,Các tùy chọn thanh toán
+Checkout Section,Phần thanh toán
+Checkout Terms and Conditions,Điều khoản thanh toán
+Checkout as Guest,Thanh toán với người dùng là Khách
+Checkout as a Guest or Register,Thanh toán với người dùng đăng ký hoặc Khách
+Checkout method,Phương thức thanh toán
+Checkout with Multiple Addresses,Thanh toán với nhiều địa chỉ
+City,Thành phố
+"Click <a href=""%s"" onclick=""this.target=\'_blank\'"">here to print</a> a copy of your order confirmation.","Nhấn chuột <a href=""%s"" onclick=""this.target=\'_blank\'"">tại đây</a> để in bản sao đơn hàng của bạn."
+Close,Đóng
+Company,Công ty
+Condition Name,Tên điều kiện
+Condition was successfully deleted,Điều kiện đã được xóa
+Condition was successfully saved,Điều kiện đã được xóa thành công
+Configurable product image,Ảnh sản phẩm có thể cấu hình được
+Confirm Password,Xác nhận mật khẩu
+Content,Nội dung
+Content Height,Chiều cao phần nội dụng
+Content Height (css),Chiều cao nội dung (css)
+Continue,Tiếp tục
+Continue Shopping,Tiếp tục mua hàng
+Continue to Billing Information,Tiếp tục đến phần Thông tin thanh toán
+Continue to Review Your Order,Tiếp tục đến phần xem trước đơn hàng
+Continue to Shipping Information,Tiếp tục đến phần thông tin vận chuyển
+Country,Quốc gia
+"Coupon code ""%s"" is not valid.","Coupon code ""%s"" không chính xác."
+"Coupon code ""%s"" was applied successfully.","Coupon code ""%s"" đã được áp dụng."
+Coupon code was canceled successfully.,Coupon code đã được hủy.
+Create Billing Address,Tạo địa chỉ thanh toán
+Create Shipping Address,Tạo địa chỉ chuyển hàng
+Data saving problem,Lỗi lưu dữ liệu
+Default Billing,Mặc định thanh toán
+Default Shipping,Mặc định chuyển hàng
+Delete Condition,Xóa điều kiện
+Details,Các chi tiết
+Disable Onepage Checkout,Tắt thanh toán trên trang (Onepage Checkout)
+Disabled,Tắt
+Discount Codes,Mã giảm giá
+Display Cart Summary,Hiển thị đơn hàng
+Display Shopping Cart Sidebar,Hiển thị sidebar giỏ hàng
+Display item quantities,Hiển thị số lượng các sản phẩm
+Display number of items in cart,Hiển thị số lượng của sản phẩm trong giỏ hàng
+Easy access to your order history and status,Dễ dàng truy nhập trạng thái và lịch sử đặt hàng
+Edit,Chỉnh sửa
+Edit Address,Chỉnh sửa địa chỉ
+Edit Billing Address,Chỉnh sửa địa chỉ thanh toán
+Edit Items,Chỉnh sửa các sản phẩm
+Edit Shipping Address,Chỉnh sửa địa chỉ chuyển hàng
+Edit Terms and Conditions,Chỉnh sửa điều khoản
+Edit Your Cart,Chỉnh sửa giỏ hàng của bạn
+Email Address,Địa chỉ Email
+Enable Terms and Conditions,Bật các điều khoản
+Enabled,Bật
+Enter a New Address,Nhập địa chỉ mới
+Enter your coupon code if you have one.,Nhập mã coupon nếu bạn có.
+Enter your destination to get a shipping estimate.,Nhập địa chỉ nhận hàng để ước tính thông tin chuyển hàng.
+Error while deleting this condition. Please try again later.,Lỗi khi xóa điều kiện này. Vui lòng thử lại sau.
+Error while saving this condition. Please try again later.,Lỗi khi lưu điều kiện này. Vui lòng thử lại sau.
+Estimate Shipping and Tax,Ước tính thông tin chuyển hàng và Thuế
+Excl. Tax,Không bao gồm thuế
+Fast and easy check out,Thanh toán dễ dàng và nhanh chóng
+Fax,Fax
+Forgot an Item?,Quên sản phẩm?
+Forgot your password?,Quên mật khẩu?
+Get a Quote,Lấy báo giá
+Grand Total:,Tính tổng cộng:
+Grouped product image,Ảnh của sản phẩm được nhóm
+HTML,HTML
+ID,ID
+Incl. Tax,Bao gồm thuế
+Invalid data,Dữ liệu không hợp lệ
+"Invalid email address ""%s""","Email không hợp lệ ""%s"""
+Invalid shipping method.,Hình thức vận chuyển không hợp lệ.
+Item,Sản phẩm
+Items,Sản phẩm
+Load customer quote error,Lỗi tải báo giá khách hàng
+Loading next step...,Đang tải bước tiếp theo...
+Login,Đăng nhập
+Manage Checkout Terms and Conditions,Quản lý điều khoản thanh toán
+Maximum display Recently added item(s),Tối đa hiển thị các sản phẩm mới thêm vào
+Maximum qty allowed for Shipping to multiple addresses is %s,Số lượng sản phẩm tối đa được phép trong vận chuyển đến nhiều địa chỉ %s
+Move to Wishlist,Chuyển tới danh sách ưa thích
+My Cart,Giỏ hàng
+My Cart (%s item),Giỏ hàng của tôi (%s sản phẩm)
+My Cart (%s items),Giỏ hàng của tôi (có %s sản phẩm)
+My Cart Link,Liên kết tới giỏ hàng của tôi
+New Address,Địa chỉ mới
+New Condition,Điều kiện mới
+Order #,Đơn hàng #
+Order Review,Đánh gía đơn hàng
+Order Success,Đặt hàng thành công
+Other items in your order,Sản phẩm khác trong đơn hàng của bạn
+Password,Mật khẩu
+Payment Failed Email Reciever,Nhận email báo thanh toán thất bại
+Payment Failed Email Sender,Gửi email thông báo thanh toán thất bại
+Payment Failed Emails,Các email thông báo thanh toán thất bại
+Payment Failed Template,Thông báo thanh toán thất bại Template
+Payment Information,Thông tin thanh toán
+Payment Method,Phương thức thanh toán
+Payment method is not defined,Phương thức thánh toán không được định nghĩa
+Place Order,Đặt hàng
+"Please <a href=""%s"">continue shopping</a>.","Hãy <a href=""%s"">tiếp tục mua hàng</a>."
+Please agree to all Terms and Conditions before placing the order.,Đồng ý các điều khoản trước khi đặt hàng
+Please agree to all Terms and Conditions before placing the orders.,Vui lòng đồng ý tất cả các điều khoản trước khi đặt hàng.
+Please enter a valid zip code. For example 90602 or 90602-1234.,Please enter a valid zip code. For example 90602 or 90602-1234.
+Please log in below:,Điền thông tin đăng nhập dưới đây:
+"Please select region, state or province","Vui lòng chọn quốc gia, vùng hoặc tỉnh"
+Please select shipping address for applicable items,Vui lòng chọn địa chỉ nhận hàng phù hợp với sản phẩm
+Please select shipping methods for all addresses,Vui lòng chọn hình thức vận chuyển cho tất cả các địa chỉ nhận hàng
+Price,Giá
+Proceed to Checkout,Thực hiện thanh toán
+Product,Sản phẩm
+Product Name,Tên sản phẩm
+Product does not exist,Sản phẩm không tồn tại
+Qty,Số lượng
+Quote Lifetime (days),Thời gian hiệu lực báo giá (ngày)
+Recently added item(s),Các sản phẩm vừa thêm vào
+Register,Đăng ký
+Register and save time!,Đăng ký và tiết kiệm thời gian!
+Register to Create an Account,Đăng ký để tạo tài khoản mới
+Register with us for future convenience:,Đăng ký với chúng tôi để thuận tiện sau này:
+Remove,Bỏ
+Remove Item,Bỏ sản phẩm
+Remove Product,Bỏ sản phẩm
+Remove item,Bỏ sản phẩm
+Review Order,Đánh giá đơn hàng
+Review Order - %s,Đánh giá đơn hàng - %s
+Sales,Bán hàng
+Save Condition,Lưu điều kiện
+Save in address book,Lưu trong sổ địa chỉ (address book)
+Select Address,Chọn địa chỉ
+Select Addresses,Chọn các địa chỉ
+Select Shipping Method,Lựa chọn phương thức chuyển hàng
+Select State/Province...,Chọn tỉnh/bang...
+Select a billing address from your address book or enter a new address.,Chọn địa chỉ thanh toán từ sổ địa chỉ của bạn hoặc nhập địa chỉ mới
+Select a shipping address from your address book or enter a new address.,Chọn một địa chỉ từ sổ địa chỉ của bạn hoặc nhập một địa chỉ mới.
+Send Payment Failed Email Copy Method,Hình thức gửi bản sao thông báo thanh toán thất bại
+Send Payment Failed Email Copy To,Gửi bản sao email thông báo thanh toán thất bại đến
+Send to,Gửi đến
+Ship to Multiple Addresses,Gửi đến nhiều địa chỉ
+Ship to different address,Gửi đến các địa chỉ khác
+Ship to this address,Chuyển hàng đến địa chỉ này
+Shipping Address,Địa chỉ chuyển hàng
+Shipping Information,Thông tin vận chuyển
+Shipping Method,Hình thức vận chuyển
+Shipping Methods,Hình thức vận chuyển
+Shipping method has not been selected yet,Hình thức vận chuyển chưa được chọn
+Shipping selection is not applicable,Vận chuyển không phù hợp
+Shipping to,Gửi đến
+Shopping Cart,Giỏ hàng
+Shopping Cart Sidebar,Sidebar giỏ hàng
+Shopping Cart is Empty,Giỏ hàng trống
+Show Content as,Xem nội dung như
+Some of the products you requested are not available in the desired quantity,Một số sản phẩm bạn yêu cầu không còn đủ số lượng như bạn yêu cầu.
+Some of the products you requested are unavailable,Một vài sản phẩm bạn yêu cầu không còn
+"Sorry, Onepage Checkout is disabled.","Xin lỗi bạn, Thanh toán trên cùng trang đang tắt"
+"Sorry, guest checkout is not enabled. Please try again or contact store owner.","Xin lỗi bạn, Thanh toán áp dụng cho Khách đang tắt. Bạn vui lòng liên hệ với người bán hoặc vui lòng thử lại."
+"Sorry, no quotes are available for this order at this time.","Xin lỗi bạn, báo giá cho đơn hàng hiện tại không sử dụng được."
+State/Province,State/Province
+Status,Trang thái
+Store View,Store View
+Street Address,Đường
+Street Address,Đường
+Submitting order information...,Đang gửi thông tin đặt hàng...
+Subtotal,Tổng cộng
+Telephone,Điện thoại
+Terms and Conditions,Các điều khoản
+Terms and Conditions Information,Thông tin về các điều khoản
+Terms and conditions,Các điều khoản
+Text,Văn bản (text)
+Thank you for your purchase!,Rất cám ơn bạn đã mua hàng!
+"There are <a href=""%s""><strong>%s items</strong></a> in your cart.","Có <a href=""%s""><strong>%s sản phẩm</strong></a> trong giỏ hàng của bạn."
+"There is <a href=""%s""><strong>1 item</strong></a> in your cart.","Có <a href=""%s""><strong>1 sản phẩm</strong></a> trong giỏ hàng của bạn."
+There is already a customer registered using this email address,Đã có người dùng khác sử dụng địa chỉ email này
+There was an error processing your order. Please contact us or try again later.,Có lỗi khi xử lý đơn hàng của bạn. Vui lòng liên hệ để trợ giúp hoặc thử lại sau.
+This condition no longer exists,Điều kiện này không còn tồn tại
+Total,Tổng số
+Total for this address,Tổng cho địa chỉ này
+Unit Price,Giá đơn vị
+Update Qty &amp; Addresses,Cập nhật số lượng &amp; địa chỉ
+Update Shopping Cart,Cập nhật giỏ hàng
+Update Total,Cập nhật tổng cộng
+Use Billing Address,Sử dụng địa chỉ thanh toán
+We are processing your order and you will soon receive an email with details of the order. Once the order has shipped you will receive another email with a link to track its progress.,Chúng tôi đang xử lý đơn hàng của bạn và bạn sẽ nhận ngay được email thông báo chi tiết về đơn hàng.Khi chúng tôi gửi hàng. Bạn sẽ nhận được một email khác cùng với đường dẫn để theo dõi quá trình này.
+You have no items in your shopping cart.,Không có sản phẩm nào trong giỏ hàng của bạn.
+You will receive an order confirmation email with details of your order and a link to track its progress.,Bạn sẽ nhận được email xác nhận đặt hàng trong đó có các thông tin chi tiết về đơn hàng của bạn và đường dẫn để theo dõi đơn hàng của bạn.
+Your Checkout Progress,Tiến trình thanh toán
+Your order # is: %s,Đơn hàng của bạn # là: %s
+"Your order # is: <a href=""%s"">%s</a>","Đơn hàng của bạn # là: <a href=""%s"">%s</a>"
+Your order has been received,Chúng tôi đã nhận được đặt hàng của bạn
+Your order number is,Số đơn hàng của bạn là
+Zip/Postal Code,Zip/Postal Code
+osCommerce Orders,Đơn hàng osCommerce
+"separate by "",""","phân cách bằng "","""

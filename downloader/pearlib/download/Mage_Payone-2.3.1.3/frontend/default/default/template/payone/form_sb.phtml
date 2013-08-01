@@ -1,0 +1,91 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   design_default
+ * @package    Mage_Payone
+ * @copyright  Copyright (c) 2008 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+$_code=$this->getMethodCode();
+?>
+<fieldset class="form-list">
+    <ul id="payment_form_<?php echo $_code ?>" style="display:none">
+        <li>
+            <div class="input-box">
+                <label for="<?php echo $_code ?>_account_number"><?php echo $this->__('Online bank transfer type') ?> <span class="required">*</span></label><br />
+                <select onchange="chooseTransferType();" name="payment[online_bank_transfer_type]" id="online_bank_transfer_type" class="required-entry">
+                <?php foreach ($this->getTransferTypeOptions() as $code => $title):?>
+                    <option value="<?php echo $code;?>"><?php echo $title;?></option>
+                 <?php endforeach; ?>
+                </select>
+            </div>
+        </li>
+        <?php if($this->getCountry() == 'DE' || $this->getCountry() == 'AT'): ?>
+        <li id="account_number_wrap">
+            <div class="input-box">
+                <label for="<?php echo $_code ?>_account_number"><?php echo $this->__('Account number') ?> <span class="required">*</span></label><br />
+                <input type="text" id="<?php echo $_code ?>_account_number" name="payment[account_number]" title="<?php echo $this->__('Account number') ?>" class="validate-digits required-entry input-text" value="" autocomplete="off" maxlength="10"/>
+            </div>
+        </li>
+        <li id="bank_code_wrap">
+            <div class="input-box">
+                <label for="<?php echo $_code ?>_bank_code"><?php echo $this->__('Bank code') ?> <span class="required">*</span></label><br />
+                <input type="text" id="<?php echo $_code ?>_bank_code" name="payment[bank_code]" title="<?php echo $this->__('Bank code') ?>" class="validate-digits required-entry input-text" value="" maxlength="10"/>
+            </div>
+        </li>
+        <?php endif;?>
+        <li id="bank_group_wrap" style="display: none;">
+            <div class="input-box">
+                <label for="<?php echo $_code ?>_account_number"><?php echo $this->__('Bank group') ?> <span class="required">*</span></label><br />
+                <select name="payment[bank_group]" id="bank_group">
+                    <option value="ARZ_OVB">Commercial credit cooperatives (Volksbank)</option>
+                    <option value="ARZ_BAF">Bank for doctors and independent professions</option>
+                    <option value="ARZ_NLH">Hypo state bank Lower Austria</option>
+                    <option value="ARZ_VLH">Hypo state bank Voralberg</option>
+                    <option value="ARZ_BCS">Bankhaus Carl Spängler & Co. AG</option>
+                    <option value="ARZ_HTB">Hypo bank Tyrol</option>
+                    <option value="ARZ_HAA">Hypo Alpe Adria</option>
+                    <option value="ARZ_IKB">Investkredit bank</option>
+                    <option value="ARZ_OAB">Österreichische Apothekerbank</option>
+                    <option value="ARZ_IMB">Immobank</option>
+                    <option value="ARZ_GRB">Gärtnerbank</option>
+                    <option value="ARZ_HIB">HYPO Investment bank</option>
+                    <option value="BA_AUS">Bank Austria</option>
+                    <option value="BAWAG_BWG">BAWAG</option>
+                    <option value="BAWAG_PSK">PSK Bank</option>
+                    <option value="BAWAG_ESY">easybank</option>
+                    <option value="BAWAG_SPD">Sparda Bank</option>
+                    <option value="SPARDAT_EBS">Erste Bank</option>
+                    <option value="SPARDAT_BBL">Bank Burgenland</option>
+                    <option value="RAC_RAC">Raiffeisen bank</option>
+                    <option value="HRAC_OOS">Hypo bank Upper Austria</option>
+                    <option value="HRAC_SLB"> Hypo bank Salzburg</option>
+                    <option value="HRAC_STM">Hypo bank Styria</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+</fieldset>
+<script type="text/javascript">
+//<![CDATA[
+function chooseTransferType()
+{
+    if($('online_bank_transfer_type').value == 'EPS'){
+        $('bank_group_wrap').show();
+    } else {
+        $('bank_group_wrap').hide();
+    }
+}
+//]]>
+</script>

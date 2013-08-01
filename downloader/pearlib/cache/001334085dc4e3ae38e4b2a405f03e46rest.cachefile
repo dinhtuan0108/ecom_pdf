@@ -1,0 +1,17 @@
+a:9:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.package";s:18:"xsi:schemaLocation";s:80:"http://pear.php.net/dtd/rest.package    http://pear.php.net/dtd/rest.package.xsd";}s:1:"n";s:18:"CMS_Content_Editor";s:1:"c";s:37:"connect.magentocommerce.com/community";s:2:"ca";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:34:"/Chiara_PEAR_Server_REST/c/Default";}s:8:"_content";s:7:"Default";}s:1:"l";s:27:"Academic Free License (AFL)";s:2:"lu";s:47:"http://www.opensource.org/licenses/academic.php";s:1:"s";s:147:"Simple and direct editing on the website. Browse in your shop and change the content in the target environment. So you have everything at a glance.";s:1:"d";s:2056:"<ol>
+<li>Easy and direct editing of your pages. Edit your content while you browse your shop.</li>
+<li>Easily identify the Magento "markup tags" with the option to change parameters or add blocks.</li>
+<li>Play with the size of your images. Process your images. The editor intelligently changes the size of your images whilst you are saving it.</li>
+<li>Context sensitive display of attributes, styles and events of selected HTML-Tags.</li>
+<li>Display of Magento specific attributes of CMS-pages, categories and products.</li>
+<li>Comfortable File-Browser with upload- and directory management. Usage of the Magento-directive (media url="") to ensure exchange with other domains.</li>
+<li>Upload-directive-editor. Attach commands to directories, which will be executed while up-loading images. For example: automatically change image sizes only in a certain directory.</li>
+<li>Image-Editor with many exciting options.</li>
+<li>Page Parts/Blocks. Save your most used fragments. This works with HTML-structure, Ma-gento "markup tag" (block type="") or even widgets as from Version 1.4. You can even build a template collection.</li>
+<li>Stylistic Sets. Save your website style-definitions and build your style collection. Just move the mouse over the saved style definition to immediately what they do. Activate the style definition with a double click. Define image dimensions and have the editor change those images for you, automatically.</li>
+<li>Widget-Editor (Professional Edition) Administrate all installed widgets easy and comfortable (as from Magento 1.4) Try all the widget options in your own time and look at their previews.</li>
+<li>Menu-Editor (Professional Edition) Easily add your new CMS pages in an existing menu structure.</li>
+<li>Block-Editor (Professional Edition) Define new blocks. It doesn't matter where you want to insert them, sidebar, head or footer.</li>
+<li>Module-Widget "Video" (Professional Edition) Add content from video portals by using the widget editor.</li>
+<li>AW-Blog integration (Professional Edition)</li>
+</ol>";s:1:"r";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:45:"/Chiara_PEAR_Server_REST/r/CMS_Content_Editor";}}}

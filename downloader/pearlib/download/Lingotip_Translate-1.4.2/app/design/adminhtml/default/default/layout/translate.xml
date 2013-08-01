@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+
+
+
+	<default>
+
+	
+
+	<reference name="head">
+
+		<action method="addItem"><type>skin_css</type><name>lingotip.css</name></action>
+
+		
+
+	</reference>
+
+
+
+        <reference name="content">
+
+            <block type="adminhtml/template" name="translateu" template="lingotip/lingotip_system.phtml" />
+
+			
+
+        </reference>
+
+    </default>
+
+	
+
+    <translate_adminhtml_translate_index>
+
+        <reference name="content">
+			<block type="translate/adminhtml_translate_add" name="message" template="lingotip/message.phtml" />
+            <block type="translate/adminhtml_translate" name="translate" />
+
+			<block type="translate/adminhtml_translate_edit" name="faq_links" template="lingotip/grid.phtml" />
+
+        </reference>
+
+    </translate_adminhtml_translate_index>
+
+	
+
+	<translate_adminhtml_translate_edit>
+
+		<reference name="content">
+
+           <!-- <block type="lingotip/adminhtml_translate_edit" name="reestimate_edit" />
+
+		    <block type="translate/adminhtml_translate" name="translate" template="lingotip/estimate.phtml" />
+
+
+
+			<block type="lingotip/adminhtml_translate_edit" name="estimate_edit" />-->
+
+			
+
+			<block type="translate/adminhtml_translate_edit" name="edit_view" />
+
+			<block type="translate/adminhtml_translate" name="translate_est" after="adminhtml_translate_edit_tab_form" template="lingotip/estimate_again.phtml" />
+
+        </reference>
+
+		<reference name="left">
+
+			 <block type="translate/adminhtml_translate_edit_tabs" name="tabs_left" /> 
+
+		   <!--<block type="translate/adminhtml_translate_estimate_tabs" name="tabs" />-->
+
+        </reference> 
+
+    </translate_adminhtml_translate_edit>
+
+	
+
+	<translate_adminhtml_translate_view>
+
+	
+
+		<reference name="content">
+
+<block type="translate/adminhtml_translate" after="tabs" name="translate_viewer" template="lingotip/view.phtml" />
+
+		<!--<block type="translate/adminhtml_translate_view_viewtabs" name="vtabs" />-->
+
+			<block type="translate/adminhtml_translate_view" name="view_view" />
+
+
+
+			<!--  <block type="translate/adminhtml_translate_view_form" name="form" />
+
+			<block type="translate/adminhtml_translate" after="tabs" name="translate_viewer" template="lingotip/view.phtml" /> -->
+
+			<!--      <block type="translate/adminhtml_translate" name="translate" template="lingotip/estimate.phtml" />-->
+
+ 
+
+		</reference> 
+ 
+			
+
+		<reference name="left">
+
+				  <block type="translate/adminhtml_translate_view_tabs" name="tabs" /> 
+
+          </reference> 	
+
+    </translate_adminhtml_translate_view>
+
+
+
+	<translate_adminhtml_translate_estimate>
+
+ 		<reference name="content">
+
+			<block type="translate/adminhtml_translate_estimate" name="estimate_view" />
+
+			<block type="translate/adminhtml_translate" name="translate" template="lingotip/estimate.phtml" />
+
+	<!--		<block type="translate/adminhtml_translate_estimate_tab_form" name="estimate" />-->
+
+         </reference> 
+
+		<reference name="left">
+
+			 <block type="translate/adminhtml_translate_estimate_tabs" name="tabs" />
+
+           </reference> 
+
+     </translate_adminhtml_translate_estimate>
+
+	
+
+	<translate_adminhtml_translate_post>
+
+		<reference name="content">
+
+		<!--<block type="translate/adminhtml_translate" after="tabs" name="translate_postbutton" template="lingotip/postbutton.phtml" />-->
+
+			<block type="translate/adminhtml_translate_post" name="post" />
+
+         </reference> 
+
+		<reference name="left">
+
+			 <block type="translate/adminhtml_translate_post_tabs" name="tabs" />
+
+           </reference> 
+
+    </translate_adminhtml_translate_post>
+
+	
+
+		<translate_adminhtml_translate_postedit>
+
+		<reference name="content">
+
+			<block type="translate/adminhtml_translate_postedit" name="postedit" />
+
+         </reference> 
+
+		<reference name="left">
+
+			 <block type="translate/adminhtml_translate_postedit_tabs" name="tabspost_edit" />
+
+           </reference> 
+
+    </translate_adminhtml_translate_postedit>
+
+	
+
+
+
+	
+
+	<translate_adminhtml_translate_paypal>
+
+		<reference name="content">
+
+			<!--<block type="translate/adminhtml_translate" after="paypal_top_buttons" name="translate_paypalbutton" template="lingotip/paypalbutton.phtml" />-->
+
+			 <block type="translate/adminhtml_translate_paypal" name="paypal" /> 
+
+			<!-- <block type="translate/adminhtml_translate" name="paypal_buttons" template="lingotip/paypal.phtml" />-->
+
+			 
+
+		<!--	<block type="translate/adminhtml_translate" name="paypal" template="lingotip/paypal.phtml" />-->
+
+         </reference> 
+
+		<reference name="left">
+
+	   <block type="translate/adminhtml_translate_paypal_tabs" name="tabs" />  
+
+	   
+
+           </reference> 
+
+    </translate_adminhtml_translate_paypal>
+
+	
+
+	
+
+	<translate_adminhtml_translate_new>
+
+		<reference name="content">
+			<block type="translate/adminhtml_translate_estimate" name="message" template="lingotip/message.phtml" />
+			<block type="translate/adminhtml_translate_add" name="add_view" />
+
+			<block type="translate/adminhtml_translate" name="translate" template="lingotip/button.phtml" />
+
+<!--			<block type="translate/adminhtml_translate_add_tab_form" name="add" />-->
+
+        </reference> 
+
+		<reference name="left">
+
+			 <block type="translate/adminhtml_translate_add_tabs" name="tabs" />
+
+        </reference> 
+
+    </translate_adminhtml_translate_new>
+
+	
+
+</layout>

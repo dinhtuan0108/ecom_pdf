@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<AuIt_Widget>
+			<version>1.0.2</version>
+		</AuIt_Widget>
+	</modules>
+	<global>
+		<helpers>
+			<auit_widget>
+				<class>AuIt_Widget_Helper</class>
+			</auit_widget>
+		</helpers>
+        <blocks>
+             <auit_widget>
+                <class>AuIt_Widget_Block</class>
+             </auit_widget>
+        </blocks>
+		<models>
+			<auit_widget>
+				<class>AuIt_Widget_Model</class>
+			</auit_widget>
+		</models>
+	</global>
+	<default>
+		<auit_widget>
+		</auit_widget>
+	</default>			
+</config>

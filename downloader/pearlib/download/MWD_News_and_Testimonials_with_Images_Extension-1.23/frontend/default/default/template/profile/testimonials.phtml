@@ -1,0 +1,25 @@
+<?php
+/**
+ * Mason Web Development
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php
+//get all Profiles 
+$testimonials = $this->getTestimonials();
+?>
+<h1>Testimonials</h1>
+<div style="float: left; width: 400px;">
+<?php foreach($testimonials as $n): ?>
+	<?php if ($n->getData("is_active")):?>
+		<div class="ColumnLeft" style="float: left; border-bottom: 1px solid #ddd; padding-bottom: 10px; padding-top: 10px;">
+			<h2><?php echo $this->formatDate($n->getData("creation_time")); ?> - <?php echo $n->getData("content_heading"); ?></h2>
+			<p><?php echo $n->getContent(); ?></p>
+		</div>
+	<?php endif; ?>
+<?php endforeach; ?>
+</div>

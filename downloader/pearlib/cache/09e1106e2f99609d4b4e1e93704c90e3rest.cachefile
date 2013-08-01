@@ -1,0 +1,20 @@
+a:9:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.package";s:18:"xsi:schemaLocation";s:80:"http://pear.php.net/dtd/rest.package    http://pear.php.net/dtd/rest.package.xsd";}s:1:"n";s:23:"MathieuF_EventsCalendar";s:1:"c";s:37:"connect.magentocommerce.com/community";s:2:"ca";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:34:"/Chiara_PEAR_Server_REST/c/Default";}s:8:"_content";s:7:"Default";}s:1:"l";s:40:"GNU Lesser General Public License (LGPL)";s:2:"lu";s:51:"http://www.opensource.org/licenses/lgpl-license.php";s:1:"s";s:42:"Display an event calendar on your website.";s:1:"d";s:1233:"With this extension, you can display an events calendar on your website. Events are stored in the database. You can also display the upcoming list of events quickly by calling a block in your template.
+
+Before entering any events, go to System->Configuration->General->Events Calendar and set your timezone.
+
+Get the callendar using this {{block type="mathieufeventscal/events" template="mathieuf/eventscalendar/events.phtml"}}
+Get the events list using this {{block type="mathieufeventscal/events" template="mathieuf/eventscalendar/nextevent.phtml"}}
+
+CHANGE LOG:
+0.1.0 - Initial release
+0.1.1 - Fix install issue in regards to php version
+0.1.2 - Partially fix date/time issue. Uses time in GMT format.
+0.1.3 - Fix date/time issues. Now takes timezone into account.
+0.1.4 - Now supports multiple events per day and events spanning on different months.
+0.1.5 - 0.1.4 broke the short events list
+0.1.6 - short events list had an indefinite loop
+0.1.7 - fix install issues
+0.1.8 - fix db saves (version 0.1.6-0.1.7 were broken)
+0.1.9 - now supports multiple store
+0.2.0 - fix timezone issues and short list is now dependent on the number of months specified in the configuration.
+0.2.1 - fix locale in regards to timezone fix of 0.2.0";s:1:"r";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:50:"/Chiara_PEAR_Server_REST/r/MathieuF_EventsCalendar";}}}

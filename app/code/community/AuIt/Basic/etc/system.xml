@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <auit_all>
+            <label>SNM-Portal</label>
+            <sort_order>300</sort_order>
+        </auit_all>
+    </tabs>
+</config>

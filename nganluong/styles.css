@@ -1,0 +1,232 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-family: "Times New Roman", Times, serif;
+	font-size:16px;
+	line-height:18px;
+	color:#000;
+	margin:0;
+	padding:0;
+	background:#bebcbd;
+	}
+#page-payment-help{
+	width:980px;
+	margin:0 auto;
+	background-color:#fff;
+	/*background:#fff url(images/bg-content-box-gr.gif) repeat-x 0 -20px;*/
+	overflow:hidden;
+	
+	}
+#page-payment-help .header{
+	height:100px;
+	width:100%;
+	margin-top:10px;
+	overflow:hidden;
+	}
+#page-payment-help .header .logo{
+	float:left;
+	width:370px;
+	margin-left:10px;
+	}
+#page-payment-help .header .logo img{
+	margin-right:10px;
+	}
+#page-payment-help .header .header-content{
+	float:right;
+	width:550px;
+	margin-right:10px;	
+	}
+#page-payment-help .header .header-content h1{
+	color:#ff5a00;
+	font-size:24px;
+	padding-top:5px;
+	text-transform:uppercase;
+	margin:0 0 5px 0;
+	text-align:center;
+	}
+#page-payment-help .header .header-content p{
+	font-size:14px;
+	font-weight:bold;
+	color:#0368a0;
+	margin:0;
+	padding-top:5px;
+	text-align:center;
+	}
+#page-payment-help .content{
+	background:url(images/bg-content-box-gr.gif) repeat-x 0 -35px;
+	overflow:hidden;
+	}
+#page-payment-help .content-r  h4{
+	text-transform:uppercase;
+	font-size:16px;
+	text-align:center;
+	margin:0.5em 0 1em 0;
+	color:#3c88c4;
+	}
+#page-payment-help .content-l{
+	width:250px;
+	margin-left:10px;
+	margin-top:50px;
+	float:left;
+	}
+#page-payment-help .content-r{
+	width:700px;
+	margin-right:10px;
+	float:right;
+	}
+.box-left h3{
+	background:url(images/bg-title-box.gif) no-repeat 0 0;
+	height:29px;
+	line-height:29px;
+	margin:0;
+	overflow:hidden;
+	}
+.box-left h3 span{
+	text-transform:uppercase;
+	color:#fff;
+	font-size:12px;
+	margin-left:10px;
+	}
+.box-left .box-left-content{
+	border:1px solid #d3d3d3;
+	border-top:0;
+	background:#f9f9f9;
+	padding-top:10px;
+	}
+.box-left .box-left-content ul{
+	margin:0 10px;
+	padding:0;
+	}
+
+.box-left .box-left-content .main-menu{
+	font-weight:bold;
+	color:#0169a0;
+	}
+
+.box-left .box-left-content ul li{
+	margin:0 0 10px 0;
+	padding:0 0 0 15px;
+	list-style:none;
+	background:url(images/icon-bullit-box-left.gif) no-repeat 0 5px;
+	}
+.box-left .box-left-content ul li a, .other-help li a{
+	/*color:#0169a0;*/
+	color:#0000FF;
+	text-decoration:none;
+	}
+
+.box-left .box-left-content ul li a:hover, .other-help li a:hover{
+	text-decoration:underline;
+	}
+.box-left .box-left-content ul li ul{
+	margin:5px 0;
+	}
+.box-left .box-left-content ul li ul a:hover, .box-left .box-left-content ul li a.active{
+	color:#ff5a00;
+	}
+
+.content-r p{
+	margin:0 0 0.5em 0;
+	}
+.content-r ol{
+	margin:0 0 0 30px;
+	padding:0;
+	}
+.content-r ol li{
+	margin:0 0 10px 0;
+	padding:0;
+	}
+.content-r .other-help{
+	clear:both;
+	margin-left:10px;
+	}
+.content-r .other-help h3{
+	font-size:12px;
+	text-transform:uppercase;
+	font-size:12px;
+	color:#ff5a00;
+	border-bottom:1px solid #d5d5d5;
+	}
+.other-help ul{
+	margin:0;
+	padding:0;
+	}
+.other-help ul li{
+	margin:0 0 5px 20px;
+	padding:0;
+	color:#ccc;
+	}
+
+.help-content{
+	margin-left:10px;
+}
+
+.help-content .border-table{
+	border: solid 1px #ccc;
+}
+
+.help-content td{
+	padding:5px;
+}
+
+.help-content a{
+	text-decoration:none;
+	color:#0169a0;
+}
+
+.help-content a:hover{
+	text-decoration:underline;
+}
+
+.help-notice{
+	color:#ff5a00;
+	font-weight:bold;
+	text-decoration:underline;
+	}
+.help-step{
+	color:#ff5a00;
+	font-weight:bold;
+	padding-top:10px;
+	}
+.help-highlight{
+	background:url(images/icon-bullit-box-left.gif) no-repeat 0 18px;
+	padding-left:15px;
+	color:#0066cc;
+	font-weight:bold;
+	padding-top:10px;
+	}
+#footer{
+	border-top:2px solid #FF9A00;
+	margin:20px auto 0 auto;
+	clear:both;	
+	}
+
+.footer-content{
+	padding:10px;
+	font-size:12px;
+	overflow:hidden;
+	padding-bottom:10px;
+	color:#333;
+	}
+.footer-content address{
+	margin-bottom:10px;
+	}
+.footer-content p{
+	margin:0 0 5px 0;
+	line-height:14px;
+	}
+.footer-content-l{
+	float:left;
+	width:50%;
+	padding-right:3%;
+	border-right:1px solid #ccc;
+	}
+.footer-content-r{
+	float:right;
+	width:44%;
+	}
+	
+.help-show-content{
+	background-color:#f7f7ff;
+	padding:10px;
+}

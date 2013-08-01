@@ -1,0 +1,15 @@
+a:9:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.package";s:18:"xsi:schemaLocation";s:80:"http://pear.php.net/dtd/rest.package    http://pear.php.net/dtd/rest.package.xsd";}s:1:"n";s:18:"Lingotip_Translate";s:1:"c";s:37:"connect.magentocommerce.com/community";s:2:"ca";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:34:"/Chiara_PEAR_Server_REST/c/Default";}s:8:"_content";s:7:"Default";}s:1:"l";s:32:"GNU General Public License (GPL)";s:2:"lu";s:50:"http://www.opensource.org/licenses/gpl-license.php";s:1:"s";s:107:"This module  allows users to fully translate and localize their store without leaving the Magento platform.";s:1:"d";s:2396:"<p><span style="font-size: small;">Expanding your web store globally has been proven to generate more business and growth, but the cross border business may encounter a challenge - a language barrier.</span></p>
+<p><span style="font-size: small;">As you want to expand globally, foreign buyers will scrutinize your content to the highest degree as they are purchasing a product from a stranger from afar. Each grammatical mistake, each formatting error, each typo, and each incomprehensible sentence can dramatically stain your credibility and give the buyer an additional incentive to shop elsewhere.</span></p>
+<p><span style="font-size: small;">Localization involves three disciplines: content writers, translators, and IT. It is perceived as expensive and difficult to maintain. It usually addresses the static user interface and not the dynamic content uploaded by users. With this extension you can fully localize your store without leaving the Magento platform.</span></p>
+<p><span style="font-size: small;"><strong>The extension offers a simple and quick localization process with translation quality at the highest professional level</strong>. You can translate an existing store-view or embed a translated text directly inside a store-view of your choice.</span></p>
+<p><span style="font-size: small;">Main Features:</span></p>
+<ol>
+<li><span style="font-size: small;">Quick, free sign up with the LingoTip translation services</span></li>
+<li><span style="font-size: small;">User friendly interface</span></li>
+<li><span style="font-size: small;">Full support for HTML translation</span></li>
+<li><span style="font-size: small;">Estimate, post, and pay for the translation request</span></li>
+<li><span style="font-size: small;">Request and embed translations directly from your Catalog or CMS</span></li>
+<li><span style="font-size: small;">Communicate and provide feedback for the translator</span></li>
+</ol>
+<p><span style="font-size: small;">You can find more information by clicking <a href="http://www.lingotip.com/lti/magentolt.htm" target="_blank">http://www.lingotip.com/lti/magentolt.htm</a></span></p>
+<p><span style="font-size: small;">If you - are also an eBay seller you can take advantage of our eBay Multilingual Listing Widget at: <a href="http://www.lingotip.com/for-pay/ebaylisting.php" target="_blank">http://www.lingotip.com/for-pay/ebaylisting.php</a></span></p>";s:1:"r";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:45:"/Chiara_PEAR_Server_REST/r/Lingotip_Translate";}}}

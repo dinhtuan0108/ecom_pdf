@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Mage
+ * @package    Mage_Payone
+ * @copyright  Copyright (c) 2009 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+	<modules>
+		<Mage_Payone>
+			<version>2.3.1</version>
+		</Mage_Payone>
+	</modules>
+	<global>
+		<models>
+			<payone>
+				<class>Mage_Payone_Model</class>
+			</payone>
+            <sales>
+                <rewrite>
+                    <quote_address>Mage_Payone_Model_Quote_Address</quote_address>
+                </rewrite>
+            </sales>
+		</models>
+        <helpers>
+            <payone>
+                <class>Mage_Payone_Helper</class>
+            </payone>
+        </helpers>
+		<events>
+		    <checkout_type_onepage_save_order>
+                <observers>
+                    <payone_empty_cc_session>
+                        <type>singleton</type>
+                        <class>payone/observer</class>
+                        <method>emptyCcSession</method>
+                    </payone_empty_cc_session>
+                </observers>
+		    </checkout_type_onepage_save_order>
+			<sales_convert_quote_to_order>
+				<observers>
+					<payone_save_status>
+						<type>singleton</type>
+						<class>payone/observer</class>
+						<method>savePayoneStatus</method>
+					</payone_save_status>
+				</observers>
+			</sales_convert_quote_to_order>
+            <sales_order_place_after>
+                <observers>
+                    <payone_save_status>
+                        <type>singleton</type>
+                        <class>payone/observer</class>
+                        <method>savePayoneCreditRatingScore</method>
+                    </payone_save_status>
+                </observers>
+            </sales_order_place_after>
+            <sales_order_payment_capture>
+                <observers>
+                    <payone_register_invoice>
+                        <type>singleton</type>
+                        <class>payone/observer</class>
+                        <method>registerInvoice</method>
+                    </payone_register_invoice>
+                </observers>
+            </sales_order_payment_capture>
+		</events>
+		<resources>
+			<payone_setup>
+				<setup>
+					<module>Mage_Payone</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</payone_setup>
+			<payone_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</payone_write>
+			<payone_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</payone_read>
+		</resources>
+		<blocks>
+            <payone><class>Mage_Payone_Block</class></payone>
+        	<checkout>
+        		<rewrite>
+        			<onepage_payment_methods>Mage_Payone_Block_Checkout_Payment_Methods</onepage_payment_methods>
+        		</rewrite>
+        	</checkout>
+		</blocks>
+		<payment>
+			<transaction>
+				<modes>
+					<LIVE>
+						<code>live</code>
+						<name>Live mode</name>
+					</LIVE>
+					<TEST>
+						<code>test</code>
+						<name>Test mode</name>
+					</TEST>
+				</modes>
+			</transaction>
+	        <payone>
+	        	<urls>
+	        		<api>https://api.pay1.de/post-gateway/</api>
+	        		<frontend>https://secure.pay1.de/frontend/</frontend>
+	        	</urls>
+	        </payone>
+            <groups>
+                <payone>PAYONE</payone>
+            </groups>
+		</payment>
+	</global>
+	<frontend>
+        <secure_url>
+            <payone_processing>/payone/processing</payone_processing>
+        </secure_url>
+		<routers>
+			<payone>
+				<use>standard</use>
+				<args>
+					<module>Mage_Payone</module>
+					<frontName>payone</frontName>
+				</args>
+			</payone>
+		</routers>
+		<translate>
+			<modules>
+				<Mage_Payone>
+					<files>
+						<default>Mage_Payone.csv</default>
+					</files>
+				</Mage_Payone>
+			</modules>
+		</translate>
+		<layout>
+			<updates>
+				<payone>
+					<file>payone.xml</file>
+				</payone>
+			</updates>
+		</layout>
+	</frontend>
+	<adminhtml>
+		<translate>
+			<modules>
+				<Mage_Payone>
+					<files>
+						<default>Mage_Payone.csv</default>
+					</files>
+				</Mage_Payone>
+			</modules>
+		</translate>
+		<acl>
+			<resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <payonecreditrating>
+                                            <title>Payone Credit Rating Configuration</title>
+                                        </payonecreditrating>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+		<layout>
+			<updates>
+				<payone>
+					<file>payone.xml</file>
+				</payone>
+			</updates>
+		</layout>
+	</adminhtml>
+	<default>
+		<payment>		
+			<payone_cc translate="title" module="payone">
+				<active>0</active>
+				<model>payone/cc</model>
+				<group>payone</group>
+				<order_status>1</order_status>
+				<title>Kreditkarte (PAYONE)</title>
+				<allowspecific>0</allowspecific>
+				<request_type>authorize</request_type>
+				<transaction_mode>test</transaction_mode>
+				<submit_products>1</submit_products>
+				<display_name>0</display_name>
+				<display_address>0</display_address>
+				<submit_documentid>1</submit_documentid>
+			</payone_cc>
+			<payone_elv translate="title" module="payone">
+				<active>0</active>
+				<model>payone/elv</model>
+				<group>payone</group>
+				<order_status>1</order_status>
+				<title>Lastschrift (PAYONE)</title>
+				<allowspecific>0</allowspecific>
+				<request_type>authorize</request_type>
+				<transaction_mode>test</transaction_mode>
+				<submit_products>1</submit_products>
+				<display_name>0</display_name>
+				<display_address>0</display_address>
+				<submit_documentid>1</submit_documentid>
+			</payone_elv>
+			<payone_vor translate="title" module="payone">
+				<active>0</active>
+				<model>payone/vor</model>
+				<group>payone</group>
+				<order_status>1</order_status>
+				<title>Vorkasse (PAYONE)</title>
+				<allowspecific>0</allowspecific>
+				<request_type>authorize</request_type>
+				<transaction_mode>test</transaction_mode>
+				<submit_products>1</submit_products>
+				<submit_documentid>1</submit_documentid>
+			</payone_vor>
+			<payone_rec translate="title" module="payone">
+				<active>0</active>
+				<model>payone/rec</model>
+				<group>payone</group>
+				<order_status>1</order_status>
+				<title>Rechnung (PAYONE)</title>
+				<allowspecific>0</allowspecific>
+				<request_type>authorize</request_type>
+				<transaction_mode>test</transaction_mode>
+				<submit_products>1</submit_products>
+				<submit_documentid>1</submit_documentid>
+			</payone_rec>
+            <payone_cod translate="title" module="payone">
+                <active>0</active>
+                <model>payone/cod</model>
+                <group>payone</group>
+                <order_status>1</order_status>
+                <title>Nachnahme (Payone)</title>
+                <allowspecific>0</allowspecific>
+                <request_type>authorize</request_type>
+                <transaction_mode>test</transaction_mode>
+                <submit_products>1</submit_products>
+                <submit_documentid>1</submit_documentid>
+            </payone_cod>
+			<payone_sb translate="title" module="payone">
+				<active>0</active>
+				<model>payone/sb</model>
+				<group>payone</group>
+				<order_status>1</order_status>
+				<title>Online-Überweisung (PAYONE)</title>
+				<allowspecific>0</allowspecific>
+				<request_type>authorize</request_type>
+				<transaction_mode>test</transaction_mode>
+				<submit_products>1</submit_products>
+				<display_name>0</display_name>
+				<display_address>0</display_address>
+				<submit_documentid>1</submit_documentid>
+			</payone_sb>
+			<payone_wlt translate="title" module="payone">
+				<active>0</active>
+				<model>payone/wlt</model>
+				<group>payone</group>
+				<order_status>1</order_status>
+				<title>PayPal (PAYONE)</title>
+				<allowspecific>0</allowspecific>
+				<request_type>authorize</request_type>
+				<transaction_mode>test</transaction_mode>
+				<submit_products>1</submit_products>
+				<submit_documentid>1</submit_documentid>
+			</payone_wlt>
+		</payment>
+        <payonecreditrating>
+            <general>
+                <creditratingactive>0</creditratingactive>
+                <transaction_mode>test</transaction_mode>
+                <storedata>1</storedata>
+                <storelifetime>30</storelifetime>
+                <creditratinginquirytype>IH</creditratinginquirytype>
+                <confirmaddress>1</confirmaddress>
+                <storedebugresponse>0</storedebugresponse>
+                <creditratingmintotal>100</creditratingmintotal>
+                <addresschecktype>BA</addresschecktype>
+                <debug>1</debug>
+            </general>
+            <addresscheck>
+                <active>0</active>
+                <transaction_mode>test</transaction_mode>
+                <addresschecktype>BA</addresschecktype>
+                <debug>1</debug>
+            </addresscheck>
+        </payonecreditrating>
+	</default>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <payone before="Mage_Adminhtml">Mage_Payone</payone>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

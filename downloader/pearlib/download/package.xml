@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>MLogix_Gallery</name>
+ <channel>connect.magentocommerce.com/community</channel>
+ <summary>Provides a free image gallery extension for Magento</summary>
+ <description>Organize and upload your images on the backend.  Displays your images as a javascript gallery on the frontend, with automatic thumbnails.
+
+The gallery is available at URL yourstore.com/gallery/
+
+More information at http://www.magentoadvisor.com/plugins/gallery/</description>
+ <lead>
+  <name>Brady Matthews</name>
+  <user>magic_logix</user>
+  <email>brady@magiclogix.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2010-07-20</date>
+ <time>16:53:25</time>
+ <version>
+  <release>1.17</release>
+  <api>1.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>devel</api>
+ </stability>
+ <license uri="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons By-Nc-Sa 3.0</license>
+ <notes>Release 1.17
+
+This extension installs jQuery-1.3.2.  If you already have jQuery installed, you need to remove this entry from the layout/gallery.xml file.
+
+Also, it is recommended to replace the /js/jquery/jQuery-1.3.2.js file with a minified version.
+
+See http://www.magentoadvisor.com/plugins/gallery/ for more details.
+
+Changed since 1.16
+- Role Permissions fix
+
+Changed since 1.15
+- Fixed bug with PHP 5.2.9 (&quot;no title&quot; issue)
+- Fixed uppercase image extension bug</notes>
+ <contents>
+  <dir name="/">
+   <dir name="adminhtml">
+    <dir name="default">
+     <dir name="default">
+      <dir name="layout">
+       <file md5sum="a559e8f03bbb7892832e35a6ddf2d916" name="gallery.xml" role="magedesign" />
+      </dir> <!-- /adminhtml/default/default/layout -->
+      <dir name="template">
+       <dir name="gallery">
+        <file md5sum="091730ab0cdd2f81417ed5cf3ab0d10e" name="tree.phtml" role="magedesign" />
+       </dir> <!-- /adminhtml/default/default/template/gallery -->
+       <file md5sum="aba840f1a50682766f20656345f47b9d" name="ajax.phtml" role="magedesign" />
+      </dir> <!-- /adminhtml/default/default/template -->
+     </dir> <!-- /adminhtml/default/default -->
+    </dir> <!-- /adminhtml/default -->
+   </dir> <!-- /adminhtml -->
+   <dir name="frontend">
+    <dir name="default">
+     <dir name="default">
+      <dir name="css">
+       <file md5sum="71d1f8bbb45b27cd135864269a032b5b" name="gallery.css" role="mageskin" />
+      </dir> <!-- /frontend/default/default/css -->
+      <dir name="images">
+       <dir name="gallery">
+        <file md5sum="9c39dc7fa496fb05fb9e730e8c0f7b68" name="loader.gif" role="mageskin" />
+        <file md5sum="3573a675d0a56d9e38ccd4fe642ee079" name="loaderWhite.gif" role="mageskin" />
+        <file md5sum="a8cee98ee69ec5a426526215b197c1c2" name="nextPageArrowWhite.gif" role="mageskin" />
+        <file md5sum="812b6012985295de13a104a28cd1dd5d" name="prevPageArrowWhite.gif" role="mageskin" />
+       </dir> <!-- /frontend/default/default/images/gallery -->
+      </dir> <!-- /frontend/default/default/images -->
+      <dir name="layout">
+       <file md5sum="3d2e8b15b7c60459a2b7699b2ea36da7" name="gallery.xml" role="magedesign" />
+      </dir> <!-- /frontend/default/default/layout -->
+      <dir name="template">
+       <dir name="gallery">
+        <file md5sum="43307c09fb0182eba69ae3405f4d8bab" name="breadcrumbs.phtml" role="magedesign" />
+        <file md5sum="163e8f6a50fbd86190f511448644aa33" name="gallery.phtml" role="magedesign" />
+       </dir> <!-- /frontend/default/default/template/gallery -->
+      </dir> <!-- /frontend/default/default/template -->
+     </dir> <!-- /frontend/default/default -->
+    </dir> <!-- /frontend/default -->
+   </dir> <!-- /frontend -->
+   <dir name="js">
+    <dir name="jquery">
+     <file md5sum="e4b6170790f4fa865faffdef3ae61421" name="jquery-1.3.2.js" role="mage" />
+     <file md5sum="454aadf8b6d1e29aeb7035457d60d4d7" name="jquery.galleriffic.js" role="mage" />
+    </dir> <!-- /js/jquery -->
+   </dir> <!-- /js -->
+   <dir name="MLogix">
+    <dir name="Gallery">
+     <dir name="Block">
+      <dir name="Adminhtml">
+       <dir name="Gallery">
+        <dir name="Edit">
+         <dir name="Tab">
+          <file md5sum="239a55817383f7dce6dc92c66fe56e99" name="Form.php" role="magecommunity" />
+         </dir> <!-- /MLogix/Gallery/Block/Adminhtml/Gallery/Edit/Tab -->
+         <file md5sum="7731bd1ca030c7ab9c4b7285bae185ea" name="Form.php" role="magecommunity" />
+         <file md5sum="51c9ea262f8ac1674c0e485cfb16f1ab" name="Tabs.php" role="magecommunity" />
+        </dir> <!-- /MLogix/Gallery/Block/Adminhtml/Gallery/Edit -->
+        <file md5sum="f3bec26e81f5cb2df689d8e6370e91bf" name="Edit.php" role="magecommunity" />
+        <file md5sum="b5169a94fab9156f1d29ea2e9c56471a" name="Grid.php" role="magecommunity" />
+       </dir> <!-- /MLogix/Gallery/Block/Adminhtml/Gallery -->
+       <file md5sum="e188a0c7ba1019a5f884d80b9b4a718d" name="Gallery.php" role="magecommunity" />
+       <file md5sum="2c19bc2ca00797e0a553f6054bd84220" name="Tree.php" role="magecommunity" />
+      </dir> <!-- /MLogix/Gallery/Block/Adminhtml -->
+      <file md5sum="bc80c2849d3681c7f3b02f715724f3af" name="Gallery.php" role="magecommunity" />
+     </dir> <!-- /MLogix/Gallery/Block -->
+     <dir name="controllers">
+      <dir name="Adminhtml">
+       <file md5sum="6e13cbcfc603ed58ddf5ea9d46b17b45" name="GalleryController.php" role="magecommunity" />
+      </dir> <!-- /MLogix/Gallery/controllers/Adminhtml -->
+      <file md5sum="e4b90631a11912bacd0b7f9e0534ad86" name="AlbumController.php" role="magecommunity" />
+      <file md5sum="58a4fd49465d476eda6dc203e395c972" name="IndexController.php" role="magecommunity" />
+     </dir> <!-- /MLogix/Gallery/controllers -->
+     <dir name="etc">
+      <file md5sum="85b3584feabb8f534745f99f2beede3a" name="adminhtml.xml" role="magecommunity" />
+      <file md5sum="8746adbff4264dd0aaa712c823821648" name="config.xml" role="magecommunity" />
+     </dir> <!-- /MLogix/Gallery/etc -->
+     <dir name="Helper">
+      <file md5sum="fe52ef344ed08e4643efc191facbbe54" name="Data.php" role="magecommunity" />
+     </dir> <!-- /MLogix/Gallery/Helper -->
+     <dir name="Model">
+      <dir name="Mysql4">
+       <dir name="Gallery">
+        <file md5sum="841168e0ee3f53f9c11ad69cea118b59" name="Collection.php" role="magecommunity" />
+       </dir> <!-- /MLogix/Gallery/Model/Mysql4/Gallery -->
+       <file md5sum="0b9b2a67a58cdd887db350a749a68c35" name="Gallery.php" role="magecommunity" />
+      </dir> <!-- /MLogix/Gallery/Model/Mysql4 -->
+      <file md5sum="f70464014a3a8a6ab917300744227cbb" name="Gallery.php" role="magecommunity" />
+      <file md5sum="b17429afa15f4c028d6bc8e378ba59ec" name="Status.php" role="magecommunity" />
+     </dir> <!-- /MLogix/Gallery/Model -->
+     <dir name="sql">
+      <dir name="gallery_setup">
+       <file md5sum="550589f3a347fc638f6a029f405e0b39" name="mysql4-install-0.1.0.php" role="magecommunity" />
+      </dir> <!-- /MLogix/Gallery/sql/gallery_setup -->
+     </dir> <!-- /MLogix/Gallery/sql -->
+     <file md5sum="111dca0554a0176afd52679e2c548aff" name="license.txt" role="magecommunity" />
+    </dir> <!-- /MLogix/Gallery -->
+   </dir> <!-- /MLogix -->
+   <dir name="modules">
+    <file md5sum="6365a546fedda7071426f622c9a23dcb" name="MLogix_Gallery.xml" role="mageetc" />
+   </dir> <!-- /modules -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5</min>
+    <max>6</max>
+   </php>
+   <pearinstaller>
+    <min>1.6.2</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+</package>

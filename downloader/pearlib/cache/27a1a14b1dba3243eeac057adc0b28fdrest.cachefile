@@ -1,0 +1,12 @@
+a:9:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.package";s:18:"xsi:schemaLocation";s:80:"http://pear.php.net/dtd/rest.package    http://pear.php.net/dtd/rest.package.xsd";}s:1:"n";s:28:"Flagbit_GoogleWebmasterTools";s:1:"c";s:37:"connect.magentocommerce.com/community";s:2:"ca";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:34:"/Chiara_PEAR_Server_REST/c/Default";}s:8:"_content";s:7:"Default";}s:1:"l";s:27:"Open Software License (OSL)";s:2:"lu";s:42:"http://opensource.org/licenses/osl-3.0.php";s:1:"s";s:63:"Adds the google webmaster tools verification code to your page.";s:1:"d";s:1072:"<p>The <a href="http://www.google.com/webmasters">Google Webmaster Tools</a> allow you to improve the indexing of your site. This extension enables you to manage the <em>Verification Code</em> to authenticate against the Webmaster Tools via the Magento Backend.</p>
+<h5>Setup</h5>
+<ol>
+<li>Log into <a href="http://www.google.com/webmasters">Google Webmaster Tools</a> and <em>register your website.</em></li>
+<li><em>Verify your website</em> and choose "Meta-Tag" as verification method (this should be pre-selected).</li>
+<li>Then <em>copy and paste the Verification Code</em> to your Magento Backend. The Verification Code can be set for each and every StoreView individually.</li>
+<li>The Meta-Tag containing the Verification Code will be automatically added to your HTML header.</li>
+</ol>
+<p><script type="text/javascript">
+    var flattr_url = 'http://www.magentocommerce.com/magento-connect/Flagbit%20GmbH%20&%20Co.%20KG/extension/3447/flagbit_googlewebmastertools';
+</script>
+<script src="http://api.flattr.com/button/load.js" type="text/javascript"></script></p>";s:1:"r";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:55:"/Chiara_PEAR_Server_REST/r/Flagbit_GoogleWebmasterTools";}}}

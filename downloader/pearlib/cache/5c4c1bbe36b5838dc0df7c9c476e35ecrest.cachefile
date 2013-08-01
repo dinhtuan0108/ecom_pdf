@@ -1,0 +1,15 @@
+a:9:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.package";s:18:"xsi:schemaLocation";s:80:"http://pear.php.net/dtd/rest.package    http://pear.php.net/dtd/rest.package.xsd";}s:1:"n";s:17:"IG_CashOnDelivery";s:1:"c";s:37:"connect.magentocommerce.com/community";s:2:"ca";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:34:"/Chiara_PEAR_Server_REST/c/Default";}s:8:"_content";s:7:"Default";}s:1:"l";s:32:"GNU General Public License (GPL)";s:2:"lu";s:50:"http://www.opensource.org/licenses/gpl-license.php";s:1:"s";s:42:"Fully configurable cash on delivery module";s:1:"d";s:1845:"<p>IDEALIAGroup Cash On Delivery This extension will install a new ready-to-use <strong>Cash-On-Delivery</strong> payment gateway in your Magento store.</p>
+<p>Installation is very easy via Magento Connect and no coding experience is required to have module up-and-running.</p>
+<p>IDEALIAGroup Cash On Delivery is UPDATE SAFE since no system files are replaced or modified and you can enable or disable it in a click.</p>
+<p><strong>IMPORTANT</strong>: Disable your cache before installing this extension!</p>
+<p>FEATURES</p>
+<p>* <strong>FULL MAGENTO BACKEND INTEGRATION</strong>: all parameters available in configuration (no coding needed)<br />* Configurable fee on order amount<br />* Support for both <strong>local and foreign</strong> different fees<br />* <strong>FULL INTEGRATION WITH MAGENTO PRICE RULES</strong><br />* Integrated with <strong>SHIPPING TAXES</strong> <br />* Integrated with <strong>BACKEND ORDERS</strong></p>
+<p><strong>CHANGELOG</strong><br /><strong>&nbsp;</strong></p>
+<p><strong>Version 1.0.6:<br /></strong>-FIX: FIX: tax management bugs for Magento 1.4</p>
+<p><strong>Version 1.0.5:<br /></strong>-FIX: Session override</p>
+<p><strong>Version 1.0.4:<br /></strong>- ADD: backend orders integration.</p>
+<p><strong>Version 1.0.3:<br /></strong>-ADD: new feature for amounts as percentage.</p>
+<p><strong>Version 1.0.2</strong>:<br />-FIX: German translation errors (thanks to BUGMEDIA and kulimuli).</p>
+<p><strong>Version 1.0.1:<br /></strong>-ADD: Integration with magento shipping tax rules.</p>
+<p>&nbsp;</p>
+<p><strong>IG CashOnDelivery</strong> is a <a title="Visit MagentoSpecialist site&amp;store" href="http://www.magentospecialist.it" target="_blank"><strong>MagentoSpecialist</strong></a> extension.<br /><em>Powered by <a href="http://www.idealiagroup.com" target="_blank">IDEALIAGroup</a>.</em></p>";s:1:"r";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:44:"/Chiara_PEAR_Server_REST/r/IG_CashOnDelivery";}}}

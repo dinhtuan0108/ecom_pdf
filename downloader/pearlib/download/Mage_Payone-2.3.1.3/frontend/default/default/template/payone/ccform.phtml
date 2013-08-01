@@ -1,0 +1,154 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   design_default
+ * @package    Mage_Payone
+ * @copyright  Copyright (c) 2009 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+$_code=$this->getMethodCode();
+?>
+<script type="text/javascript">
+function validate()  {
+    var validator = new Validation('iframe_form');
+    return validator.validate();
+}
+function updateHiddenElements(elements) {
+    for (var i=0; i<elements.length; i++) {
+        switch (elements[i].name) {
+            case 'payment[cc_owner]':
+                elements[i].value = $('<?php echo $_code ?>_cc_owner').value;
+                break;
+            case 'payment[cc_type]':
+                elements[i].value = $('<?php echo $_code ?>_cc_type').value;
+                break;
+            case 'payment[cc_number]':
+                elements[i].value = $('<?php echo $_code ?>_cc_number').value.substr(-4);
+                break;
+            case 'payment[cc_exp_month]':
+                elements[i].value = $('<?php echo $_code ?>_expiration').value;
+                break;
+            case 'payment[cc_exp_year]':
+                elements[i].value = $('<?php echo $_code ?>_expiration_yr').value;
+                break;
+        }
+    }
+    return true;
+}
+function getInputValue(field) {
+	return $(field).value;
+}
+function show(id) {
+	$(id).show();
+}
+function hide(id) {
+    $(id).hide();
+}
+</script>
+
+<?php 
+    $payoneCcSessionInfo = Mage::getSingleton('core/session')->getPayoneCcInfo();
+    $isDataSaved = !empty($payoneCcSessionInfo);
+?>
+
+<?php if ($isDataSaved): ?>
+<a href="#" id="payoneDisplayCcFormLink" onclick="parent.payoneDisplayCcForm(); return false;"><?php echo $this->__('Change credit card information')?></a>
+<div id="payone_cc_iframe_cont" style="display:none">
+<?php endif; ?>
+
+<form id="iframe_form" action="#">
+<ul>
+    <li>
+        <div class="input-box">
+            <label for="<?php echo $_code ?>_cc_owner"><?php echo $this->__('Name on Card') ?> <span class="required">*</span></label><br />
+            <input type="text" title="<?php echo $this->__('Name on Card') ?>" class="validate-payone-cc-owner required-entry input-text no-submit" id="<?php echo $_code ?>_cc_owner" name="cc_owner" value="<?php echo $this->getBillingName(); ?>" />
+        </div>
+    </li>
+    <li>
+        <div class="input-box">
+            <label for="<?php echo $_code ?>_cc_type"><?php echo $this->__('Credit Card Type') ?> <span class="required">*</span></label><br />
+            <select id="<?php echo $_code ?>_cc_type" name="cc_type" class="validate-payone-cc-type required-entry validate-cc-type-select no-submit">
+                <option value=""><?php echo $this->__('--Please Select--') ?></option>
+            <?php $_ccType = $this->getInfoData('cc_type'); //var_dump($this->toArray()); die('111');?>
+            <?php foreach ($this->getCcAvailableTypes() as $_typeCode => $_typeName): ?>
+                <option value="<?php echo $_typeCode ?>"<?php if($_typeCode==$_ccType): ?> selected="selected"<?php endif ?>><?php echo $_typeName ?></option>
+            <?php endforeach ?>
+            </select>
+        </div>
+    </li>
+    <li>
+        <div class="input-box">
+            <label for="<?php echo $_code ?>_cc_number"><?php echo $this->__('Credit Card Number') ?> <span class="required">*</span></label><br />
+            <input type="text" id="<?php echo $_code ?>_cc_number" name="cc_number" title="<?php echo $this->__('Credit Card Number') ?>" class="validate-payone-cc-number input-text validate-cc-number validate-cc-type no-submit" value="" autocomplete="off" />
+        </div>
+    </li>
+    <li>
+        <div class="input-box">
+            <label for="<?php echo $_code ?>_expiration"><?php echo $this->__('Expiration Date') ?> <span class="required">*</span></label><br />
+            <div class="v-fix">
+            <select id="<?php echo $_code ?>_expiration" style="width:140px;" name="cc_exp_month" class="validate-payone-cc-month required-entry no-submit">
+            <?php $_ccExpMonth = $this->getInfoData('cc_exp_month') ?>
+            <?php foreach ($this->getForm()->getCcMonths() as $k=>$v): ?>
+                <option value="<?php echo $k?$k:'' ?>"<?php if($k==$_ccExpMonth): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+            <?php endforeach ?>
+            </select>
+            </div>
+            <div class="v-fix" style="padding-left:5px;">
+            <?php $_ccExpYear = $this->getInfoData('cc_exp_year') ?>
+            <select id="<?php echo $_code ?>_expiration_yr" style="width:103px;" name="cc_exp_year" class="validate-payone-cc-year required-entry no-submit">
+            <?php foreach ($this->getForm()->getCcYears() as $k=>$v): ?>
+                <option value="<?php echo $k?$k:'' ?>"<?php if($k==$_ccExpYear): ?> selected="selected"<?php endif ?>><?php echo $v ?></option>
+            <?php endforeach ?>
+            </select>
+            </div>
+        </div>
+
+    <?php if($this->getForm()->hasVerification()): ?>
+    </li>
+    <li style="clear:both;">
+        <div class="input-box">
+            <label for="<?php echo $_code ?>_cc_cid"><?php echo $this->__('Card Verification Number') ?> <span class="required">*</span></label><br />
+            <input type="text" title="<?php echo $this->__('Card Verification Number') ?>" class="required-entry input-text validate-cc-cvn no-submit" id="<?php echo $_code ?>_cc_cid" name="cc_cid" style="width:3em;" value="" autocomplete="off" maxlength="4" />
+            &nbsp;
+            <a href="#" class="cvv-what-is-this"><?php echo $this->__('What is this?') ?></a>
+        </div>
+    <?php else: ?>
+        <input type="hidden" id="<?php echo $_code ?>_cc_cid" name="cc_cid" class="no-submit" value="" />
+    <?php endif; ?>
+    </li>
+</ul>
+</form>
+<?php if ($isDataSaved) echo '</div>' ?>
+
+<div class="tool-tip" id="payment-tool-tip" style="display:none;">
+    <div class="btn-close"><a href="#" id="payment-tool-tip-close" title="<?php echo $this->__('Close') ?>"><?php echo $this->__('Close') ?></a></div>
+    <div class="tool-tip-content"><img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo $this->__('Card Verification Number Visual Reference') ?>" title="<?php echo $this->__('Card Verification Number Visual Reference') ?>" /></div>
+</div>
+
+<script type="text/javascript">
+function toggleToolTip(event){
+    if($('payment-tool-tip')){
+        $('payment-tool-tip').setStyle({top: '0px'});
+        $('payment-tool-tip').toggle();
+    }
+    Event.stop(event);
+}
+if($('payment-tool-tip-close')){
+  Event.observe($('payment-tool-tip-close'), 'click', toggleToolTip);
+}
+$$('.cvv-what-is-this').each(function(element){
+    Event.observe(element, 'click', toggleToolTip);
+});
+</script>

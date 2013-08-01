@@ -1,0 +1,37 @@
+<?php
+/**
+ * Mason Web Development
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php
+//get all Profiles 
+$pressreleases = $this->getPressreleases();
+?>
+<h1>Press releases</h1>
+<div style="float: left; width: 400px;">
+<?php foreach($pressreleases as $n): ?>
+	<?php if ($n->getData("is_active")):?>
+		<div style="float: left; width: 400px; border-bottom: 1px solid #ddd; padding-bottom: 10px; padding-top: 10px;">
+			<?php $fileUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB) . "media/" . $n->getData("file")?>
+			<?php $readUrl = $this->getUrl('*/*/read', array("id" => $n->getData("profile_id"))); ?>
+			<?php if($n->getData("thumbnail")):?>
+				<a href="<?echo $fileUrl ?>">
+					<?php $marginPosition = ($n->getThumbnailAlign() == "left") ? "float: left; margin-right: 10px;" : "float: right; margin-left: 10px;";?>
+					<img src="<?php echo $n->getThumbnailResize(100) ?>" style="<?php echo $marginPosition; ?>"/>
+				</a>
+			<?php endif; ?>
+			<p><?php echo $this->formatDate($n->getData("creation_time"), 'full'); ?> <br/> 
+				<a href="<?echo $readUrl ?>"><?php echo $n->getData("content_heading"); ?></a>
+			</p>
+			<a class="grey" href="<?echo $fileUrl ?>">
+				Click here to download PDF
+			</a>
+		</div>
+	<?php endif; ?>
+<?php endforeach; ?>
+</div>

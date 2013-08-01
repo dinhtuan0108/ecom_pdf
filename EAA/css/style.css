@@ -1,0 +1,126 @@
+@charset "UTF-8";
+#web{ width:980px; margin:0 auto;}
+#top{ width:980px;
+	height:34px;
+	background-image:url(../img/top_round.gif);
+}
+#nav {
+	margin-top:10px;
+	margin-right:10px;
+	float:right;
+}
+
+#nav ul {
+	margin-left: 0;
+	padding-left: 0;
+	display: inline;
+	
+	} 
+
+#nav ul li {
+	margin-left: 0;
+	padding: 3px 3px;
+	list-style: none;
+	display: inline;
+	}
+	
+#nav ul li a {	
+    font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: #7d888d;
+	text-decoration:none;
+}
+#nav ul li a:hover {	
+	color: #33444c;	
+}	
+	
+#con{ width:980px;
+	background-image:url(../img/outline_bg.gif);
+}
+
+#img{ width:218px;
+	margin-top:40px;
+	float:left;
+	position: relative;
+}
+#tex{ width:520px;
+	margin-top:40px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	float:left;
+	position:relative;
+	color: #7d888d;
+	margin-left:30px;
+	margin-right:10px;
+}
+#tex ul { margin-left:15px; padding:0px;}
+#tex ul li { margin-left:0px; padding:0px; margin-bottom:11px;}
+#tex h1{ 
+	font-size: 15px; padding:0px; margin:0px;
+}
+#search{ background:url(../img/search_bg.gif) no-repeat;
+    width:197px; height:233px;
+	float:right;
+	position: relative;
+}
+#box {
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-top: 40px;
+	font-family: Helvetica, Arial, sans-serif;
+font-size: 11px;
+color: #6080a0;
+	
+	} 
+#box h1{ 
+	font-size: 12px; padding:0px; margin:0px; color:#aeb9c4;
+}
+#box ul {
+	margin-left: 0;
+	padding-left: 0;
+	display: inline;
+	
+	} 
+
+#box ul li {
+	margin-left: 0;
+	padding: 0px;
+	list-style: none;
+	display: inline;
+	}
+.field {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	color: #6080a0;
+	width:120px;
+	padding-top:3px;
+	height:11px;
+	margin-right:8px;
+	border:1px solid #7d888d;
+	}
+.sub {
+	font-family: Helvetica, Arial, sans-serif;
+font-size: 11px;
+color: #ffffff;
+background-color:#7d888d;
+padding-top:3px;
+height:18px;
+border:none;
+cursor:pointer;
+	}
+	
+.sub:hover {background-color:#565e61;}
+	
+
+#ie_clearing { clear:both;}
+#footer{ width:980px;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 11px;
+text-align:center;
+color: #7d888d;
+background-image:url(../img/outline_bg.gif);
+}
+#bot{ width:980px;
+height:7px;
+	background-image:url(../img/bottom_round.gif);
+}

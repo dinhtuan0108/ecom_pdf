@@ -1,0 +1,255 @@
+
+
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+ ?>
+
+<?php 
+
+
+	$client = $this->getRequest()->getParam('client');
+	$txn = $this->getRequest()->getParam('txn');
+	 if(isset($client) && $client != ""){	
+	 
+	?>
+		<div style="border: 1px solid #CCCCCC; margin:10px;" class="entry-edit" id="feed_comm_dis">
+		
+		
+		
+
+
+			<div class="entry-edit-head">
+				<h4 class="icon-head head-edit-form fieldset-legend"><?php echo ucfirst($client);?></h4>
+				<div class="form-buttons"></div>
+			</div>
+
+		<!--<form name='client_form' action='<?php //echo $this->getUrl('*/*/saveResponse/id/'.$id); ?>' method='post'>-->
+		<?php  switch ($client) {
+			case 'comments':  // Customer note to LT translator
+				$get_tid = $this->getRequest()->getParam('tid');
+				$disabled = (!$get_tid) ? "disabled" : "";				
+		?>
+		<table class="data-table data">
+		<?php if(isset($get_tid) && $get_tid != ""){
+					
+					$noteArray = Mage::getResourceModel('translate/notes')->getAllNotes($txn,$get_tid);
+//					echo '<pre>';print_r($note);die;
+					foreach($noteArray as $note){
+						if($note['note'] != "dummy entry by user"){
+						$entrydate = $note['entrydate'];
+						?>
+						<tr>
+							<td>
+								<?php if($note['incoming'] == 1){?>
+									<?php echo  "&#8592;" . " ($entrydate) ". stripslashes($note['note']); ?>
+								<?php }else{ ?>
+								<span style="color:#657383"><?php echo "&#8594;" . " ($entrydate) ". stripslashes($note['note']); ?></span>
+							<?php }
+						?> 
+						<?php 
+						//echo " ($entrydate) ". stripslashes($note['note']);
+							echo "<br/>";?></td></tr>
+						<?php 	
+						} }
+					?>
+					<?php 
+						//these are all tid saved in lt_notes when the comments are posted by the lingotip Translater
+						
+						$retrieveParamId = $this->getRequest()->getParam('id');
+						$retrieveParamTxn = $this->getRequest()->getParam('txn');
+						$retrieveParamClient = $this->getRequest()->getParam('client');
+						$retrieveParamLang = $this->getRequest()->getParam('lang');
+						
+						$makeUrl = $this->getUrl('*/*/view', array('id' => $retrieveParamId,'txn' => $retrieveParamTxn,'client' => $retrieveParamClient,'lang' => $retrieveParamLang));
+						
+						$makeUrl = $makeUrl."tid/";
+						
+						//echo $makeUrl = $this->getUrl('translate/view');die;
+//$makeUrl = $makeUrl."id/".$retrieveParamId."/txn/".$retrieveParamTxn."/client/".$retrieveParamClient."/lang/".$retrieveParamLang."/tid/";
+			//			'/adminhtml_translate/view/id/34/txn/1249/tid/135/client/comments/lang/German/';
+						
+						$allTid = Mage::getResourceModel('translate/notes')->getAllTidPostedByLingotipTranslater($txn);
+						
+						if(count($allTid) >0 ){echo 'Translator(s): '; $i = 0; }
+						
+						foreach($allTid as $Tid)
+						{
+							$i++;
+							//if($Tid['tid'] != $get_tid)
+							//{
+								?>
+					<a href="<?php echo $makeUrl.$Tid['tid']; ?>">
+							<?php if($Tid['tid'] == $get_tid){echo '<strong>';}?>
+							<?php echo "ID".$Tid['tid']; ?> 
+							<?php if($Tid['tid'] == $get_tid){echo '</strong>';}?>
+					</a> 
+								
+								<?php
+								if($i < count($allTid) ){echo ','; }
+								
+								
+							//}else{
+								 
+								
+							//}
+						} 
+						
+					 
+					
+				/*	 $res = queryMDBval("SELECT * FROM lt_notes WHERE txn=$txn && tid=$get_tid && is_dispute=0");
+					echo "<b>Messages from/to TranslatorID: $get_tid</b><br/>";
+					while ($note = $res->fetchRow(MDB2_FETCHMODE_ASSOC)) {
+					$entrydate = $note['entrydate'];
+					echo (!$note['incoming']) ? "Outgoing:" : "Incoming:";
+					echo " ($entrydate) ". $note['note'];
+					echo "<br/>";
+				}*/
+				?>
+ 				<?php } ?>
+				<tr><td>&nbsp;</td></tr>
+				<tr><td><textarea <?php echo $disabled ;?> name='note' cols='50' rows='2'></textarea></td></tr>
+				<input type='hidden' name='txn' value='<?php echo $txn; ?>' />
+				<input type='hidden' name='action' value='answer' />
+				<input type='hidden' name='tid' value='<?php echo $get_tid; ?>' />
+				
+				<tr><td>
+					<input class="scalable form-button" <?php echo $disabled ;?> name='submit' type='Submit' value='Submit' />
+				</td></tr>
+				<tr><td>&nbsp;</td></tr>
+			</table>	
+			
+		<?php
+		break;
+		case 'feedback':// Customer providing feedback to LT translator
+	 	?>
+			<div class="grid">
+				<table class="data-table data">
+ 
+	<thead>
+		<tr class="even">
+			<td>&nbsp;</td>
+			<th><span class="nobr">Poor</span></th>
+			<th><span class="nobr">Fair</span></th>
+			<th><span class="nobr">Good</span></th>
+			<th><span class="nobr">Very Good</span></th>
+			<th><span class="nobr">Excellent</span></th>
+		</tr>
+	</thead>
+        
+	<tbody>
+	   <tr class="first odd">
+			<td>Price</td>
+			<td class="value"><input type='radio' name='price' value='1' /></td>
+			<td class="value"><input type='radio' name='price' value='2' /></td>
+			<td class="value"><input type='radio' name='price' value='3' /></td>
+			<td class="value"><input type='radio' name='price' value='4' /></td>
+			<td class="value"><input type='radio' name='price' value='5' /></td>
+		</tr>
+		
+	   <tr class="first odd">
+			<td>General</td>
+			<td class="value"><input type='radio' name='general' value='1' /></td>
+			<td class="value"><input type='radio' name='general' value='2' /></td>
+			<td class="value"><input type='radio' name='general' value='3' /></td>
+			<td class="value"><input type='radio' name='general' value='4' /></td>
+			<td class="value"><input type='radio' name='general' value='5' /></td>
+		</tr>
+		
+	   <tr class="first odd">
+			<td>On Time</td>
+			<td class="value"><input type='radio' name='ontime' value='1' /></td>
+			<td class="value"><input type='radio' name='ontime' value='2' /></td>
+			<td class="value"><input type='radio' name='ontime' value='3' /></td>
+			<td class="value"><input type='radio' name='ontime' value='4' /></td>
+			<td class="value"><input type='radio' name='ontime' value='5' /></td>
+		</tr>
+		
+	   <tr class="first odd">
+			<td>Responsiveness</td>
+			<td class="value"><input type='radio' name='responsiveness' value='1' /></td>
+			<td class="value"><input type='radio' name='responsiveness' value='2' /></td>
+			<td class="value"><input type='radio' name='responsiveness' value='3' /></td>
+			<td class="value"><input type='radio' name='responsiveness' value='4' /></td>
+			<td class="value"><input type='radio' name='responsiveness' value='5' /></td>
+		</tr>	
+		<tr><td class="value" style="border:0px;" colspan="6">
+		<textarea name="note" cols="50" rows="5"></textarea></td></tr>
+		
+		<input type='hidden' name='txn' value='<?php echo $txn; ?>' />
+		<input type='hidden' name='action' value='feedback' />
+		<tr>
+			<td class="value" style="border:0px;" colspan="6">
+				<!--<input name="submit" type="Submit" class="scalable" value="Submit" />-->
+				<button style="" onclick="viewForm.submit();" class="scalable" type="button" id="view_id"><span>Sumbit</span></button>
+			</td>
+		</tr>
+	</tbody>
+		 
+	
+	
+</table>
+			</div>
+		<?php	break; ?>
+			
+		<?php
+			case 'dispute': // Customer issues a dispute on translation received
+		?>
+		
+			<div class="grid">
+				<table class="data-table data">
+					<tbody>
+					   <tr class="first odd">
+							<td>Alternate</td>
+							<td class="value"><input type='radio' name='mode' value='altenate' /></td>
+						</tr>
+						<tr class="first odd">
+							<td>Refund</td>
+							<td class="value"><input type='radio' name='mode' value='refund' /></td>
+						</tr>
+				
+						<tr><td class="value" style="border:0px;" colspan="2"> 
+						<textarea name="note" cols="50" rows="5" class=" required-entry textarea"></textarea><span style="vertical-align:top;margin-left:2px;" class="required">*</span></td></tr>
+						
+						<input type='hidden' name='txn' value='<?php echo $txn; ?>' />
+						<input type='hidden' name='action' value='dispute' />
+						<tr>
+							<td class="value" style="border:0px;" colspan="2">
+								<input name="submit" type="Submit" class="save scalable form-button" value="Submit" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<?php break; 
+		} 
+		//echo '<form>';?>	
+		 </div>
+	<?php }
+	
+  
+?>
+

@@ -1,0 +1,148 @@
+<?php
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xml:lang="<?php echo $this->getLang() ?>"
+	lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+<style>
+body {
+	color: #000000;
+	font: 12px arial, tahoma, helvetica, sans-serif;
+	padding: 5px;
+}
+
+.overlay_magento {
+	background-color: #000000;
+	opacity: 0.6;
+}
+
+.dialog {
+	display: block;
+	position: absolute;
+}
+
+.magento_content {
+	background: none repeat scroll 0 0 #FFFFFF;
+	font-size: 11px;
+	overflow: auto;
+}
+</style>
+</head>
+<body id="html-body"
+<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+
+<div class="entry-edit" style="width: 530px; margin: 0 auto;">
+<form
+	action="<?php echo $this->getUrl('adminhtml/widget/buildWidget');?>"
+	onsubmit="return false;" method="post" id="widget_options_form">
+<div><input type="hidden" value="<?php echo $this->getFormKey() ?>"
+	name="form_key"></div>
+<div id="base_fieldset" class="fieldset "><input name="widget_type"
+	id="select_widget_type" style="visibility: hidden;" />
+<div id="w-description">
+<?php
+	if ( Mage::getVersion() < 1.4 )
+	{
+		echo "This feature is only available for Magento version greater or equal 1.4";
+	} 
+?>
+</div>
+</div>
+</form>
+</div>
+
+<div id="loading-process" style="display: none">
+<p class="loader" id="loading_mask_loader"><img
+	src="<?php echo $this->getSkinUrl('images/ajax-loader-tr.gif') ?>"
+	alt="<?php echo Mage::helper('adminhtml')->__('Loading...') ?>" /><br />
+	<?php echo Mage::helper('adminhtml')->__('Please wait...') ?></p>
+</div>
+<div id="loading-mask" style="display: none"></div>
+
+<script type="text/javascript">
+    //editForm = new varienForm('edit_form', '');
+</script>
+
+<script>
+if ( window.WysiwygWidget )
+{
+	WysiwygWidget.chooser.prototype.openDialogWindow= function(content) {
+	    this.overlayShowEffectOptions = Windows.overlayShowEffectOptions;
+	    this.overlayHideEffectOptions = Windows.overlayHideEffectOptions;
+	    Windows.overlayShowEffectOptions = {duration:0};
+	    Windows.overlayHideEffectOptions = {duration:0};
+	    this.dialogWindow = Dialog.info(content, {
+	        draggable:true,
+	        resizable:true,
+	        closable:true,
+	        className:"magento",
+	        title:this.config.buttons.open,
+	        width:document.body.scrollWidth-30,
+	        height:document.body.scrollHeight-30,
+	        zIndex:1000,
+	        recenterAuto:false,
+	        hideEffect:Element.hide,
+	        showEffect:Element.show,
+	        id:"widget-chooser",
+	        onClose: this.closeDialogWindow.bind(this)
+	    });
+	    content.evalScripts.bind(content).defer();
+	};
+	WysiwygWidget.Widget.prototype._showWidgetDescription= function()
+	{
+		if ( this.papepart )
+	    	$('w-description').innerHTML = this.papepart.description; 
+	};
+	WysiwygWidget.Widget.prototype.setOptionExt= function(n) {
+		this.papepart=n;
+	    this.widgetEl.value = n.key;
+	    this.optionValues = new Hash({});
+	    if ( n.template )
+		    this.setOptionValues(n.template);
+	    else
+	    	this.loadOptions();
+	};
+	WysiwygWidget.Widget.prototype.wysiwygExists=function()
+	{
+		return false;
+	};
+	WysiwygWidget.Widget.prototype.initOptionValues= function() {
+	}; 
+	WysiwygWidget.Widget.prototype.setOptionValues= function(widgetCode) {
+            if (widgetCode.indexOf('{{widget') != -1) {
+                this.optionValues = new Hash({});
+                widgetCode.gsub(/([a-z0-9\_]+)\s*\=\s*[\"]{1}([^\"]+)[\"]{1}/i, function(match){
+                    if (match[1] == 'type') {
+                        this.widgetEl.value = match[2];
+                    } else {
+                        this.optionValues.set(match[1], match[2]);
+                    }
+                }.bind(this));
+
+                var optionsContainerId = this.getOptionsContainerId();
+                if ($(optionsContainerId) != undefined) {
+                	$(optionsContainerId).remove();
+                }
+                this.loadOptions();
+            }
+	}; 
+    WysiwygWidget.Widget.prototype.updateContent = function(content) {
+	    if ( this.insertcallback )
+			this.insertcallback.call(this.insertscope||this,content);
+    };
+	wWidget = new WysiwygWidget.Widget("widget_options_form", 
+							"select_widget_type", 
+							"widget_options", 
+							"<?php echo $this->getUrl('adminhtml/widget/loadOptions');?>", 
+							"page_content");
+}else {
+
+
+    
+}	
+</script>
+	<?php echo $this->getChildHtml('before_body_end') ?>
+</body>
+</html>

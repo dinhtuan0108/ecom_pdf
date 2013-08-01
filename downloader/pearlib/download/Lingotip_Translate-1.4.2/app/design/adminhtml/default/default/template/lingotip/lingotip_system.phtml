@@ -1,0 +1,149 @@
+<?php
+/**
+ * Fontis WYSIWYG Editor Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Fontis
+ * @package    Fontis_Wysiwyg
+ * @author     Peter Spiller
+ * @author     Lloyd Hazlett
+ * @copyright  Copyright (c) 2008 Fontis Pty. Ltd. (http://www.fontis.com.au)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<script>
+
+function translateTextOnGrid(id,textboxid,status) {
+
+if(status != "done" && textboxid != "")
+{
+	alert("The Translation is not completed yet");
+	//window.close();
+	return false;
+}
+	 else if(id){
+ 		//window.opener.document.getElementById(textboxid).value = document.getElementById(id).innerHTML;
+		
+		var encoded = Js_TTIndex[id];
+		var res = decodeURIComponent(encoded.replace(/\+/g, " "));
+		 window.opener.document.getElementById(textboxid).value = res;
+		
+		//window.opener.document.getElementById(textboxid).value = Js_TTIndex[id];
+		window.close();
+	 }
+}
+
+function translateText(id) {
+	var url = '<?php echo $this->getUrl('translate/adminhtml_translate')."textboxid/"; ?>'+id ;
+	newwindow = window.open(url ,'name','height=700,width=950,scrollbars=1'); 
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+function nonTranslateText(id) {
+	var url = '<?php echo $this->getUrl('translate/adminhtml_translate/new')."textboxid/"; ?>'+id ;
+	newwindow = window.open(url ,'name','height=700,width=950,scrollbars=1'); 
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+
+</script>
+
+
+
+ <?php
+	$JSTIndex = '';$JSTValue = '';$Js_TTIndex = '';$Js_TTValue = '';
+	 $collection = Mage::getModel('translate/request')->getCollection();
+	 			echo "<script> var Js_TTIndex = new Array(); ";
+	 foreach($collection as $row)
+	 {
+		$data = Mage::getModel('translate/request')->load($row->getId());
+		$Target = $data->getTrgNames();
+		$targetArray = explode(",",$Target);
+		foreach($targetArray as $target){
+			$translatedText  = Mage::getResourceModel('translate/txn')->getTranslatedTextOnGrid($row->getId(),$target);					
+//			echo "Js_TTIndex['js" .$row->getId().$target . "'] = '" . html_entity_decode($translatedText) . "';\n"; 
+echo "Js_TTIndex['js" .$row->getId().$target . "'] = \"" . urlencode($translatedText) . "\";\n"; 
+
+		}	
+	 }
+	 echo "</script>";
+	 ?>
+	 <script>
+		//alert(Js_TTIndex['js53German']);			
+	</script>
+	  
+<?php
+
+    /* Get the base list of textarea IDs to add the editor to (chosen from the
+       multiselect). */
+ 
+     $editableAreas = Mage::getStoreConfig('translate/general/editable_areas');
+	  
+    /* Add on the other possible category textarea ID if we selected the 
+       first one. */
+    if(strpos($editableAreas, "_generaldescription") !== FALSE)
+    {
+        $editableAreas .= ",group_3description";
+    }
+
+    /* Add on any additional custom textarea IDs (specified using the Magento
+       'grid' control). */
+    $editableAreasCustom = @unserialize(Mage::getStoreConfig('translate/general/editable_areas_custom'));
+	
+	//echo '<pre>';print_r($editableAreasCustom); die;
+    if($editableAreasCustom) {
+ 
+        foreach($editableAreasCustom as $textarea) {
+            /* DON'T add blank IDs, or you'll wind up with textareas in very
+               odd places. */
+            if($textarea["id"] != "") {
+                if($editableAreas == "") {
+                    $editableAreas = $textarea["id"];
+                } else {
+                    $editableAreas .= ",".$textarea["id"];
+                }
+            }
+        }
+    } 
+	
+$br = array("\n");
+$editableAreas = str_replace($br, "", $editableAreas);
+ 
+ 
+?>
+ 
+ 	<script type="text/javascript" src="<?php echo $this->getJsUrl() ?>lingotip/lingotip.js"></script>
+    <script type="text/javascript">
+    window.onload = function()
+   	 {
+	 // alert('<?php //echo $editableAreas ?>');
+        function addButton(){
+			var editable_areas = '<?php  echo $editableAreas ?>';
+            editable_areas.split(',').each(function(dom_id) {
+			
+			if($(dom_id))
+			{
+			  var lingo = new LingotipButton(dom_id);
+			  lingo.CreateButton(); 
+			}			
+	});
+		}
+        <?php /* Apply select Translated Text button via showTab event if it exists, otherwise load it now */ ?>
+        if ($("category_edit_form")) {
+
+            varienGlobalEvents.attachEventHandler('showTab', addButton);
+        } else {
+              addButton();
+			  //applyFCKEditor();
+        }
+    }
+    </script> 

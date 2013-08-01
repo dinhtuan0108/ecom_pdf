@@ -1,0 +1,23 @@
+a:9:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.package";s:18:"xsi:schemaLocation";s:80:"http://pear.php.net/dtd/rest.package    http://pear.php.net/dtd/rest.package.xsd";}s:1:"n";s:11:"Mage_Payone";s:1:"c";s:37:"connect.magentocommerce.com/community";s:2:"ca";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:34:"/Chiara_PEAR_Server_REST/c/Default";}s:8:"_content";s:7:"Default";}s:1:"l";s:23:"Apache Software License";s:2:"lu";s:43:"http://opensource.org/licenses/apachepl.php";s:1:"s";s:138:"PAYONE FinanceGate payment gateway for all german online and offline payment methods including PayPal, all major Credit Cards and Maestro.";s:1:"d";s:1558:"<p>This extension provides an astonishing SEAMLESS PAYMENT INTEGRATION using AJAX technologies. Additionally a component for automatic address checking / validation including an address correction and a credit scoring (Bonit&auml;tspr&uuml;fung) have been integrated. Of course no user accounts for your customers are needed!</p>
+<p><strong>The extension supports the following payment types: </strong></p>
+<ul>
+<li>Credit Cards  (e.g. Visa, MasterCard, American Express, Diners Club, JCB) </li>
+<li>Debit Cards (e.g. Maestro International and UK Domestic) </li>
+<li>Direct Debit (Lastschrift / ELV) for Germany, Austria, Netherlands </li>
+<li>International Prepayment (Vorkasse) </li>
+<li>International Invoice (offene Rechnung) </li>
+<li>Cash on Delivery (Nachnahme) </li>
+<li>Sofort-&Uuml;berweisung - giropay </li>
+<li>PayPal  EPS and Yellowpay are available upon request.</li>
+</ul>
+<p><strong>Furthermore the following risk-management-services are supported: </strong></p>
+<ul>
+<li>3D-Secure: Verified by Visa &amp; MasterCard SecureCode </li>
+<li>AdressCheck for 18 countries </li>
+<li>POS- and Merchant-Blacklists </li>
+<li>CreditCard- and BankAccountChecks </li>
+<li>BIN Check and IP Check </li>
+<li>Velocity Monitoring </li>
+</ul>
+<p><strong>No PCI DSS Certification is needed, since all payment data is transmitted via AJAX calls directly from the customer's browser to the FinanceGate platform. </strong></p>
+<p>Nice to know: With FinanceGate Business even account receivable management, dunning and debt collection can be done automatically.</p>";s:1:"r";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:38:"/Chiara_PEAR_Server_REST/r/Mage_Payone";}}}

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <profile_news_index>
+        <reference name="content">
+            <block type="profile/profile" name="profile" template="profile/news.phtml"/>
+        </reference>
+    </profile_news_index>
+    <profile_news_read>
+        <reference name="content">
+            <block type="profile/profile" name="profile" template="profile/readnews.phtml"/>
+        </reference>
+    </profile_news_read>
+    
+    <profile_testimonials_index>
+        <reference name="content">
+            <block type="profile/profile" name="profile" template="profile/testimonials.phtml"/>
+        </reference>
+    </profile_testimonials_index>
+    
+    <profile_pressarticles_index>
+        <reference name="content">
+            <block type="profile/profile" name="profile" template="profile/pressarticles.phtml"/>
+        </reference>
+    </profile_pressarticles_index>
+    <profile_pressarticles_read>
+        <reference name="content">
+            <block type="profile/profile" name="profile" template="profile/readpressarticle.phtml"/>
+        </reference>
+    </profile_pressarticles_read>
+    
+    <profile_pressreleases_index>
+        <reference name="content">
+            <block type="profile/profile" name="profile" template="profile/pressreleases.phtml"/>
+        </reference>
+    </profile_pressreleases_index>
+    <profile_pressreleases_read>
+        <reference name="content">
+            <block type="profile/profile" name="profile" template="profile/readpressrelease.phtml"/>
+        </reference>
+    </profile_pressreleases_read>
+</layout>

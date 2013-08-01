@@ -1,0 +1,154 @@
+<?php
+/**
+ * Magic Logix Gallery
+ *
+ * Provides an image gallery extension for Magento
+ *
+ * @category		MLogix
+ * @package		Gallery
+ * @author		Brady Matthews
+ * @copyright		Copyright (c) 2008 - 2010, Magic Logix, Inc.
+ * @license		http://creativecommons.org/licenses/by-nc-sa/3.0/us/
+ * @link		http://www.magiclogix.com
+ * @link		http://www.magentoadvisor.com
+ * @since		Version 1.0
+ *
+ * Please feel free to modify or distribute this as you like,
+ * so long as it's for noncommercial purposes and any
+ * copies or modifications keep this comment block intact
+ *
+ * If you would like to use this for commercial purposes,
+ * please contact me at brady@magiclogix.com
+ *
+ * For any feedback, comments, or questions, please post
+ * it on my blog at http://www.magentoadvisor.com/plugins/gallery/
+ *
+ */
+?>
+
+
+<?php
+$items = $this->getGallery();
+
+$cat_thumbWidth = 133;
+$cat_thumbHeight = 133;
+
+$thumbWidth = 107;
+$thumbHeight = 80;
+
+$numItems = 0;
+?>
+<div class="gallery_wrapper2">
+
+
+
+	<div class="categories">
+<?php
+
+
+if(count($items))
+foreach($items as $item)
+{
+
+	if($item->hasChildren())
+	{
+?>	
+<div class="category">
+	<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
+    <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=$item->getTitle()?></a></h2>
+</div>
+
+<?php
+	}
+	else $numItems++;
+}
+?>
+		<div class="clearfix"></div>
+	</div>
+    
+    
+    
+    
+<?php if($numItems) { ?>
+<div class="demo">
+<div id="main_image"></div>
+<ul class="gallery_demo">
+
+<?php
+if(count($items))
+foreach($items as $item)
+{
+
+	if(!$item->hasChildren())
+	{
+?>	
+<li><img src="<?=$item->getImageUrl()?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></li>
+<?php
+	}
+}
+?>
+</ul>
+</div>
+<div class="clearfix"></div>
+<script type="text/javascript">
+jQuery.noConflict();
+jQuery(document).ready(function(){
+
+var $j=jQuery.noConflict();
+		
+		//$j('.gallery_demo_unstyled').addClass('gallery_demo'); // adds new class name to maintain degradability
+		
+		$j('ul.gallery_demo').galleria({
+			history   : false, // activates the history object for bookmarking, back-button etc.
+			clickNext : false, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+				
+				// fade in the image & caption
+				image.css('display','none').fadeIn(1000);
+				caption.css('display','none').fadeIn(1000);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(500,0.3);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Next image >>');
+			},
+			onThumb : function(thumb) { // thumbnail effects goes here
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// if thumbnail is active, fade all the way.
+				var _fadeTo = _li.is('.active') ? '1' : '0.3';
+				
+				// fade in the thumbnail when finnished loading
+				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1500);
+				
+				// hover effects
+				thumb.hover(
+					function() { thumb.fadeTo('fast',1); },
+					function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
+				)
+			}
+		});
+	});
+	</script>
+
+<?php } ?>
+</div>
+<?php
+
+/*
+Lightbox method
+
+<a title="<?=$item->getDescription()?>" href="<?=$item->getImageUrl()?>" rel="prettyPhoto[<?=$this->getCurrentGallery()->getId()?>]">
+<img width="<?=$thumbWidth?>" height="<?=$thumbHeight?>" src="<?=$item->getThumbnail($thumbWidth,$thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/>
+</a>
+*/

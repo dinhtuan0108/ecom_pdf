@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<AuIt_Basic>
+			<version>1.0.2</version>
+		</AuIt_Basic>
+	</modules>
+	<global>
+		<helpers>
+			<auit_basic>
+				<class>AuIt_Basic_Helper</class>
+			</auit_basic>
+		</helpers>
+		<models>
+			<auit_basic>
+				<class>AuIt_Basic_Model</class>
+			</auit_basic>
+		</models>
+	</global>
+	
+	<adminhtml>
+		<events>
+            <controller_action_predispatch>
+                <observers><auit_basic_observer><type>singleton</type><class>auit_basic/observer</class><method>checkFeed</method></auit_basic_observer></observers>
+            </controller_action_predispatch>
+        </events>
+	</adminhtml>
+	<default>
+		<auit_basic>
+			<feed>
+				<url>feed.snm-portal.de</url>
+				<use_https>0</use_https>
+				<intervall>86400</intervall>
+				<enabled>1</enabled>
+			</feed>
+		</auit_basic>
+	</default>			
+	
+</config>

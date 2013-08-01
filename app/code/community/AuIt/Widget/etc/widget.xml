@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<widgets>
+    <auit_widget_youtube_direct type="auit_widget/youtube_direct">
+        <name>SNM-Portal: Youtube Direct</name>
+        <description type="desc">Add youtube video from a Video ID</description>
+        <snm_editor>
+        	<group> Video</group>
+        	<preview>widget/youtube.jpg</preview>
+        </snm_editor>
+        <parameters>
+            <videoid>
+                <label>YouTube Video ID</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>HXLEGOQRxOk</value>
+            </videoid>
+            <width>
+                <label>Width</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </width>
+            <height>
+                <label>Height</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </height>
+		</parameters>
+    </auit_widget_youtube_direct>
+    <auit_widget_vimeo type="auit_widget/vimeo_direct">
+        <name>SNM-Portal: Vimeo Video</name>
+        <description type="desc">Add vimeo video</description>
+        <snm_editor>
+        	<group> Video</group>
+        	<preview>widget/vimeo.jpg</preview>
+        </snm_editor>
+        <parameters>
+            <videoid>
+                <label>Vimeo clip id</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>6004683</value>
+            </videoid>
+            <width>
+                <label>Width</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </width>
+            <height>
+                <label>Height</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </height>
+        	<show_portrait>
+                <label>Intro Portrait</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+				<values>
+                    <no translate="label">
+                        <value>0</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>1</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+        	</show_portrait>
+        	<show_title>
+                <label>Intro Title</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+				<values>
+                    <no translate="label">
+                        <value>0</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>1</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+        	</show_title>
+        	<show_byline>
+                <label>Intro Byline</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+				<values>
+                    <no translate="label">
+                        <value>0</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>1</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+        	</show_byline>
+            <color>
+                 <label><![CDATA[Intro Color<br/><small>such as 00adef</small>]]></label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+                <value></value>
+            </color>        	
+		</parameters>
+    </auit_widget_vimeo>    
+    
+    
+    
+    
+    <auit_widget_viddler type="auit_widget/viddler_direct">
+        <name>SNM-Portal: viddler Video</name>
+        <description type="desc">Add viddler video</description>
+        <snm_editor>
+        	<group> Video</group>
+        	<preview>widget/viddler.jpg</preview>
+        </snm_editor>
+        <parameters>
+            <videoid>
+                <label>Video id</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>ec0d014f</value>
+            </videoid>
+            <width>
+                <label>Width</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </width>
+            <height>
+                <label>Height</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </height>
+        	
+		</parameters>
+    </auit_widget_viddler>    
+    <auit_widget_gvideo type="auit_widget/google_direct">
+        <name>SNM-Portal: Google Video</name>
+        <description type="desc">Add google video</description>
+        <snm_editor>
+        	<group> Video</group>
+        	<preview>widget/gvideo.jpg</preview>
+        </snm_editor>
+        <parameters>
+            <videoid>
+                <label>Video id</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>-6048150248236085210</value>
+            </videoid>
+            <width>
+                <label>Width</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </width>
+            <height>
+                <label>Height</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </height>
+        	
+		</parameters>
+    </auit_widget_gvideo>     
+    <!-- 
+    <auit_widget_youtube_videobar type="auit_widget/youtube_videobar">
+        <name>SNM-Portal: Youtube Video Bar</name>
+        <description type="desc">Add youtube video bar</description>
+        <snm_editor>
+        	<group> Video</group>
+        	<preview>widget/youtube2.jpg</preview>
+        </snm_editor>
+        <parameters>
+        	<orientation>
+                <label>Orientation</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+				<values>
+                    <vertical translate="label">
+                        <value>false</value>
+                        <label>vertical</label>
+                    </vertical>
+                    <horizontal translate="label">
+                        <value>true</value>
+                        <label>horizontal</label>
+                    </horizontal>
+                </values>
+        	</orientation>
+        	<largeresultset>
+                <label>Large result set</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+				<values>
+                    <no translate="label">
+                        <value>false</value>
+                        <label>No</label>
+                    </no>
+                    <yes translate="label">
+                        <value>true</value>
+                        <label>Yes</label>
+                    </yes>
+                </values>
+        	</largeresultset>
+            <ytchannel>
+                <label><![CDATA[YouTube Channels<br/><small>comma separated list of channels</small>]]></label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+                <value></value>
+            </ytchannel>
+            <search>
+                <label><![CDATA[Search Expressions<br/><small>comma separated list of expressions</small>]]></label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>text</type>
+                <value></value>
+            </search>
+        	<ytfeed>
+                <label>Popular Video Feeds</label>
+                <visible>1</visible>
+                <required>0</required>
+                <type>multiselect</type>
+				<values>
+                    <i0 translate="label">
+                        <value></value>
+                        <label>No feed</label>
+                    </i0>
+                    <i1 translate="label">
+                        <value>most_viewed.this_week</value>
+                        <label>Most Viewed Videos</label>
+                    </i1>
+                    <i2 translate="label">
+                        <value>top_rated.this_week</value>
+                        <label>Top Rated Videos</label>
+                    </i2>
+                    <i3 translate="label">
+                        <value>google_news</value>
+                        <label>Top News Videos</label>
+                    </i3>
+                    <i4 translate="label">
+                        <value>recently_featured</value>
+                        <label>Recently Featured Videos</label>
+                    </i4>
+                </values>
+        	</ytfeed>
+		</parameters>
+    </auit_widget_youtube_videobar>
+     -->    
+    <auit_widget_feedback type="auit_widget/feedback_bar">
+        <name>SNM-Portal: feddbackbar</name>
+        <description type="desc">Add a feddback button to the site</description>
+        <snm_editor>
+        	<group> Video</group>
+        	<preview>widget/gvideo.jpg</preview>
+        </snm_editor>
+        <parameters>
+            <videoid>
+                <label>Video id</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>-6048150248236085210</value>
+            </videoid>
+            <width>
+                <label>Width</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </width>
+            <height>
+                <label>Height</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>text</type>
+                <value>175</value>
+            </height>
+        	
+		</parameters>
+    </auit_widget_feedback>     
+</widgets> 

@@ -1,0 +1,38 @@
+<?php
+/**
+ * Mason Web Development
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php 
+// get all News 
+$news = $this->getNews();
+?>
+<div class="padma_news">
+<h1>News</h1>
+<?php foreach($news as $n): ?>
+	<?php if ($n->getData("is_active")):?>
+		<div class="news_eintrag">
+			<?php $newsUrl = $this->getUrl('*/*/read', array("id" => $n->getData("profile_id")));?>
+			<?php if($n->getData("thumbnail")):?>
+            <?php $marginPosition = ($n->getThumbnailAlign() == "left") ? "float: left; margin-right: 10px;" : "float: right; margin-left: 10px;";?>
+				<div class="eintrag_img" style=" display:block; position: relative; <?php echo $marginPosition; ?>"><a href="<?echo $newsUrl ?>">
+					
+					<img src="<?php echo $n->getThumbnailResize(200) ?>"/>
+				</a></div>
+			<?php endif; ?>
+			<a href="<?echo $newsUrl ?>"><h2><?php echo $this->formatDate($n->getData("creation_time")); ?> - <?php echo $n->getData("content_heading"); ?></h2></a>
+			<p><?php echo $n->getContent(256); ?></p>
+			<?php if(strlen($n->getData("content")) > 256 ): ?>
+				<p align="right"><a href="<?php echo $newsUrl ?>" >Continue reading...</a></p>
+			<?php endif;?>
+            <div style="clear:both"></div>
+		</div>
+       	<div class=clearFloat></div>
+	<?php endif; ?>
+<?php endforeach; ?>
+</div>

@@ -1,0 +1,10 @@
+<?php if ( $this->isActive() ) :?>
+<div class="block <?php echo $this->getBoxClass();?>">
+        <div class="block-title">
+        <strong><span><?php echo $this->getTitle()?></span></strong>
+    </div>
+    <div class="block-content empty">
+    	<?php echo $this->getContent();?>
+	</div>
+</div>
+<?php endif;?>

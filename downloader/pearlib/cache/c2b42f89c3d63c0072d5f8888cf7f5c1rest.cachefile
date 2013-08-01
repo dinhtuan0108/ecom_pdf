@@ -1,0 +1,7 @@
+a:14:{s:7:"attribs";a:2:{s:5:"xmlns";s:36:"http://pear.php.net/dtd/rest.release";s:18:"xsi:schemaLocation";s:81:"http://pear.php.net/dtd/rest.release     http://pear.php.net/dtd/rest.release.xsd";}s:1:"p";a:2:{s:7:"attribs";a:1:{s:10:"xlink:href";s:50:"/Chiara_PEAR_Server_REST/p/mathieuf_eventscalendar";}s:8:"_content";s:23:"MathieuF_EventsCalendar";}s:1:"c";s:37:"connect.magentocommerce.com/community";s:1:"v";s:5:"0.2.1";s:2:"st";s:4:"beta";s:1:"l";s:18:"Single Use License";s:1:"m";s:12:"magentoadmin";s:1:"s";s:39:"Finally an events calendar for Magento!";s:1:"d";s:297:"This simple events calendar allow you to display events in a calendar form on your website.
+
+Events are stored in the database and can span on multiple days.
+
+Currently, only one event per day is supported.
+
+A block can also be included on your front page to display a list of the upcoming events.";s:2:"da";s:19:"2009-07-19 21:09:57";s:1:"n";s:53:"Please report any bugs to mathieu@calinsetpopotin.com";s:1:"f";s:5:"10577";s:1:"g";s:78:"http://connect.magentocommerce.com/community/get/MathieuF_EventsCalendar-0.2.1";s:1:"x";a:1:{s:7:"attribs";a:1:{s:10:"xlink:href";s:17:"package.0.2.1.xml";}}}

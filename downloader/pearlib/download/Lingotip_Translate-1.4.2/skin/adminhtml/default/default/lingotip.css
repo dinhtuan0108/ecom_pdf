@@ -1,0 +1,51 @@
+.head-adminhtml-translate,.head-adminhtml-install  { padding-top:3px;background-image:url(images/lingotip/logo.png);padding-left:32px; }
+
+.width50{width:50px;border:1px solid #FF0000}
+
+.disable-button{background:gray ;border-color:gray}
+
+.disable-button:hover { background:gray ;border-color:gray;cursor:text;}
+
+.view_label{width:0px;font-weight:bold;}
+
+.view_order{border: 1px solid #CCCCCC;}
+
+.margin_top_10{margin-top:10px;}
+
+.table_margin{margin:0 10px 20px 10px;}
+
+.text_scroll{background-color:#ffffff;width:400px; height:150px;overflow:auto;}
+
+.div_margin{margin:0 0 20px 15px;}
+
+.form_margin{border: 1px solid #CCCCCC;width:95%;margin:10px;}			
+
+.grid table table{border:0px;}
+
+.text_scroll p{width:400px;}
+
+.lcenter th{text-align:center;}
+
+.aligncenter{text-align:center;}
+
+.border_bottom_null{border-bottom:0px;margin-bottom:0px;}
+
+.gridsource{width:150px;}
+
+.btn-paypal{margin:0px -5px 0 0;*margin:-5px 0px 0 0;}
+
+.btn-pay_direct{margin:0 10px 0 0;*margin:-5px 0 0 0;cursor:text;}
+
+.show_un{background:none;background:#316ac5\9;color:#fff;}
+
+.dispute_text{width:90px;font-weight:bold;margin-bottom:8px;
+
+			  border-bottom:1px solid #000;margin-left:10px;margin-left:0px\9;}
+
+.dispute_comm{color:#ED6502;margin-left:10px;margin-left:0px\9;}
+
+.dispute_note{margin-left:10px;margin-left:0px\9;}
+
+.hrline{margin-left:10px;margin-left:0px\9;margin-bottom:10px;width:95%;}
+
+table.tabcenter{margin-left:170px; margin-left:0px\9;}

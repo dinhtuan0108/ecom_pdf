@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+      <AuIt_Widget>
+        <active>true</active>
+        <codePool>community</codePool>
+		<depends>
+			<AuIt_Basic/>
+		</depends>
+      </AuIt_Widget>
+    </modules>
+</config>

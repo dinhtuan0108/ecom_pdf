@@ -1,0 +1,282 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col1-layout">
+            <div class="main">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+<div id="bg_content">
+<?php echo $this->getChildHtml('cms_img_block1') ?>
+<div id="panel">
+<div id="panelNavContainer">
+<div class="panelNav"><?php echo $this->getChildHtml('cms_padma_nav_block') ?></div>
+</div>
+<?php 
+if (Mage::app()->isInstalled() && Mage::getSingleton('customer/session')->isLoggedIn()) {
+$kunde = Mage::getSingleton('customer/session')->getCustomer()->getID(); } 
+
+if(isset($_POST['customer_id'])){
+$behost="localhost"; $beuser="padmadef_rein_r"; $bepass="test"; $bedb='padmadef_shop';
+if( !($dbLink = mysql_connect($behost,$beuser,$bepass))) { echo "No Conection to the Database"; exit; }
+
+$mdate1=$_POST['year1']."-".$_POST['month1']."-".$_POST['day1'];
+$mdate2=$_POST['year2']."-".$_POST['month2']."-".$_POST['day2'];
+$mdate3=$_POST['year3']."-".$_POST['month3']."-".$_POST['day3'];
+
+$brec = mysql_db_query($bedb, "SELECT entity_id FROM customer_cal where entity_id='".$kunde."'");
+$nx_rows = mysql_num_rows($brec);
+if($nx_rows==0){
+$bequery ="insert into $bedb.customer_cal (entity_id,be_date1,be_title1,be_text1,be_date2,be_title2,be_text2,be_date3,be_title3,be_text3) VALUES('".$kunde."','".$mdate1."','".$_POST['be_title1']."','".$_POST['be_text1']."','".$mdate2."','".$_POST['be_title2']."','".$_POST['be_text2']."','".$mdate3."','".$_POST['be_title3']."','".$_POST['be_text3']."')";
+$be_result = mysql_query($bequery);
+}else{
+	
+$result = mysql_query("UPDATE $bedb.customer_cal SET be_date1='".$mdate1."', be_title1='".$_POST['be_title1']."', be_text1='".$_POST['be_text1']."', be_date2='".$mdate2."', be_title2='".$_POST['be_title2']."', be_text2='".$_POST['be_text2']."', be_date3='".$mdate3."', be_title3='".$_POST['be_title3']."', be_text3='".$_POST['be_text3']."' where entity_id='".$kunde."'");	
+}
+}
+?>
+<div id="mycustomscroll" class="flexcroll">
+
+
+<?php if(!isset($_GET['add'])){?>
+<img src="/media/content/images/themanthatcare-1.jpg" style="padding-bottom:15px;" />
+<?php } else {
+$behost="localhost"; $beuser="padmadef_rein_r"; $bepass="test"; $bedb='padmadef_shop';
+if( !($dbLink = mysql_connect($behost,$beuser,$bepass))) { echo "No Conection to the Database"; exit; }
+$brec = mysql_db_query($bedb, "SELECT * FROM customer_cal where entity_id='".$kunde."'");
+$b_row = mysql_fetch_array($brec);
+?>
+
+<form action="http://padmadefleur.vn/packages/" method="post" id="form-validate">
+<div class="fieldset">
+<input type="hidden" name="customer_id" value="<?php echo $kunde ?>" />
+<ul class="form-list">
+<li class="fields">
+
+<label for="month">Reminder Date</label> 
+<div class="input-box customer-dob"> 
+    <div class="dob-month"> 
+             <input type="text" id="month1" name="month1" value="<?php if($b_row['be_date1']!=""){ echo date ('m', strtotime($b_row['be_date1']));}?>" title="Month" class="input-text validate-custom"  /> 
+             <label for="month">MM</label> 
+         </div><div class="dob-day"> 
+             <input type="text" id="day1" name="day1" value="<?php if($b_row['be_date1']!=""){echo date ('d', strtotime($b_row['be_date1']));}?>" title="Day" class="input-text validate-custom"  /> 
+             <label for="day">DD</label> 
+         </div><div class="dob-year"> 
+             <input type="text" id="year1" name="year1" value="<?php if($b_row['be_date1']!=""){echo date ('Y', strtotime($b_row['be_date1']));}?>" title="Year" class="input-text validate-custom"  /> 
+             <label for="year">YYYY</label> 
+         </div>
+</div> 
+</li>
+<li class="fields">
+<label for="be_date1" class="required"><em>*</em>Reminder Title</label>
+<option selected="selected">Please Select</option>
+<div class="input-box"><select name="be_title1" id="be_title1" title="Reminder Title" class="input-text required-entry validate-email">
+<option value="Anniversary" <?php if($b_row['be_title1']=="Anniversary"){?>selected="selected"<?php }?>>Anniversary</option> 
+<option value="Birthday" <?php if($b_row['be_title1']=="Birthday"){?>selected="selected"<?php }?>>Birthday</option> 
+<option value="Christmas" <?php if($b_row['be_title1']=="Christmas"){?>selected="selected"<?php }?>>Christmas</option> 
+<option value="Easter" <?php if($b_row['be_title1']=="Easter"){?>selected="selected"<?php }?>>Easter</option> 
+<option value="Engagement" <?php if($b_row['be_title1']=="Engagement"){?>selected="selected"<?php }?>>Engagement</option> 
+<option value="Halloween" <?php if($b_row['be_title1']=="Halloween"){?>selected="selected"<?php }?>>Halloween</option> 
+<option value="Father´s Day" <?php if($b_row['be_title1']=="Father´s Day"){?>selected="selected"<?php }?>>Father´s Day</option> 
+<option value="Friendship Day" <?php if($b_row['be_title1']=="Friendship Day"){?>selected="selected"<?php }?>>Friendship Day</option> 
+<option value="Grand Opening - Business" <?php if($b_row['be_title1']=="Grand Opening - Business"){?>selected="selected"<?php }?>>Grand Opening - Business</option>
+<option value="Get Well" <?php if($b_row['be_title1']=="Get Well"){?>selected="selected"<?php }?>>Get Well</option>
+<option value="Graduation" <?php if($b_row['be_title1']=="Graduation"){?>selected="selected"<?php }?>>Graduation</option>
+<option value="Housewarming" <?php if($b_row['be_title1']=="Housewarming"){?>selected="selected"<?php }?>>Housewarming</option>
+<option value="Just Like That" <?php if($b_row['be_title1']=="Just Like That"){?>selected="selected"<?php }?>>Just Like That</option> 
+<option value="Love" <?php if($b_row['be_title1']=="Love"){?>selected="selected"<?php }?>>Love</option>
+<option value="New Born" <?php if($b_row['be_title1']=="New Born"){?>selected="selected"<?php }?>>New Born</option> 
+<option value="Sympathy & Funeral" <?php if($b_row['be_title1']=="Sympathy & Funeral"){?>selected="selected"<?php }?>>Sympathy & Funeral</option>
+<option value="Romantic" <?php if($b_row['be_title1']=="Romantic"){?>selected="selected"<?php }?>>Romantic</option>
+<option value="Thanksgiving" <?php if($b_row['be_title1']=="Thanksgiving"){?>selected="selected"<?php }?>>Thanksgiving</option> 
+<option value="Valentine´s Day" <?php if($b_row['be_title1']=="Valentine´s Day"){?>selected="selected"<?php }?>>Valentine´s Day</option> 
+</select>
+</div>
+</li>
+<li class="fields" style="padding-bottom:10px; border-bottom:dotted 1px #ccc;">
+<label for="be_date1">Reminder Message</label>
+<div class="input-box">
+  <textarea name="be_text1" rows="3" class="input-text required-entry validate-email" id="be_text1" title="Reminder Message"><?php echo $b_row['be_text1']; ?></textarea>
+</div>  
+</li>
+
+<li class="fields">
+<label for="month">Reminder Date</label> 
+<div class="input-box customer-dob"> 
+    <div class="dob-month"> 
+             <input type="text" id="month2" name="month2" value="<?php if($b_row['be_date2']!=""){echo date ('m', strtotime($b_row['be_date2']));}?>" title="Month" class="input-text validate-custom"  /> 
+             <label for="month">MM</label> 
+         </div><div class="dob-day"> 
+             <input type="text" id="day2" name="day2" value="<?php if($b_row['be_date2']!=""){echo date ('d', strtotime($b_row['be_date2']));}?>" title="Day" class="input-text validate-custom"  /> 
+             <label for="day">DD</label> 
+         </div><div class="dob-year"> 
+             <input type="text" id="year2" name="year2" value="<?php if($b_row['be_date2']!=""){echo date ('Y', strtotime($b_row['be_date2']));}?>" title="Year" class="input-text validate-custom"  /> 
+             <label for="year">YYYY</label> 
+         </div>
+</div> 
+</li>
+<li class="fields">
+<label for="be_title2" class="required"><em>*</em>Reminder Title</label>
+<div class="input-box"><select name="be_title2" id="be_title2" title="Reminder Title" class="input-text required-entry validate-email">
+<option selected="selected">Please Select</option>
+<option value="Anniversary" <?php if($b_row['be_title2']=="Anniversary"){?>selected="selected"<?php }?>>Anniversary</option> 
+<option value="Birthday" <?php if($b_row['be_title2']=="Birthday"){?>selected="selected"<?php }?>>Birthday</option> 
+<option value="Christmas" <?php if($b_row['be_title2']=="Christmas"){?>selected="selected"<?php }?>>Christmas</option> 
+<option value="Easter" <?php if($b_row['be_title2']=="Easter"){?>selected="selected"<?php }?>>Easter</option> 
+<option value="Engagement" <?php if($b_row['be_title2']=="Engagement"){?>selected="selected"<?php }?>>Engagement</option> 
+<option value="Halloween" <?php if($b_row['be_title2']=="Halloween"){?>selected="selected"<?php }?>>Halloween</option> 
+<option value="Father´s Day" <?php if($b_row['be_title2']=="Father´s Day"){?>selected="selected"<?php }?>>Father´s Day</option> 
+<option value="Friendship Day" <?php if($b_row['be_title2']=="Friendship Day"){?>selected="selected"<?php }?>>Friendship Day</option> 
+<option value="Grand Opening - Business" <?php if($b_row['be_title2']=="Grand Opening - Business"){?>selected="selected"<?php }?>>Grand Opening - Business</option>
+<option value="Get Well" <?php if($b_row['be_title2']=="Get Well"){?>selected="selected"<?php }?>>Get Well</option>
+<option value="Graduation" <?php if($b_row['be_title2']=="Graduation"){?>selected="selected"<?php }?>>Graduation</option>
+<option value="Housewarming" <?php if($b_row['be_title2']=="Housewarming"){?>selected="selected"<?php }?>>Housewarming</option>
+<option value="Just Like That" <?php if($b_row['be_title2']=="Just Like That"){?>selected="selected"<?php }?>>Just Like That</option> 
+<option value="Love" <?php if($b_row['be_title2']=="Love"){?>selected="selected"<?php }?>>Love</option>
+<option value="New Born" <?php if($b_row['be_title2']=="New Born"){?>selected="selected"<?php }?>>New Born</option> 
+<option value="Sympathy & Funeral" <?php if($b_row['be_title2']=="Sympathy & Funeral"){?>selected="selected"<?php }?>>Sympathy & Funeral</option>
+<option value="Romantic" <?php if($b_row['be_title2']=="Romantic"){?>selected="selected"<?php }?>>Romantic</option>
+<option value="Thanksgiving" <?php if($b_row['be_title2']=="Thanksgiving"){?>selected="selected"<?php }?>>Thanksgiving</option> 
+<option value="Valentine´s Day" <?php if($b_row['be_title2']=="Valentine´s Day"){?>selected="selected"<?php }?>>Valentine´s Day</option> 
+</select>
+</div>
+</li>
+<li class="fields" style="padding-bottom:10px; border-bottom:dotted 1px #ccc;">
+<label for="be_text2" class="required"><em>*</em>Reminder Message</label>
+<div class="input-box"><textarea name="be_text2" rows="3" class="input-text required-entry validate-email" id="be_text2" title="Reminder Message"><?php echo $b_row['be_text2']; ?></textarea>
+</div>  
+</li>
+
+<li class="fields">
+<div class="field">
+<label for="month">Reminder Date</label> 
+<div class="input-box customer-dob"> 
+    <div class="dob-month"> 
+             <input type="text" id="month3" name="month3" value="<?php if($b_row['be_date3']!=""){echo date ('m', strtotime($b_row['be_date3']));}?>" title="Month" class="input-text validate-custom"  /> 
+             <label for="month">MM</label> 
+         </div><div class="dob-day"> 
+             <input type="text" id="day3" name="day3" value="<?php if($b_row['be_date3']!=""){echo date ('d', strtotime($b_row['be_date3']));}?>" title="Day" class="input-text validate-custom"  /> 
+             <label for="day">DD</label> 
+         </div><div class="dob-year"> 
+             <input type="text" id="year3" name="year3" value="<?php if($b_row['be_date3']!=""){echo date ('Y', strtotime($b_row['be_date3']));}?>" title="Year" class="input-text validate-custom"  /> 
+             <label for="year">YYYY</label> 
+         </div>
+</div> 
+</div>
+
+<div class="field">
+<label for="be_title3" class="required"><em>*</em>Reminder Title</label>
+<div class="input-box"><select name="be_title3" id="be_title3" title="Reminder Title" class="input-text required-entry validate-email">
+<option selected="selected">Please Select</option>
+<option value="Anniversary" <?php if($b_row['be_title3']=="Anniversary"){?>selected="selected"<?php }?>>Anniversary</option> 
+<option value="Birthday" <?php if($b_row['be_title3']=="Birthday"){?>selected="selected"<?php }?>>Birthday</option> 
+<option value="Christmas" <?php if($b_row['be_title3']=="Christmas"){?>selected="selected"<?php }?>>Christmas</option> 
+<option value="Easter" <?php if($b_row['be_title3']=="Easter"){?>selected="selected"<?php }?>>Easter</option> 
+<option value="Engagement" <?php if($b_row['be_title3']=="Engagement"){?>selected="selected"<?php }?>>Engagement</option> 
+<option value="Halloween" <?php if($b_row['be_title3']=="Halloween"){?>selected="selected"<?php }?>>Halloween</option> 
+<option value="Father´s Day" <?php if($b_row['be_title3']=="Father´s Day"){?>selected="selected"<?php }?>>Father´s Day</option> 
+<option value="Friendship Day" <?php if($b_row['be_title3']=="Friendship Day"){?>selected="selected"<?php }?>>Friendship Day</option> 
+<option value="Grand Opening - Business" <?php if($b_row['be_title3']=="Grand Opening - Business"){?>selected="selected"<?php }?>>Grand Opening - Business</option>
+<option value="Get Well" <?php if($b_row['be_title3']=="Get Well"){?>selected="selected"<?php }?>>Get Well</option>
+<option value="Graduation" <?php if($b_row['be_title3']=="Graduation"){?>selected="selected"<?php }?>>Graduation</option>
+<option value="Housewarming" <?php if($b_row['be_title3']=="Housewarming"){?>selected="selected"<?php }?>>Housewarming</option>
+<option value="Just Like That" <?php if($b_row['be_title3']=="Just Like That"){?>selected="selected"<?php }?>>Just Like That</option> 
+<option value="Love" <?php if($b_row['be_title3']=="Love"){?>selected="selected"<?php }?>>Love</option>
+<option value="New Born" <?php if($b_row['be_title3']=="New Born"){?>selected="selected"<?php }?>>New Born</option> 
+<option value="Sympathy & Funeral" <?php if($b_row['be_title3']=="Sympathy & Funeral"){?>selected="selected"<?php }?>>Sympathy & Funeral</option>
+<option value="Romantic" <?php if($b_row['be_title3']=="Romantic"){?>selected="selected"<?php }?>>Romantic</option>
+<option value="Thanksgiving" <?php if($b_row['be_title3']=="Thanksgiving"){?>selected="selected"<?php }?>>Thanksgiving</option> 
+<option value="Valentine´s Day" <?php if($b_row['be_title3']=="Valentine´s Day"){?>selected="selected"<?php }?>>Valentine´s Day</option> 
+</select>
+</div>
+</li>
+<li class="fields" style="padding-bottom:10px; border-bottom:dotted 1px #ccc;">
+<label for="be_text3" class="required"><em>*</em>Reminder Message</label>
+<div class="input-box"><textarea name="be_text3" rows="3" class="input-text required-entry validate-email" id="be_text3" title="Reminder Message"><?php echo $b_row['be_text3']; ?></textarea>
+</div>  
+</li>
+<li class="fields">
+<button type="submit" title="<?php echo $this->__('Save') ?>" class="button"><span><span><?php echo $this->__('Save') ?></span></span></button>
+</li>
+        </ul>
+
+    </div>
+</form>
+<? }?>
+<br />
+<?php if(!isset($_GET['add'])){ ?>
+<?php echo $this->getChildHtml('global_messages') ?>
+<?php echo $this->getChildHtml('content') ?>
+<br /><hr size="1px" color="#d0cdba" style="margin-right:10px;" /><br />
+<object style="width: 340px; height: 247px;" width="340" height="247" data="/media/content/website/EventsCalendar.swf?fid=<?php echo $kunde;?>" type="application/x-shockwave-flash">
+<param name="src" value="/media/content/website/EventsCalendar.swf" />
+<param name="fid" value="<?php echo $kunde;?>" />
+</object>
+<?php if(isset($kunde)){ ?>
+<div class="mywishlink"> 
+<ul class="add-to-links"> 
+    <li style="float:right; padding-right:10px;"><a href="http://padmadefleur.vn/packages/?add=1" class="link-wishlist">Add/Edit Date</a></li> 
+</ul> 
+</div> 
+<?php } else { ?>
+<div class="mywishlink"> 
+<ul class="add-to-links"> 
+    <li style="float:right; padding-right:10px;"><a href="http://padmadefleur.vn/customer/account/login/" class="link-wishlist">Login to add date</a></li>
+</ul> 
+</div> 
+<?php } } ?>
+<br /><hr size="1px" color="#d0cdba" style="margin-right:10px; margin-top:12px;" /><br />
+</div>
+</div>
+</div>
+<div class="nav_padma"><?php echo $this->getChildHtml('cms_main_nav') ?></div>
+                
+                
+</div>
+</div>
+</div>
+        
+<?php echo $this->getChildHtml('before_body_end') ?>
+ </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?><?php echo $this->getChildHtml('footer') ?>
+</body>
+</html>

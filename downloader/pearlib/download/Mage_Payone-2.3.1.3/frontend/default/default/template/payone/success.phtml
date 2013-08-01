@@ -1,0 +1,40 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   design_default
+ * @package    Mage_Payone
+ * @copyright  Copyright (c) 2009 Phoenix Medien GmbH & Co. KG (http://www.phoenix-medien.de)
+ */ ?>
+<?php
+    $order = $this->getOrder();
+    $pmethod = $order->getPayment()->getMethodInstance(); // Used in Vorkasse and TrustedShops sections below
+    $_authorizeReport = Mage::getSingleton('core/session')->getAuthorizeResponse();
+?>
+<?php if($_authorizeReport && $pmethod->getCode() == 'payone_vor' && $pmethod->getConfigData('payment_action') == 'authorize') : ?>
+<!-- START VORKASSE PAYMENT DETAILS -->
+<p>
+<br/>
+<br/>
+<strong>
+  <?php echo $this->__('Please transfer %s to this bank account:', Mage::helper('core')->currency($_authorizeReport['amount'],true,false)) ?><br/>
+  <?php echo $this->__('Payee: %s', $_authorizeReport['clearing_bankaccountholder']) ?><br/>
+  <?php echo $this->__('Account number: %s', $_authorizeReport['clearing_bankaccount']) ?><br/>
+  <?php echo $this->__('Bank sort code: %s', $_authorizeReport['clearing_bankcode']) ?><br/>
+  <?php echo $this->__('IBAN: %s', $_authorizeReport['clearing_bankiban']) ?><br/>
+  <?php echo $this->__('BIC: %s', $_authorizeReport['clearing_bankbic']) ?><br/>
+  <?php echo $this->__('Bank: %s', $_authorizeReport['clearing_bankname']) ?><br/>
+  <?php echo $this->__('Payment reference: %s', $_authorizeReport['txid']) ?><br/>
+  <?php Mage::getSingleton('core/session')->unsetData('authorize_response'); ?> </strong> </p>
+<!-- END VORKASSE PAYMENT DETAILS -->
+<?php endif; ?>
