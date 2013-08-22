@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>        
+		<MLogix_Events>
+			<active>true</active>
+			<codePool>community</codePool>
+		</MLogix_Events>  		
+	</modules>
+</config>

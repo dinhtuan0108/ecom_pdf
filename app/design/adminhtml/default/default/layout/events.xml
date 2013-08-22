@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+
+	<default>
+		<reference name="head">
+	            <action method="setCanLoadExtJs"><flag>1</flag></action>
+	    </reference>
+	</default>
+
+    <events_adminhtml_events_index>
+	    <reference name="left">
+        	<block type="events/adminhtml_tree" name="events.category.tree" template="events/tree.phtml"/>
+        </reference>        
+        <reference name="content">
+            <block type="events/adminhtml_events" name="events" />
+        </reference>
+    </events_adminhtml_events_index>
+    
+    <events_adminhtml_events_edit>
+	    <reference name="left">
+        	<block type="events/adminhtml_tree" name="events.category.tree" template="events/tree.phtml"/>
+        </reference>         
+		<reference name="content">
+			
+			
+			<block type="events/adminhtml_events_edit" name="events.events.edit">	
+				<block type="events/adminhtml_events_edit_tabs" name="events_edit_tabs"/>
+			</block>
+			
+		</reference>
+    </events_adminhtml_events_edit>
+
+</layout>

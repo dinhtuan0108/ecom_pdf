@@ -4,7 +4,7 @@
     </default>
     <events_index_index>
     </events_index_index>
-    <events_album_view>
+    <events_list_view>
     	<reference name="head">
 		<action method="addJs"><script>jquery/jquery-1.4.4.min.js</script></action>
     		<action method="addJs"><script>jquery/jquery.galleria.js</script></action>
@@ -17,5 +17,5 @@
     	<reference name="content">
     		<block type="events/events" name="events" template="events/galleria.phtml" />
     	</reference>
-    </events_album_view>
+    </events_list_view>
 </layout> 
