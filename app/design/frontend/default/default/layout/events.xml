@@ -15,7 +15,7 @@
     		<block type="events/events" name="breadcrumbs" template="events/breadcrumbs.phtml" />
     	</reference>    
     	<reference name="content">
-    		<block type="events/events" name="events" template="events/galleria.phtml" />
+    		<block type="events/events" name="events" template="events/list.phtml" />
     	</reference>
     </events_list_view>
 </layout> 
