@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+
+	<default>
+		<reference name="head">
+	            <action method="setCanLoadExtJs"><flag>1</flag></action>
+	    </reference>
+	</default>
+
+    <wedding_adminhtml_wedding_index>
+	    <reference name="left">
+        	<block type="wedding/adminhtml_tree" name="wedding.category.tree" template="wedding/tree.phtml"/>
+        </reference>        
+        <reference name="content">
+            <block type="wedding/adminhtml_wedding" name="wedding" />
+        </reference>
+    </wedding_adminhtml_wedding_index>
+    
+    <wedding_adminhtml_wedding_edit>
+	    <reference name="left">
+        	<block type="wedding/adminhtml_tree" name="wedding.category.tree" template="wedding/tree.phtml"/>
+        </reference>         
+		<reference name="content">
+			
+			
+			<block type="wedding/adminhtml_wedding_edit" name="wedding.wedding.edit">	
+				<block type="wedding/adminhtml_wedding_edit_tabs" name="wedding_edit_tabs"/>
+			</block>
+			
+		</reference>
+    </wedding_adminhtml_wedding_edit>
+
+</layout>
