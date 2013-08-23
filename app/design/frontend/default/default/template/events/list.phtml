@@ -38,11 +38,16 @@ $thumbHeight = 80;
 
 $numItems = 0;
 ?>
+
+<link href="<?php echo $this->getSkinUrl('css/camera.css')?>" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/camera.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.easing.1.3.js') ?>"></script>
 <div class="gallery_wrapper2">
 
 
 
-	<div class="categories">
+	<div class="event-categories">
 <?php
 
 
@@ -53,7 +58,7 @@ foreach($items as $item)
 	if($item->hasChildren())
 	{
 ?>	
-<div class="category">
+<div class="event-category">
 	<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
     <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=$item->getTitle()?></a></h2>
 </div>
@@ -71,75 +76,34 @@ foreach($items as $item)
     
 <?php if($numItems) { ?>
 <div class="demo">
-<div id="main_image"></div>
-<ul class="gallery_demo">
+	<div id="slider">
+		<?php
+		if(count($items))
+		foreach($items as $item)
+		{
+		
+			if(!$item->hasChildren())
+			{
+			/*<img src="<?=$item->getImageUrl()?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/>*/
+		?>	
+		<div data-src="<?=$item->getImageUrl()?>"></div>
+		<?php
+			}
+		}
+		?>
+	</div>
 
-<?php
-if(count($items))
-foreach($items as $item)
-{
-
-	if(!$item->hasChildren())
-	{
-?>	
-<li><img src="<?=$item->getImageUrl()?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></li>
-<?php
-	}
-}
-?>
-</ul>
 </div>
 <div class="clearfix"></div>
 <script type="text/javascript">
-jQuery.noConflict();
-jQuery(document).ready(function(){
-
-var $j=jQuery.noConflict();
-		
-		//$j('.gallery_demo_unstyled').addClass('gallery_demo'); // adds new class name to maintain degradability
-		
-		$j('ul.gallery_demo').galleria({
-			history   : false, // activates the history object for bookmarking, back-button etc.
-			clickNext : false, // helper for making the image clickable
-			insert    : '#main_image', // the containing selector for our main image
-			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
-				
-				// fade in the image & caption
-				image.css('display','none').fadeIn(1000);
-				caption.css('display','none').fadeIn(1000);
-				
-				// fetch the thumbnail container
-				var _li = thumb.parents('li');
-				
-				// fade out inactive thumbnail
-				_li.siblings().children('img.selected').fadeTo(500,0.3);
-				
-				// fade in active thumbnail
-				thumb.fadeTo('fast',1).addClass('selected');
-				
-				// add a title for the clickable image
-				image.attr('title','Next image >>');
-			},
-			onThumb : function(thumb) { // thumbnail effects goes here
-				
-				// fetch the thumbnail container
-				var _li = thumb.parents('li');
-				
-				// if thumbnail is active, fade all the way.
-				var _fadeTo = _li.is('.active') ? '1' : '0.3';
-				
-				// fade in the thumbnail when finnished loading
-				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1500);
-				
-				// hover effects
-				thumb.hover(
-					function() { thumb.fadeTo('fast',1); },
-					function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
-				)
-			}
+	jQuery.noConflict();
+	jQuery(document).ready(function(){
+		jQuery('#slider').camera({
+			autoAdvance: false
 		});
 	});
-	</script>
+	
+</script>
 
 <?php } ?>
 </div>
