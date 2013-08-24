@@ -10,8 +10,8 @@ class MLogix_Events_Block_Adminhtml_Events extends Mage_Adminhtml_Block_Widget_G
   {
     $this->_controller = 'adminhtml_events';
     $this->_blockGroup = 'events';
-    $this->_headerText = Mage::helper('events')->__('Item Manager');
-    $this->_addButtonLabel = Mage::helper('events')->__('Add Item');
+    $this->_headerText = Mage::helper('events')->__('Events Manager');
+    $this->_addButtonLabel = Mage::helper('events')->__('Add New Events');
     parent::__construct();
   }
 }
