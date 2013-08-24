@@ -25,7 +25,7 @@
  *
  */
 ?><?php
-$items = $this->getEvents();
+$items = $this->getWedding();
 
 $cat_thumbWidth = 160;
 $cat_thumbHeight = 120;
@@ -46,18 +46,16 @@ $numItems = 0;
 if(count($items))
 foreach($items as $item)
 {
-
 	if($item->hasChildren())
-	{
-?>	
-<div class="category">	
-	<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
-	<div class="title"><?=$item->getTitle()?></div>
-</div>
+	{?>
+	
+	<div class="category">	
+		<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
+		<div class="title"><?=$item->getTitle()?></div>
+	</div>
 
-<?php
-	}
-	else $numItems++;
+<?php 
+	}else $numItems++;
 }
 ?>
 		<div class="clearfix"></div>
