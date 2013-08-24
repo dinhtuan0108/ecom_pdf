@@ -6,7 +6,7 @@
 			<sort_order>72</sort_order>               
 			<children>
 				<items module="wedding">
-					<title>Manage Items</title>
+					<title>Manage Wedding Items</title>
 					<sort_order>0</sort_order>
 					<action>wedding/adminhtml_wedding</action>
 				</items>
