@@ -1461,9 +1461,7 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 #shipping_method_form .buttons-set {padding:10px;}
 
 
-
-
-/*EWP*/
+/**EWP**/
 .home-menu {
 	position: absolute;
 	margin: -195px auto 0;
@@ -1477,24 +1475,3 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 	width: 145px;
 	display: table-cell;
 }
-
-.event-category {
-	width: 200px;
-	float: left;
-	margin-left: 20px;
-	height: 180px;
-	background-color: #f1f1d9;
-	text-align: center;
-	margin-top: 20px;
-}
-.event-category h2 {
-	margin-top: 5px;
-	font-size: 14px;
-}
-.event-category img {
-	width: 200px;
-	height: 120px;
-}
-.event-category img:hover {
-	opacity: 0.3;
-} 

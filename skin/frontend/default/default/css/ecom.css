@@ -1,0 +1,118 @@
+.gallery-album-view{ padding:0px; margin:0px;}
+.bc{
+background:url(../../beagency/images/leaf.png) no-repeat scroll left center transparent;
+border:0 none;
+font-family:"Times New Roman",Times,serif;
+font-size:14px;
+font-weight:normal;
+padding:0 0 0 25px; 
+text-transform:uppercase;
+color:#86A68C;
+background-color: #DFDFC8;
+}
+.bc2{
+background-color: #DFDFC8;
+padding-bottom:15px;
+padding-left:10px; 
+padding-top:5px;
+}
+.categories{ padding-left:10px; padding-bottom:10px; background-color: #DFDFC8;	}
+.category{float:left; width:133px; margin-right:10px; margin-bottom:10px;}
+.category img{border: 3px solid #CCC;}
+.category .product-name a {text-decoration:none;background:url("../../beagency/images/leafSmall.png") no-repeat scroll left center transparent;color:#86A68C;font-family:"Times New Roman",Times,serif;font-size:10px;margin:0 0 5px 3px;padding:0 0 0 15px;text-transform:uppercase; }
+.category .product-name a:hover { text-decoration:underline; }
+
+.galleria{list-style:none;width:200px}
+.galleria li{display:block;width:80px;height:80px;overflow:hidden;float:left;margin:0 10px 10px 0}
+.galleria li a{display:none}
+.galleria li div{position:absolute;display:none;top:0;left:180px}
+.galleria li div img{cursor:pointer}
+.galleria li.active div img,.galleria li.active div{display:block}
+.galleria li img.thumb{cursor:pointer;top:auto;left:auto;display:block;width:auto;height:auto}
+.galleria li .caption{display:block;padding-top:.5em}
+
+.caption{color:#86A68C;font-family:"Times New Roman",Times,serif;font-size:12px;text-transform:uppercase;}
+	.demo{position:relative;}
+	.gallery_demo{width:900px;margin:0 auto;}
+	.gallery_demo li{width:70px;height:50px;border:1px solid #111;margin: 0 0 3px 3px;background:#000;}
+	.gallery_demo li div{left:240px}
+	.gallery_demo li div .caption{font:italic 0.7em/1.4 georgia,serif;}
+	.gallery_wrapper{ background:#DFDFC8;}
+	.gallery_wrapper2{ background:#DFDFC8;}
+	#main_image{margin:0 auto 50px auto;height:531px;width:800px; text-align:center;}
+	#main_image img{margin-bottom:10px; border: 3px solid #CCC;}
+	
+	.nav{margin:0 auto;padding-top:15px;clear:both;font:80% 'helvetica neue',sans-serif;letter-spacing:3px;text-transform:uppercase;}
+	
+	.info{text-align:left;width:700px;margin:30px auto;border-top:1px dotted #221;padding-top:30px;}
+	.info p{margin-top:1.6em;}
+
+	
+/*EWP*/
+
+.event-category {
+	width: 200px;
+	float: left;
+	margin-left: 20px;
+	height: 180px;
+	background-color: #f1f1d9;
+	text-align: center;
+	margin-top: 20px;
+}
+.event-category h2 {
+	margin-top: 5px;
+	font-size: 14px;
+}
+.event-category img {
+	width: 200px;
+	height: 120px;
+}
+.event-category img:hover {
+	opacity: 0.3;
+}
+
+
+/**event**/
+.event_bc {
+	background:url(../../beagency/images/leaf.png) no-repeat scroll left center transparent;
+	border:0 none;
+	font-family:"Times New Roman",Times,serif;
+	font-size:14px;
+	font-weight:normal;
+	padding:25px 0 0 25px; 
+	text-transform:uppercase;
+	color:#86A68C;
+	background-color: #DFDFC8;
+	height:45px;
+}
+
+.hr-header{
+	height:10px;
+  	margin-left:-6px;
+  	margin-top:24px;
+  	position:absolute;
+  	width:54.4%;
+	background:url(../../beagency/images/bg-widget-title.gif) scroll left center transparent;
+	background-repeat:repeat-x;
+      
+}
+
+.hr-bottom{
+	height:10px;
+  	margin-left:20px;
+  	margin-top:20px;
+  	width:95.7%;
+	background:url(../../beagency/images/bg-widget-title.gif) scroll left center transparent;
+	background-repeat:repeat-x;
+      
+}
+
+.event-categories{
+	margin-top:-5px;
+}
+#slider{
+	display:block;
+  	margin-bottom:61px;
+  	margin-left:20px;
+  	width:95.5%;
+}
