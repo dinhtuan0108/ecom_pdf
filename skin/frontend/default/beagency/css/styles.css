@@ -91,7 +91,7 @@ ul, ol { list-style:none; }
 .main { padding:16px 16px 50px; min-height:350px; }
 /* Base Columns */
 .col-left { float:left; width:220px; padding:0 0 1px; }
-.col-main { float:left; width:686px; padding:0 0 1px; }
+.col-main { float:left; width:700px; padding:0 0 1px; }
 .col-right { float:right; width:220px; padding:0 0 1px; }
 /* 1 Column Layout */
 .col1-layout .main { padding:16px 30px 20px; }

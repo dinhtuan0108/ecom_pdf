@@ -51,7 +51,7 @@ display:none;
 </style>
 <div class="event-category">
 	<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
-    <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=$item->getTitle()?></a></h2>
+    <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=mb_substr($item->getTitle(), 0,70).'...'?></a></h2>
 </div>
 
 <?php
@@ -87,7 +87,6 @@ display:none;
 	
 </div>
 <div class="clearfix"></div>
-<div class="hr-bottom"></div>
 
 	
 <script type="text/javascript">

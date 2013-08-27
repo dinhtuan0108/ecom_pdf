@@ -25,6 +25,10 @@
 .postContent {
 	padding-bottom: 10px;
 }
+
+.postContent img {
+	width:100%;
+}
 .postDetails {
 	
 }

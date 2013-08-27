@@ -37,20 +37,19 @@ $bcs = $this->getBreadcrumbs();
 		</div>    	
 	</div> 
 	<div class="event_bc">
-	<div class="hr-header"></div>
-
+<img alt="event-icon" src="<?php echo $this->getSkinUrl('images/leaf.png') ?>">
 <?php 
 
 
 if($this->getCurrentEvents()->getId() > 0)
-	echo '<a href="'.$this->getUrl('events').'">Photo Event</a>'.' - ';
+	echo '<a href="'.$this->getUrl('events').'">Events</a>'.' - ';
 	
 foreach($bcs as $bc)
 {
 	echo '<a href="'.$this->getViewUrl($bc->getId).'">'.$bc->getTitle().'</a>'.' - ';
 }
 
-echo $this->getEventsTitle() ?>
+echo  mb_substr($this->getEventsTitle(), 0,100).'...'?>
 	
 	</div>
 </div>

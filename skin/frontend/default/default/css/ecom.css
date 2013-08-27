@@ -54,7 +54,7 @@ padding-top:5px;
 	width: 200px;
 	float: left;
 	margin-left: 20px;
-	height: 180px;
+	height: 190px;
 	background-color: #f1f1d9;
 	text-align: center;
 	margin-top: 20px;
@@ -74,12 +74,11 @@ padding-top:5px;
 
 /**event**/
 .event_bc {
-	background:url(../../beagency/images/leaf.png) no-repeat scroll left center transparent;
 	border:0 none;
 	font-family:"Times New Roman",Times,serif;
 	font-size:14px;
 	font-weight:normal;
-	padding:25px 0 0 25px; 
+	padding:25px 0 0 20px; 
 	text-transform:uppercase;
 	color:#86A68C;
 	background-color: #DFDFC8;
