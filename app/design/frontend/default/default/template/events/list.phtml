@@ -74,21 +74,23 @@ display:none;
 		{
 		
 			if(!$item->hasChildren())
-			{
-			/*<img src="<?=$item->getImageUrl()?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/>*/
-		?>	
-		<div data-src="<?=$item->getImageUrl()?>"></div>
+			{?>	
+			<div data-src="<?=$item->getImageUrl()?>"></div>
 		
-		<?php
+			<?php
 			}
 		}
 		?>
+		
 	</div>
 	
 </div>
-<div class="clearfix"></div>
 
-	
+<p>Title: <?php echo $item->getTitle();?></p><br>
+Photographer:Christian Oth Studios
+
+
+<div class="clearfix"></div>
 <script type="text/javascript">
 	jQuery.noConflict();
 	jQuery(document).ready(function(){
@@ -98,4 +100,15 @@ display:none;
 	});
 </script>
 <?php } ?>
+</div>
+<br>
+<div class="relate_project">
+	<div class="event_relate_project">
+		<img alt="event-icon" src="<?php echo $this->getSkinUrl('images/leaf.png') ?>">
+		Relate project
+	</div>
+		<div class="event-category">
+		<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
+	    <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=mb_substr($item->getTitle(), 0,70).'...'?></a></h2>
+	</div>
 </div>

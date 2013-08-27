@@ -39,6 +39,7 @@ padding-top:5px;
 	.gallery_demo li div .caption{font:italic 0.7em/1.4 georgia,serif;}
 	.gallery_wrapper{ background:#DFDFC8;}
 	.gallery_wrapper2{ background:#DFDFC8;}
+	.relate_project{ background:#DFDFC8;height:270px;}
 	#main_image{margin:0 auto 50px auto;height:531px;width:800px; text-align:center;}
 	#main_image img{margin-bottom:10px; border: 3px solid #CCC;}
 	
@@ -114,4 +115,16 @@ padding-top:5px;
   	margin-bottom:61px;
   	margin-left:20px;
   	width:95.5%;
+}
+
+.event_relate_project {
+	border:0 none;
+	font-family:"Times New Roman",Times,serif;
+	font-size:14px;
+	font-weight:normal;
+	padding:25px 0 0 20px; 
+	text-transform:uppercase;
+	color:#86A68C;
+	background-color: #DFDFC8;
+	height:10px;
 }
