@@ -1466,20 +1466,25 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 	background-color:#E5E5C9;
   	font-size:12px;
   	height:50px;
-  	margin:-201px auto 0 87px;
+  	margin:-201px auto 0 125px;
   	position:absolute;
-  	width:808px;
+  	width:710px;
+  	border-bottom: 1px solid #C8C7B0;
 }
 .nav_padma .home-menu {
   	position: relative;
-  	margin: 0 55px;
+  	margin: 0 auto;
   	
   	
 }
+
 .home-menu .col{
-	width: 150px;
+	width: 114px;
 	display: table-cell;
 	text-align: right;
+}
+.home-menu .col + .col {
+	width: 150px;
 }
 .home-menu .col h1 {
 	text-transform: uppercase;
@@ -1510,11 +1515,13 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 }
 .home-text {
 	margin-top: -110px;
-	margin-left: 132px;
+	margin-left: 122px;
 	font-family:"Times New Roman",Georgia,Serif;
 	font-size: 12pt;
 	color: #86A68C;
 	font-style: italic;
+	width: 712px;
+	border-bottom: 1px solid #C8C7B0;
 }
 .home-text h1, .home-text h4 {
 	color: #6D6D60;
@@ -1525,4 +1532,7 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 
 .footer .copy {
 	font-size: 6pt;
+	text-align: right;
+	width: 725px;
+	margin: 0 auto;
 }
