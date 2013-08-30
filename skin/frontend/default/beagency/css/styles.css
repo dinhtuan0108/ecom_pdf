@@ -1480,13 +1480,13 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 }
 
 .home-menu .col{
-	width: 118px;
+	width: 124px;
 	display: table-cell;
 	text-align: right;
 	float: left;
 }
 .home-menu .col + .col {
-	margin-left: 25px;
+	margin-left: 18px;
 }
 .home-menu .col h1 {
 	text-transform: uppercase;
