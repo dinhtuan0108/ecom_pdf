@@ -1483,8 +1483,8 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 }
 .home-menu .col h1 {
 	text-transform: uppercase;
-	font-size: 18px;
-	font-family:"Times New Roman",Georgia,Serif;
+	
+	
 }
 .home-menu .col h1 a {
 	color: #6D6D60;
@@ -1495,6 +1495,10 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 	background: url('../images/leaf.png') no-repeat center left;
 	background-size: 15px 11px;
 }
+.home-menu a {
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: 12pt;
+}
 .home-menu a:hover {
 	text-decoration: none;
 	
@@ -1502,9 +1506,23 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 .home-menu .col h4 {
 	font-weight: normal;
 	font-style: italic;
-	font-family:  "Comic Sans MS", cursive, sans-serif;
+	margin-top: -10px;
 }
 .home-text {
-	text-align: center;
-	margin-top: -140px;
+	margin-top: -110px;
+	margin-left: 132px;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: 12pt;
+	color: #86A68C;
+	font-style: italic;
+}
+.home-text h1, .home-text h4 {
+	color: #6D6D60;
+	font-style: italic;
+	font-size: 12pt;
+	font-weight: normal;
+}
+
+.footer .copy {
+	font-size: 6pt;
 }
