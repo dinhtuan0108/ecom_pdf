@@ -1504,3 +1504,7 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 	font-style: italic;
 	font-family:  "Comic Sans MS", cursive, sans-serif;
 }
+.home-text {
+	text-align: center;
+	margin-top: -140px;
+}
