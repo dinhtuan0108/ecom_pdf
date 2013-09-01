@@ -67,6 +67,7 @@ display:none;
 <!-- DETAIL -->    
 <?php if($numItems) { ?>
 <div class="demo">
+
 	<div id="slider">
 		<?php
 		if(count($items))
@@ -84,11 +85,37 @@ display:none;
 		
 	</div>
 	
+	<br/>
+	<div class="slide_desc">
+		<p>Title: <?php echo $item->getTitle();?></p>
+		<p>Photographer:Christian Oth Studios</p> 
+		<p>Photographer:Christian Oth Studios</p>
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	<div class="space_block"></div>
+	
+	<?php 
+	$relate_item = $this->getEvents();
+	//var_dump($relate_item->getData());die;
+	if(!$item->hasChildren()){
+	?>
+	<div class="relate_project">
+		<div class="event_relate_project">
+			<img alt="event-icon" src="<?php echo $this->getSkinUrl('images/leaf.png') ?>">	
+			Relate project
+		</div>
+		<?php foreach ($relate_item as $item){ ?>
+			<div class="event-category">
+				<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
+			    <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=mb_substr($item->getTitle(), 0,70).'...'?></a></h2>
+			</div>
+		<?php } ?>	
+	</div>
+	<?php }?>
 </div>
-
-<p>Title: <?php echo $item->getTitle();?></p><br>
-Photographer:Christian Oth Studios
-
 
 <div class="clearfix"></div>
 <script type="text/javascript">
@@ -100,15 +127,4 @@ Photographer:Christian Oth Studios
 	});
 </script>
 <?php } ?>
-</div>
-<br>
-<div class="relate_project">
-	<div class="event_relate_project">
-		<img alt="event-icon" src="<?php echo $this->getSkinUrl('images/leaf.png') ?>">
-		Relate project
-	</div>
-		<div class="event-category">
-		<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
-	    <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=mb_substr($item->getTitle(), 0,70).'...'?></a></h2>
-	</div>
 </div>

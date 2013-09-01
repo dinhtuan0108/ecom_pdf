@@ -22,6 +22,18 @@ class MLogix_Events_Block_Events extends Mage_Core_Block_Template
         	return $model->getEvents($model->getId());
     }
     
+    //Get relate project
+	public function getEventsRelate($parent=0)
+    {
+    	 $model = $this->getCurrentEvents();
+        if(!$model) return array();
+        
+        if($parent)
+        	return $model->getEvents($parent);
+        else
+        	return $model->getEvents($model->getId());
+    }
+    
     public function getImageUrl($itemId)
     {
     	$model = Mage::getModel('events/events')->load($itemId);

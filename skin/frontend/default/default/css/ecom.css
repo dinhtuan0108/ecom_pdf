@@ -128,3 +128,12 @@ padding-top:5px;
 	background-color: #DFDFC8;
 	height:10px;
 }
+
+.slide_desc{
+ margin: 0 0 0 20px;
+}
+.space_block{
+width: 100%;
+height: 20px;
+background-color: #E5E5C9;
+}
