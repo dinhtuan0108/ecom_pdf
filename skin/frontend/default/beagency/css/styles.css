@@ -1538,3 +1538,13 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 	width: 725px;
 	margin: 0 auto;
 }
+.postWrapper {
+	font-family:"Times New Roman",Times,serif;
+	font-size: 14px;
+}
+.postWrapper h3 {
+	font-size: 12px !important;
+}
+.postWrapper p {
+	
+}
