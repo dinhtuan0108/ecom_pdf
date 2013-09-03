@@ -1,37 +1,15 @@
 <?php
 /**
- * Magic Logix Gallery
- *
- * Provides an image gallery extension for Magento
- *
- * @category		MLogix
- * @package		Gallery
- * @author		Brady Matthews
- * @copyright		Copyright (c) 2008 - 2010, Magic Logix, Inc.
- * @license		http://creativecommons.org/licenses/by-nc-sa/3.0/us/
- * @link		http://www.magiclogix.com
- * @link		http://www.magentoadvisor.com
- * @since		Version 1.0
- *
- * Please feel free to modify or distribute this as you like,
- * so long as it's for noncommercial purposes and any
- * copies or modifications keep this comment block intact
- *
- * If you would like to use this for commercial purposes,
- * please contact me at brady@magiclogix.com
- *
- * For any feedback, comments, or questions, please post
- * it on my blog at http://www.magentoadvisor.com/plugins/gallery/
- *
- */
+ * ecomwebpro.com	
+*/
 ?>
 
 
 <?php
 $items = $this->getWedding();
 
-$cat_thumbWidth = 133;
-$cat_thumbHeight = 133;
+$cat_thumbWidth = 166;
+$cat_thumbHeight = 166;
 
 $thumbWidth = 107;
 $thumbHeight = 80;
@@ -98,6 +76,7 @@ display:none;
 <!-- DETAIL -->    
 <?php if($numItems) { ?>
 <div class="demo">
+
 	<div id="slider">
 		<?php
 		if(count($items))
@@ -105,22 +84,57 @@ display:none;
 		{
 		
 			if(!$item->hasChildren())
-			{
-			/*<img src="<?=$item->getImageUrl()?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/>*/
-		?>	
-		<div data-src="<?=$item->getImageUrl()?>"></div>
+			{?>	
+			<div data-src="<?=$item->getImageUrl()?>"></div>
 		
-		<?php
+			<?php
 			}
 		}
 		?>
+		
 	</div>
 	
-</div>
-<div class="clearfix"></div>
-<div class="hr-bottom"></div>
-
+	<br/>
+	<div class="slide_desc">
+		<p>Title: <?php echo $item->getTitle();?></p>
+		<p>Photographer:<?php echo $item->getData('alt');?></p> 
+	</div>
 	
+	<br>
+	<br>
+	<br>
+	<div class="space_block"></div>
+	
+	<?php 
+	$relateItems = $this->getWeddingRelate();
+	$randItems = array();
+	if(!$item->hasChildren()){
+		
+		foreach($relateItems as $rItem){
+			if($rItem['parent_id'] == 0){
+	 			$randItems[] = $rItem['wedding_id'];
+			}
+	 }
+	 
+	$itemRelate = array_rand($randItems,5);
+	?>
+	<div class="relate_project">
+		<div class="event_relate_project">
+			<img alt="event-icon" src="<?php echo $this->getSkinUrl('images/leaf.png') ?>">	
+			Relate project
+		</div>
+		<?php for($i=0;$i<5;$i++){?>
+		<?php $rFileName = $this->getItemRelateData($randItems[$itemRelate[$i]],'filename');?>
+			<div class="event-category">
+				<a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?php echo $this->getRelateThumbnail($cat_thumbWidth ,$cat_thumbHeight,$randItems[$itemRelate[$i]],$rFileName)?>" title="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'item_title')?>" alt="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'alt')?>"/></a>
+			    <h2 class="product-name"><a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>"><?=mb_substr($this->getItemRelateData($randItems[$itemRelate[$i]],'item_title'), 0,70).'...'?></a></h2>
+			</div>
+		<?php } ?>	
+	</div>
+	<?php }?>
+</div>
+
+<div class="clearfix"></div>
 <script type="text/javascript">
 	jQuery.noConflict();
 	jQuery(document).ready(function(){

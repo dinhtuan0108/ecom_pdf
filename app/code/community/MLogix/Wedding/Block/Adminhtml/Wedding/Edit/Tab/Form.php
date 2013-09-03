@@ -72,7 +72,7 @@ class MLogix_Wedding_Block_Adminhtml_Wedding_Edit_Tab_Form extends Mage_Adminhtm
 	  }	  
 	  
       $fieldset->addField('alt', 'text', array(
-          'label'     => Mage::helper('wedding')->__('Alt'),          
+          'label'     => Mage::helper('wedding')->__('Photographer'),          
           'required'  => false,
           'name'      => 'alt',
       ));      	  

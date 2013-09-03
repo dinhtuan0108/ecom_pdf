@@ -22,14 +22,6 @@ class MLogix_Events_Block_Events extends Mage_Core_Block_Template
         	return $model->getEvents($model->getId());
     }
     
-    //Get relate project
-	public function getEventsRelate($parent=0)
-    {
-    	$model= Mage::getModel('events/events');
-    	$eventList = $model->getCollection()->getData();
-    	 //var_dump($event_list);die;
-    	return $eventList;
-    }
     
     public function getImageUrl($itemId)
     {
@@ -76,6 +68,15 @@ class MLogix_Events_Block_Events extends Mage_Core_Block_Template
     	$item = Mage::getModel('events/events')->load($itemId);
 		$thumImg = $item->getThumbnail($cat_thumbWidth,$cat_thumbHeight);	
     	return $thumImg;
+    }
+    
+//Get relate project
+	public function getEventsRelate($parent=0)
+    {
+    	$model= Mage::getModel('events/events');
+    	$eventList = $model->getCollection()->getData();
+    	 //var_dump($event_list);die;
+    	return $eventList;
     }
    
 }
