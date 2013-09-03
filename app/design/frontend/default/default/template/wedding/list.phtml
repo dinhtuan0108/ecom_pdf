@@ -72,8 +72,17 @@ display:none;
 }
 </style>
 <div class="event-category">
-	<a href="<?=$this->getViewUrl($item->getId())?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
-    <h2 class="product-name"><a href="<?=$this->getViewUrl($item->getId())?>"><?=$item->getTitle()?></a></h2>
+	<a href="<?=$this->getViewUrl($item->getId())?>" title="<?php echo $item->getTitle() ?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?=$item->getThumbnail($cat_thumbWidth,$cat_thumbHeight)?>" title="<?=$item->getTitle()?>" alt="<?=$item->getAlt()?>"/></a>
+    <h2 class="product-name">
+		<a href="<?=$this->getViewUrl($item->getId())?>" title="<?php echo $item->getTitle() ?>">
+			<?php 
+				$dots = '';
+				if(mb_strlen($item->getTitle()) > 70)
+					$dots = '...';
+		 	?>
+			<?=mb_substr($item->getTitle(), 0,70) . $dots?>
+		</a>
+	</h2>
 </div>
 
 <?php
