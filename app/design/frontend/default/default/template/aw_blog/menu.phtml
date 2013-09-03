@@ -14,7 +14,7 @@
 	</div>	
 <?php endif; ?>
 
-<?php if($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
+<?php /* if($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
 	<div class="menu-categories">
         <h5><?php echo Mage::helper('blog')->__('Categories');?></h5>
         <ul>
@@ -24,7 +24,7 @@
 <?php endforeach; ?>
     	</ul>
 	</div>	
-<?php endif;?>
+<?php endif; */ ?>
 		
 		<?php echo $this->getChildHtml('blog_tags');?>
 	</div>

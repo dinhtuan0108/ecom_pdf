@@ -87,13 +87,13 @@
 .event_bc {
 	border:0 none;
 	font-family:"Times New Roman",Times,serif;
-	font-size:14px;
+	font-size:16px;
 	font-weight:normal;
-	padding:25px 0 0 20px; 
+	padding:5px 0 0 5px; 
 	text-transform:uppercase;
 	color:#86A68C;
 	background-color: #DFDFC8;
-	height:45px;
+	height:7px;
 }
 
 .hr-header{
