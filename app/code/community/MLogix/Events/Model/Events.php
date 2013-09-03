@@ -496,16 +496,29 @@ public function createthumb($name,$filename,$new_w,$new_h,$forcepng=false){
 	if ($old_x == $old_y) {
 		$thumb_w=$new_w;
 		$thumb_h=$new_h;
-	}*/
+	}
+	*/
+	$deltaX = 0;
+	$deltaY = 0;
+	
+	if ($old_x >= $old_y) {
+		$deltaX = ($old_x - $old_y) / 2;
+		$old_x = $old_y;
+		
+	} else {
+		$deltaY = ($old_y - $old_x) / 2;
+		$old_y = $old_x;
+		
+	}
 	
 	$thumb_w=$new_w;
 	$thumb_h=$new_h;
 
+
 	$dst_img=ImageCreateTrueColor($thumb_w,$thumb_h);
-	
-	
+
 	//imagecopyresized($dst_img,$src_img,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y); 
-	imagecopyresampled($dst_img,$src_img,0,0,0,0,$thumb_w,$thumb_h,$old_x,$old_y); 
+	imagecopyresampled($dst_img, $src_img, 0, 0, $deltaX, $deltaY, $thumb_w, $thumb_h, $old_x, $old_y); 
 	
 	if ($forcepng||preg_match("/png/i",$system[1]))
 	{
