@@ -15,6 +15,7 @@ $thumbWidth = 107;
 $thumbHeight = 80;
 
 $numItems = 0;
+$currentId = array();
 ?>
 
 <link href="<?php echo $this->getSkinUrl('css/camera.css')?>" rel="stylesheet" type="text/css" />
@@ -54,6 +55,7 @@ display:none;
     <h2 class="product-name">
 		<a href="<?=$this->getViewUrl($item->getId())?>" title="<?php echo $item->getTitle() ?>">
 			<?php 
+				$currentId[] = $item->getId();
 				$dots = '';
 				if(mb_strlen($item->getTitle()) > 70)
 					$dots = '...';
@@ -96,8 +98,16 @@ display:none;
 	
 	<br/>
 	<div class="slide_desc">
-		<p>Title: <?php echo $item->getTitle();?></p>
-		<p>Photographer:<?php echo $item->getData('alt');?></p> 
+		<?php if($this->getItemRelateData($this->getIdFromUrl(),'description')):?>
+			<p><?php 
+					$dots = '';
+					if(mb_strlen($this->getItemRelateData($this->getIdFromUrl(),'description')) > 355){
+						$dots = '...';
+					}
+					echo mb_substr($this->getItemRelateData($this->getIdFromUrl(),'description'), 0,342,'UTF-8') . $dots;?></p>
+		<?php else:?>
+			<p><?php echo 'Empty description';?></p>
+		<?php endif;?>
 	</div>
 	
 	<div class="space_block"></div>
@@ -123,7 +133,7 @@ display:none;
 		<?php for($i=0;$i<5;$i++){?>
 		<?php $rFileName = $this->getItemRelateData($randItems[$itemRelate[$i]],'filename');?>
 			<div class="event-category">
-				<a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?php echo $this->getRelateThumbnail($cat_thumbWidth ,$cat_thumbHeight,$randItems[$itemRelate[$i]],$rFileName)?>" title="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'item_title')?>" alt="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'alt')?>"/></a>
+				<a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>" name = "events_id"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?php echo $this->getRelateThumbnail($cat_thumbWidth ,$cat_thumbHeight,$randItems[$itemRelate[$i]],$rFileName)?>" title="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'item_title')?>" alt="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'alt')?>"/></a>
 			    <h2 class="product-name"><a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>"><?=mb_substr($this->getItemRelateData($randItems[$itemRelate[$i]],'item_title'), 0,70).'...'?></a></h2>
 			</div>
 		<?php } ?>	

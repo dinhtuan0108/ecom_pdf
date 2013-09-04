@@ -41,7 +41,7 @@ class MLogix_Events_Block_Adminhtml_Events_Edit_Tab_Form extends Mage_Adminhtml_
           'name'      => 'item_title',
       ));
       
-      $fieldset->addField('description', 'text', array(
+      $fieldset->addField('description', 'textarea', array(
           'label'     => Mage::helper('events')->__('Description'),          
           'required'  => false,
           'name'      => 'description',
