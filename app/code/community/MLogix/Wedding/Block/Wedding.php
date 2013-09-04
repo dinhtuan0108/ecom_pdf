@@ -54,4 +54,27 @@ class MLogix_Wedding_Block_Wedding extends Mage_Core_Block_Template
     {    	
     	return $this->getCurrentWedding()->getBreadcrumbPath();    	
     }
+    
+	public function getItemRelateData($itemId,$key)
+    {
+    	$model = Mage::getModel('wedding/wedding')->load($itemId);
+    	
+    	return $model->getData($key);
+    }
+    
+ 	public function getRelateThumbnail($cat_thumbWidth,$cat_thumbHeight,$itemId,$filename)
+    {
+    	$item = Mage::getModel('wedding/wedding')->load($itemId);
+		$thumImg = $item->getThumbnail($cat_thumbWidth,$cat_thumbHeight);	
+    	return $thumImg;
+    }
+    
+//Get relate project
+	public function getWeddingRelate($parent=0)
+    {
+    	$model= Mage::getModel('wedding/wedding');
+    	$weddingList = $model->getCollection()->getData();
+    	 //var_dump($event_list);die;
+    	return $weddingList;
+    }
 }

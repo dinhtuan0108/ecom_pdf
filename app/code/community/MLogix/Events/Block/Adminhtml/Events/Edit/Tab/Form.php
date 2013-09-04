@@ -72,7 +72,7 @@ class MLogix_Events_Block_Adminhtml_Events_Edit_Tab_Form extends Mage_Adminhtml_
 	  }	  
 	  
       $fieldset->addField('alt', 'text', array(
-          'label'     => Mage::helper('events')->__('Alt'),          
+          'label'     => Mage::helper('events')->__('Photographer'),          
           'required'  => false,
           'name'      => 'alt',
       ));      	  
