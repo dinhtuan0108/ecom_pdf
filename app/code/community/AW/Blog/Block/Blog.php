@@ -271,6 +271,10 @@ class AW_Blog_Block_Blog extends Mage_Core_Block_Template {
 		$data = explode('/', $curUrl);
 		if(in_array("cat", $data)){
 			$itemId = end($data);
+			if($itemId == ''){
+				$data = explode('/', $curUrl, -1);
+				$itemId = end($data);
+			}
 		}
 		
 		return $itemId;

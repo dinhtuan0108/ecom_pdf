@@ -20,8 +20,7 @@
        	</ul>
 	</div>	
 <?php endif; ?>
-
-<?php if($this->getCateIdFromUrl() == 'news'):?>
+<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press' || $this->getCateIdFromUrl() == 'blog_link'):?>
 	<?php if($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
 		<div class="menu-categories">
 	        <h5><?php echo Mage::helper('blog')->__('Categories');?></h5>
