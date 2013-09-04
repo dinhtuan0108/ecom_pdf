@@ -77,4 +77,28 @@ class MLogix_Wedding_Block_Wedding extends Mage_Core_Block_Template
     	 //var_dump($event_list);die;
     	return $weddingList;
     }
+    
+    function curPageURL() {
+	 $pageURL = 'http';
+	 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+	 $pageURL .= "://";
+	 if ($_SERVER["SERVER_PORT"] != "80") {
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	 } else {
+	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	 }
+	 return $pageURL;
+	}
+	
+	function getIdFromUrl(){
+		$curUrl = $this->curPageURL();
+		$itemId = '';
+		$data = explode('/', $curUrl);
+		if(in_array("id", $data)){
+			$itemId = end($data);
+		}
+		
+		return $itemId;
+	}   
+    
 }

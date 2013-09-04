@@ -41,7 +41,7 @@ class MLogix_Wedding_Block_Adminhtml_Wedding_Edit_Tab_Form extends Mage_Adminhtm
           'name'      => 'item_title',
       ));
       
-      $fieldset->addField('description', 'text', array(
+      $fieldset->addField('description', 'textarea', array(
           'label'     => Mage::helper('wedding')->__('Description'),          
           'required'  => false,
           'name'      => 'description',

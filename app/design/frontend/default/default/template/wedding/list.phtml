@@ -96,8 +96,16 @@ display:none;
 	
 	<br/>
 	<div class="slide_desc">
-		<p>Title: <?php echo $item->getTitle();?></p>
-		<p>Photographer:<?php echo $item->getData('alt');?></p> 
+		<?php if($this->getItemRelateData($this->getIdFromUrl(),'description')):?>
+			<p><?php 
+					$dots = '';
+					if(mb_strlen($this->getItemRelateData($this->getIdFromUrl(),'description')) > 355){
+						$dots = '...';
+					}
+					echo mb_substr($this->getItemRelateData($this->getIdFromUrl(),'description'), 0,342,'UTF-8') . $dots;?></p>
+		<?php else:?>
+			<p><?php echo 'Empty description';?></p>
+		<?php endif;?>
 	</div>
 
 	<div class="space_block"></div>
