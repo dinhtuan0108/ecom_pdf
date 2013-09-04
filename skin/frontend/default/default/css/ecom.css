@@ -89,14 +89,16 @@
 	font-family:"Times New Roman",Times,serif;
 	font-size:14px;
 	font-weight:normal;
-	padding:5px 0 10px 5px; 
+	padding:4px 0 20px 5px; 
 	text-transform:uppercase;
 	color:#86A68C;
 	background-color: #DFDFC8;
 	height:7px;
 	line-height: 1.15;
 }
-
+.event_bc a {
+	color:#86A68C;
+}
 .hr-header{
 	height:10px;
   	margin-left:-6px;
@@ -150,5 +152,5 @@ background-color: #E5E5C9;
 }
 
 .gallery_wrapper2 .demo {
-	margin-top: 20px;
+	margin-top: 10px;
 }
