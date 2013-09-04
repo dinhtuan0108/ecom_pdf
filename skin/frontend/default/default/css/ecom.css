@@ -57,7 +57,7 @@
 	margin-left: 12px;
 	height: 190px;
 	text-align: left;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 30px;
 }
 .event-category h2 {
@@ -87,13 +87,14 @@
 .event_bc {
 	border:0 none;
 	font-family:"Times New Roman",Times,serif;
-	font-size:16px;
+	font-size:14px;
 	font-weight:normal;
-	padding:5px 0 0 5px; 
+	padding:5px 0 10px 5px; 
 	text-transform:uppercase;
 	color:#86A68C;
 	background-color: #DFDFC8;
 	height:7px;
+	line-height: 1.15;
 }
 
 .hr-header{
