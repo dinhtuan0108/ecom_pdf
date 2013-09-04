@@ -126,7 +126,7 @@ display:none;
 	$itemRelate = array_rand($randItems,5);
 	?>
 	<div class="relate_project">
-		<div class="event_relate_project">
+		<div class="event_bc">
 			<img alt="event-icon" src="<?php echo $this->getSkinUrl('images/leaf.png') ?>">	
 			Relate project
 		</div>
@@ -134,7 +134,12 @@ display:none;
 		<?php $rFileName = $this->getItemRelateData($randItems[$itemRelate[$i]],'filename');?>
 			<div class="event-category">
 				<a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>" name = "events_id"><img width="<?=$cat_thumbWidth?>" height="<?=$cat_thumbHeight?>" src="<?php echo $this->getRelateThumbnail($cat_thumbWidth ,$cat_thumbHeight,$randItems[$itemRelate[$i]],$rFileName)?>" title="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'item_title')?>" alt="<?=$this->getItemRelateData($randItems[$itemRelate[$i]],'alt')?>"/></a>
-			    <h2 class="product-name"><a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>"><?=mb_substr($this->getItemRelateData($randItems[$itemRelate[$i]],'item_title'), 0,70).'...'?></a></h2>
+			    <h2 class="product-name"><a href="<?=$this->getViewUrl($randItems[$itemRelate[$i]])?>">
+			<?php $dots = '';
+				if(mb_strlen($this->getItemRelateData($randItems[$itemRelate[$i]],'item_title')) > 70)
+					$dots = '...';
+		 	?>
+		<?=mb_substr($this->getItemRelateData($randItems[$itemRelate[$i]],'item_title'), 0,70).$dots?></a></h2>
 			</div>
 		<?php } ?>	
 	</div>
