@@ -239,5 +239,41 @@ class AW_Blog_Block_Blog extends Mage_Core_Block_Template {
             }
         }
     }
+    
+ 	public function getCustomCategories() {
+        $collection = Mage::getModel('blog/cat')->getCollection()
+                        ->addStoreFilter(Mage::app()->getStore()->getId())
+                        ->setOrder('sort_order ', 'asc');
+
+        $route = Mage::helper('blog')->getRoute();
+
+        foreach ($collection as $item) {
+            $item->setAddress($this->getUrl($route . "/cat/" . $item->getIdentifier()));
+        }
+        return $collection;
+    }
+    
+    function curPageURL() {
+	 $pageURL = 'http';
+	 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+	 $pageURL .= "://";
+	 if ($_SERVER["SERVER_PORT"] != "80") {
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	 } else {
+	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	 }
+	 return $pageURL;
+	}
+	
+	function getCateIdFromUrl(){
+		$curUrl = $this->curPageURL();
+		$itemId = '';
+		$data = explode('/', $curUrl);
+		if(in_array("cat", $data)){
+			$itemId = end($data);
+		}
+		
+		return $itemId;
+	}   
 
 }
