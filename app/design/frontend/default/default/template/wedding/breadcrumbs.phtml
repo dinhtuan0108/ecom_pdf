@@ -43,14 +43,14 @@ $bcs = $this->getBreadcrumbs();
 
 
 if($this->getCurrentWedding()->getId() > 0)
-	echo '<a href="'.$this->getUrl('wedding').'">Wedding Photo</a>'.' - ';
+	echo '<a href="'.$this->getUrl('wedding').'">Wedding Photo</a>'.' - '.'<span class = "title_list">';
 	
 foreach($bcs as $bc)
 {
 	echo '<a href="'.$this->getViewUrl($bc->getId).'">'.$bc->getTitle().'</a>'.' - ';
 }
 
-echo $this->getWeddingTitle() ?>
+echo $this->getWeddingTitle().'</span>' ?>
 	
 	</div>
 </div>
