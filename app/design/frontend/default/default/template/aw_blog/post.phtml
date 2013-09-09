@@ -1,6 +1,14 @@
 <?php $post = $this->getPost();?>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="postWrapper">
+<div class="block block-blog">
+    <div class="block-title">
+    	<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press'):?>
+        <strong><span><?php echo 'Báo chí'; ?></span></strong>
+        <?php endif;?>
+    </div>
+    <div class="saparate_title"></div>
+</div>
     <div class="postTitle">
         <h2><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle();?></a></h2>
         <h3><?php echo $post->getCreatedTime(); ?></h3>

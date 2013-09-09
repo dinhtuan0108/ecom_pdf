@@ -92,7 +92,7 @@ font-weight:bold;
 	margin-left:10px;
 }
 .block-blog .menu-recent UL LI{
-	margin-left:10px;
+	margin-left:-18px;
 }
 .block-blog .menu-recent UL LI a,.block-blog .menu-categories UL LI a,.block-blog .menu-tags UL LI a{font-size:11px;}
 

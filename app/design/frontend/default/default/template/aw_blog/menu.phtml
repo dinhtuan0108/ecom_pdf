@@ -3,16 +3,23 @@
 	$cateFlag = false;
 
 ?>
-
-
+<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press'):?>
+ <div class="block-title">
+        <strong><span><?php echo 'Báo chí về Padma De Fleur	'; ?></span></strong>
+ </div>
+ <?php endif;?>
+ 
+ <?php if($this->getCateIdFromUrl() == 'new-design'):?>
+ <div class="block-title">
+        <strong><span><?php echo 'Thiết kế mới'; ?></span></strong>
+ </div>
+ <?php endif;?>
+ 
 <div class="block block-blog">
-    <div class="block-title">
-        <strong><span><?php echo Mage::getStoreConfig('blog/blog/title'); ?></span></strong>
-    </div>
 	<div class="block-content">
 <?php if ($posts = $this->getRecent()): ?>
 	<div class="menu-recent">
-		<h5><?php echo Mage::helper('blog')->__('Recent Posts');?></h5>
+		<!--<h5><?php echo Mage::helper('blog')->__('Recent Posts');?></h5>	-->
 		<ul>
 		<?php foreach ($posts as $post): ?>
 			<li><a href="<?php echo $post->getAddress(); ?>" ><?php echo "- ".$post->getTitle();?></a></li>
@@ -20,27 +27,27 @@
        	</ul>
 	</div>	
 <?php endif; ?>
-<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press' || $this->getCateIdFromUrl() == 'blog_link'):?>
-	<?php if($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
-		<div class="menu-categories">
-	        <h5><?php echo Mage::helper('blog')->__('Categories');?></h5>
+<?php //if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press' || $this->getCateIdFromUrl() == 'blog_link'):?>
+	<?php //if($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>  
+		<!--<div class="menu-categories">
+	        <h5><?php //echo Mage::helper('blog')->__('Categories');?></h5>
 	        <ul>
-	<?php $cats = $this->getCategories(); ?>
+	<?php //$cats = $this->getCategories(); ?>
 
-	<?php foreach ($cats as $cat): ?>
+	<?php //foreach ($cats as $cat): ?>
 	
 	
-	<?php if($cat->getId() != '2' && $cat->getId() != '3'):?>
-			<li><a href="<?php echo $cat->getAddress(); ?>" ><?php echo $cat->getTitle();?></a></li>
-	<?php endif;?>
-	<?php endforeach;?>
+	<?php //if($cat->getId() != '2' && $cat->getId() != '3'):?>
+			<li><a href="<?php//echo $cat->getAddress(); ?>" ><?php //echo $cat->getTitle();?></a></li>
+	<?php //endif;?>
+	<?php //endforeach;?>
 	    	</ul>
 		</div>	
-	<?php endif;  ?>
-<?php endif;  ?>		
+	<?php //endif;  ?>
+<?php //endif;  ?>		
 		
 
 
-<?php echo $this->getChildHtml('blog_tags');?>
+<?php //echo $this->getChildHtml('blog_tags');?>-->
 	</div>
 </div>

@@ -1,4 +1,16 @@
 <?php $posts = $this->getPosts(); ?>
+<?php //var_dump($this->getCateIdFromUrl());die;?>
+<div class="block block-blog">
+    <div class="block-title">
+    	<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press'):?>
+        <strong><span><?php echo 'Báo chí'; ?></span></strong>
+        <?php endif;?>
+        <?php if($this->getCateIdFromUrl() == 'new-design'):?>
+        <strong><span><?php echo 'New design'; ?></span></strong>
+        <?php endif;?>
+    </div>
+    <div class="saparate_title"></div>
+</div>
 <?php if(count($posts)): ?>
 	<?php foreach ($posts as $post): ?>
 <div class="postWrapper">
