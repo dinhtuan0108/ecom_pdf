@@ -3,8 +3,12 @@
 <div class="postWrapper">
 <div class="block block-blog">
     <div class="block-title">
-    	<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press'):?>
-        <strong><span><?php echo 'Báo chí'; ?></span></strong>
+    	<?php if($this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '4'):?>
+        <strong><span><?php echo Mage::helper('blog')->__('News'); ?></span></strong>
+        <?php endif;?>
+        
+        <?php if($this->getCateIdFromIdentifier() == '2'):?>
+        <strong><span><?php echo Mage::helper('blog')->__('New Design'); ?></span></strong>
         <?php endif;?>
     </div>
     <div class="saparate_title"></div>

@@ -1,17 +1,17 @@
 <?php 
 	$catIdent = $this->getCategories()->getData('identifier');
 	$cateFlag = false;
-
+//var_dump($this->getCateIdFromIdentifier());die;
 ?>
-<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press'):?>
+<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press' || $this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '4'):?>
  <div class="block-title">
-        <strong><span><?php echo 'Báo chí về Padma De Fleur	'; ?></span></strong>
+        <strong><span><?php echo Mage::helper('blog')->__('News about Padma de Fleur'); ?></span></strong>
  </div>
  <?php endif;?>
  
- <?php if($this->getCateIdFromUrl() == 'new-design'):?>
+ <?php if($this->getCateIdFromUrl() == 'new-design' || $this->getCateIdFromIdentifier() == '2'):?>
  <div class="block-title">
-        <strong><span><?php echo 'Thiết kế mới'; ?></span></strong>
+        <strong><span><?php echo Mage::helper('blog')->__('New Design '); ?></span></strong>
  </div>
  <?php endif;?>
  

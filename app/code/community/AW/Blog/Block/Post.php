@@ -197,5 +197,42 @@ class AW_Blog_Block_Post extends Mage_Core_Block_Template {
     public function current($i) {
         return $i == Mage::app()->getRequest()->getParam('p');        
     }
+    
+     function curPageURL() {
+	 $pageURL = 'http';
+	 if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+	 $pageURL .= "://";
+	 if ($_SERVER["SERVER_PORT"] != "80") {
+	  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	 } else {
+	  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	 }
+	 return $pageURL;
+	}
+	
+	function getCateIdFromUrl(){
+		$curUrl = $this->curPageURL();
+		$itemId = '';
+		$data = explode('/', $curUrl);
+		if(in_array("blog", $data)){
+			$itemId = end($data);
+			if($itemId == ''){
+				$data = explode('/', $curUrl, -1);
+				$itemId = end($data);
+			}
+		}
+		
+		return $itemId;
+	}
+	function getCateIdFromIdentifier(){
+		$blogIdent = $this->getCateIdFromUrl();
+		 $post = Mage::getModel('blog/post')
+                                ->setStoreId(Mage::app()->getStore()->getId())
+                                ->load($blogIdent, 'identifier');
+          $catId = $post->getData('cat_id');                      
+         
+          return $catId[0];
+	}
+    
 
 }

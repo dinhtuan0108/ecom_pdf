@@ -279,5 +279,29 @@ class AW_Blog_Block_Blog extends Mage_Core_Block_Template {
 		
 		return $itemId;
 	}   
+	
+	function getCateIdFromUrl2(){
+		$curUrl = $this->curPageURL();
+		$itemId = '';
+		$data = explode('/', $curUrl);
+		if(in_array("blog", $data)){
+			$itemId = end($data);
+			if($itemId == ''){
+				$data = explode('/', $curUrl, -1);
+				$itemId = end($data);
+			}
+		}
+		
+		return $itemId;
+	}   
+	function getCateIdFromIdentifier(){
+		$blogIdent = $this->getCateIdFromUrl2();
+		 $post = Mage::getModel('blog/post')
+                                ->setStoreId(Mage::app()->getStore()->getId())
+                                ->load($blogIdent, 'identifier');
+          $catId = $post->getData('cat_id');                      
+         
+          return $catId[0];
+	}
 
 }

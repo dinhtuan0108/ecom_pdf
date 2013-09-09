@@ -3,10 +3,10 @@
 <div class="block block-blog">
     <div class="block-title">
     	<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press'):?>
-        <strong><span><?php echo 'Báo chí'; ?></span></strong>
+        <strong><span><?php echo Mage::helper('blog')->__('News'); ?></span></strong>
         <?php endif;?>
         <?php if($this->getCateIdFromUrl() == 'new-design'):?>
-        <strong><span><?php echo 'New design'; ?></span></strong>
+        <strong><span><?php echo Mage::helper('blog')->__('New Design'); ?></span></strong>
         <?php endif;?>
     </div>
     <div class="saparate_title"></div>
