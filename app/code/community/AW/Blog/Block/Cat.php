@@ -186,6 +186,15 @@ class AW_Blog_Block_Cat extends Mage_Core_Block_Template {
 		}
 		
 		return $itemId;
-	}   
+	}
+
+function getPostByCatId($catId = null){
+		 $post = Mage::getModel('blog/post')
+                                ->setStoreId(Mage::app()->getStore()->getId())
+                                //->load($blogIdent, 'identifier');
+                                ->getCollection();
+                                return $post;
+	
+	}
 
 }
