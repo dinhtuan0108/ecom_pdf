@@ -224,6 +224,8 @@ class AW_Blog_Block_Post extends Mage_Core_Block_Template {
 		
 		return $itemId;
 	}
+	
+	
 	function getCateIdFromIdentifier(){
 		$blogIdent = $this->getCateIdFromUrl();
 		 $post = Mage::getModel('blog/post')
@@ -233,6 +235,5 @@ class AW_Blog_Block_Post extends Mage_Core_Block_Template {
          
           return $catId[0];
 	}
-    
-
+	
 }

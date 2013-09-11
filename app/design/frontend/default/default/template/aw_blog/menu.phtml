@@ -1,7 +1,6 @@
 <?php 
 	$catIdent = $this->getCategories()->getData('identifier');
 	$cateFlag = false;
-//var_dump($this->getCateIdFromIdentifier());die;
 ?>
 <?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press' || $this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '4'):?>
  <div class="block-title">
@@ -14,7 +13,6 @@
         <strong><span><?php echo Mage::helper('blog')->__('New Design '); ?></span></strong>
  </div>
  <?php endif;?>
- 
 <div class="block block-blog">
 	<div class="block-content">
 <?php if ($posts = $this->getRecent()): ?>
@@ -22,7 +20,7 @@
 		<!--<h5><?php echo Mage::helper('blog')->__('Recent Posts');?></h5>	-->
 		<ul>
 		<?php foreach ($posts as $post): ?>
-			<li><a href="<?php echo $post->getAddress(); ?>" ><?php echo "- ".$post->getTitle();?></a></li>
+			<li><a href="<?php echo $post->getAddress(); ?>" ><?php echo "<span class='recent_bullet'>.</span> ".$post->getTitle();?></a></li>
 		<?php endforeach; ?>
        	</ul>
 	</div>	
