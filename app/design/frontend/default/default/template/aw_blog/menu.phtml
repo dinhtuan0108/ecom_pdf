@@ -2,7 +2,7 @@
 	$catIdent = $this->getCategories()->getData('identifier');
 	$cateFlag = false;
 ?>
-<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press' || $this->getCateIdFromUrl() == 'blog_link' || $this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '4'):?>
+<?php if($this->getCateIdFromUrl() == 'news' || $this->getCateIdFromUrl() == 'press' || $this->getCateIdFromUrl() == 'blog_link' ||  $this->getCateIdFromUrl() == 'baochi' || $this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '4'):?>
  <div class="block-title">
         <strong><span><?php echo Mage::helper('blog')->__('News about Padma de Fleur'); ?></span></strong>
  </div>
