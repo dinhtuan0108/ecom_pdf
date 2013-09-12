@@ -1564,7 +1564,9 @@ background-color: #c1c0ab;
 .recent_bullet{
 	font-size: 14px;
 	font-weight: bold;
-	vertical-align: bottom;
+	vertical-align: middle;
+	 display: inline-block;
+	 margin-top:-8px;
 }
 
 .menu-recent ul li {
