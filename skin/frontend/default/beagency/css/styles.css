@@ -1540,7 +1540,7 @@ font-family:"Times New Roman",Times,serif;text-transform:uppercase; margin: 0 0 
 	font-style: italic;
 }
 .postWrapper {
-	font-family:"Times New Roman",Times,serif;
+	font-family:arial, helvetica, sans-serif;
 	font-size: 14px;
 }
 .postWrapper h3 {
