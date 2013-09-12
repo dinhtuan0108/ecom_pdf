@@ -6,13 +6,13 @@
     	<?php if($this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '4'):?>
 	        <strong>
 		        <span class="title-left">
-		        	<a href="http://118.70.168.174/ecompdf/blog/cat/baochi"><?php echo Mage::helper('blog')->__('News'); ?></a>
+		        	<a href="<?php echo Mage::getBaseUrl();?>blog/cat/baochi"><?php echo Mage::helper('blog')->__('News'); ?></a>
 		        </span>
 	        </strong>
 		         <span class="xb-title"></span>
 		    <strong>
-		    	<span class="title-right">&nbsp<img src = "http://118.70.168.174/ecompdf/skin/frontend/default/default/aw_blog/images/icon_blog.png" />
-		        	<a href="http://118.70.168.174/ecompdf/blog/cat/xuatban/"><?php echo Mage::helper('blog')->__(' Xuất bản'); ?></a>
+		    	<span class="title-right">&nbsp<img src = "<?php echo Mage::getBaseUrl();?>skin/frontend/default/default/aw_blog/images/icon_blog.png" />
+		        	<a href="<?php echo Mage::getBaseUrl();?>blog/cat/xuatban/"><?php echo Mage::helper('blog')->__(' Xuất bản'); ?></a>
 		        </span>
 		    </strong>
         <?php endif;?>
