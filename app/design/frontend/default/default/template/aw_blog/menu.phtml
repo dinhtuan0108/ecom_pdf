@@ -1,4 +1,11 @@
 <?php 
+	$catId = $this->getCateIdFromIdentifier();
+	$catId2 = $this->getCateIdFromIdentifier2();
+	if($catId){
+		$posts =  Mage::getModel('blog/blog')->getCollection()->addCatsFilter($catId);
+	}else{
+		$posts =  Mage::getModel('blog/blog')->getCollection()->addCatsFilter($catId2);
+	}
 	$catIdent = $this->getCategories()->getData('identifier');
 	$cateFlag = false;
 ?>
@@ -15,12 +22,17 @@
  <?php endif;?>
 <div class="block block-blog">
 	<div class="block-content">
-<?php if ($posts = $this->getRecent()): ?>
+<?php if ($posts): ?>
 	<div class="menu-recent">
 		<!--<h5><?php echo Mage::helper('blog')->__('Recent Posts');?></h5>	-->
 		<ul>
 		<?php foreach ($posts as $post): ?>
-			<li><a href="<?php echo $post->getAddress(); ?>" ><?php echo "<span class='recent_bullet'>.</span> ".$post->getTitle();?></a></li>
+			<li>
+			
+				<a href="<?php echo Mage::getBaseUrl().'blog/'.$post->getIdentifier(); ?>" >
+				<?php echo "<span class='recent_bullet'>.</span> ".$post->getTitle();?>
+				</a>
+			</li>
 		<?php endforeach; ?>
        	</ul>
 	</div>	
