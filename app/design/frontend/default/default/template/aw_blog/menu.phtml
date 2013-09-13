@@ -15,6 +15,12 @@
  </div>
  <?php endif;?>
  
+ <?php if($this->getCateIdFromUrl() == 'xuatban' || $this->getCateIdFromIdentifier() == '5'):?>
+ <div class="block-title">
+        <strong><span><?php echo Mage::helper('blog')->__('Publisher about Padma de Fleur'); ?></span></strong>
+ </div>
+ <?php endif;?>
+ 
  <?php if($this->getCateIdFromUrl() == 'new-design' || $this->getCateIdFromIdentifier() == '2'):?>
  <div class="block-title">
         <strong><span><?php echo Mage::helper('blog')->__('New Design '); ?></span></strong>
