@@ -1,9 +1,10 @@
 <?php $post = $this->getPost();?>
+<?php ?>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="postWrapper">
 <div class="block block-blog">
     <div class="block-title">
-    	<?php if($this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '4'):?>
+    	<?php if($this->getCateIdFromIdentifier() == '3' || $this->getCateIdFromIdentifier() == '5'):?>
 	        <strong>
 		        <span class="title-left">
 		        	<a href="<?php echo Mage::getBaseUrl();?>blog/cat/baochi"><?php echo Mage::helper('blog')->__('News'); ?></a>
