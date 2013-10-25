@@ -47,7 +47,7 @@ class MLogix_Wedding_Block_Wedding extends Mage_Core_Block_Template
     	if($cg && $cg->getTitle())
     		return $cg->getTitle();    	
     	else
-    		return "Wedding";
+    		return Mage::helper('blog')->__('Wedding');
     }
     
     public function getBreadcrumbs()

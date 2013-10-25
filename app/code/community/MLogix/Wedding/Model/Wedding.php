@@ -570,7 +570,8 @@ public function createthumb($name,$filename,$new_w,$new_h,$forcepng=false){
     {
     	$items =       $this->getCollection()
     						->addFieldToFilter('status','1')
-    						->addFieldToFilter('parent_id',$parent);  	
+    						->addFieldToFilter('parent_id',$parent)
+    						->setOrder('created_time','DESC'); 	
     	return $items;
     }
        

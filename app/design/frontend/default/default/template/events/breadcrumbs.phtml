@@ -40,9 +40,8 @@ $bcs = $this->getBreadcrumbs();
 <img alt="event-icon" src="<?php echo $this->getSkinUrl('images/leaf.png') ?>">
 <?php 
 
-
 if($this->getCurrentEvents()->getId() > 0)
-	echo '<a href="'.$this->getUrl('events').'">Events</a>'.' - '.'<span class = "title_list">';
+	echo '<a href="'.$this->getUrl('events').'">'.Mage::helper('blog')->__('Events').'</a>'.' - '.'<span class = "title_list">';
 	
 foreach($bcs as $bc)
 {

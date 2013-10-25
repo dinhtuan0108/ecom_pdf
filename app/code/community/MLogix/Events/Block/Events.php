@@ -48,7 +48,7 @@ class MLogix_Events_Block_Events extends Mage_Core_Block_Template
     	if($cg && $cg->getTitle())
     		return $cg->getTitle();    	
     	else
-    		return "Events";
+    		return Mage::helper('blog')->__('Events');
     }
     
     public function getBreadcrumbs()

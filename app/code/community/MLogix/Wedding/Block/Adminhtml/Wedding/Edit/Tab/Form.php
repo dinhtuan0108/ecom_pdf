@@ -45,7 +45,19 @@ class MLogix_Wedding_Block_Adminhtml_Wedding_Edit_Tab_Form extends Mage_Adminhtm
           'label'     => Mage::helper('wedding')->__('Description'),          
           'required'  => false,
           'name'      => 'description',
-      ));      
+      ));    
+
+       $fieldset->addField('created_time', 'hidden', array(
+          'label'     => Mage::helper('wedding')->__('Created Date'),          
+          'required'  => false,
+          'name'      => 'created_time',
+      ));
+      
+       $fieldset->addField('update_time', 'hidden', array(
+          'label'     => Mage::helper('wedding')->__('Update Date'),          
+          'required'  => false,
+          'name'      => 'update_time',
+      ));
 
       $fieldset->addField('filename', 'file', array(
           'label'     => Mage::helper('wedding')->__('File'),

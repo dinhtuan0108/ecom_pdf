@@ -45,7 +45,19 @@ class MLogix_Events_Block_Adminhtml_Events_Edit_Tab_Form extends Mage_Adminhtml_
           'label'     => Mage::helper('events')->__('Description'),          
           'required'  => false,
           'name'      => 'description',
-      ));      
+      )); 
+
+      $fieldset->addField('created_time', 'hidden', array(
+          'label'     => Mage::helper('events')->__('Created Date'),          
+          'required'  => false,
+          'name'      => 'created_time',
+      )); 
+      
+      $fieldset->addField('update_time', 'hidden', array(
+          'label'     => Mage::helper('events')->__('Updated Time'),          
+          'required'  => false,
+          'name'      => 'update_time',
+      )); 
 
       $fieldset->addField('filename', 'file', array(
           'label'     => Mage::helper('events')->__('File'),
